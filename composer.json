@@ -1,0 +1,15 @@
+{
+    "name": "shebo/php-project",
+    "autoload": {
+        "psr-4": {
+            "Shebo\\PhpProject\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Shehab Hossam",
+            "email": "Shehab.haz@gmail.com"
+        }
+    ],
+    "require": {}
+}
