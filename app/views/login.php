@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentelella Alela! | </title>
+    <title>Admin Panel! | </title>
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -30,22 +30,22 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form>
+            <form action="home.php" method="post" enctype="multipart/form-data">
               <h1>Login Form</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input type="email" class="form-control" placeholder="email" name="email" required="" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input type="password" class="form-control" placeholder="Password" name="password" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Log in</a>
+                <button type="submit" class="btn btn-primary submit">Log in</button>
                 <a class="reset_pass" href="#">Lost your password?</a>
               </div>
 
               <div class="clearfix"></div>
 
-              <div class="separator">
+              <!-- <div class="separator">
                 <p class="change_link">New to site?
                   <a href="#signup" class="to_register"> Create Account </a>
                 </p>
@@ -57,7 +57,7 @@
                   <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
                   <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 4 template. Privacy and Terms</p>
                 </div>
-              </div>
+              </div> -->
             </form>
           </section>
         </div>
