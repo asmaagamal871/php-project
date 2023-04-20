@@ -19,6 +19,9 @@
 	<!-- Datatables -->
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
 
+	<!-- Accordion -->
+	<link href="../../build/css/sidebar-accordion.css" rel="stylesheet">
+
 	<!-- Custom Theme Style -->
 	<link href="../../build/css/custom.min.css" rel="stylesheet">
 
@@ -53,37 +56,39 @@
 					<br />
 
 					<!-- sidebar menu -->
-					<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+					<div id="sidebar-menu" class="main_menu_side hidden-print main_menu editmargin">
 						<div class="menu_section">
 							<h3>General</h3>
-							<ul class="nav side-menu">
-								<li><a href="../index.html"><i class="fa fa-home"></i> Dashboard </a>
+							<div class="contenedor-menu">
 
-								</li>
-								<li><a><i class="fa fa-user"></i> Users <span class="fa fa-chevron-down"></span></a>
-									<ul class="nav child_menu">
-										<li><a href="../users/index.php">Index</a></li>
-										<li><a href="../users/create.php">Create</a></li>
-									</ul>
-								</li>
-								<li><a><i class="fa fa-group"></i> Groups <span class="fa fa-chevron-down"></span></a>
-									<ul class="nav child_menu">
-										<li><a href="../groups/index.php">Index</a></li>
-										<li><a href="../groups/create.php">Create</a></li>
-									</ul>
-								</li>
-								<li><a><i class="fa fa-edit"></i> Articles <span class="fa fa-chevron-down"></span></a>
-									<ul class="nav child_menu">
-										<li><a href="../articles/index.php">Index</a></li>
-										<li><a href="../articles/create.php">Create</a></li>
-									</ul>
-								</li>
+								<ul class="menu">
+									<li><a href="../index.php"><i class="fa fa-home"></i> Dashboard
+										</a>
+									<li><a><i class="fa fa-user"></i> Users <span class="fa fa-chevron-down"></span></a>
+										<ul>
+											<li><a href="../users/index.php">Index</a></li>
+											<li><a href="../users/create.php">Create</a></li>
+										</ul>
+									</li>
 
+									<li><a><i class="fa fa-group"></i> Groups <span
+												class="fa fa-chevron-down"></span></a>
+										<ul>
+											<li><a href="../groups/index.php">Index</a></li>
+											<li><a href="../groups/create.php">Create</a></li>
+										</ul>
+									</li>
 
-							</ul>
+									<li><a><i class="fa fa-edit"></i> Articles <span
+												class="fa fa-chevron-down"></span></a>
+										<ul>
+											<li><a href="../articles/index.php">Index</a></li>
+											<li><a href="../articles/create.php">Create</a></li>
+										</ul>
+									</li>
+								</ul>
+							</div>
 						</div>
-
-
 					</div>
 					<!-- /sidebar menu -->
 

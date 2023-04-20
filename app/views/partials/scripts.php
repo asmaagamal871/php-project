@@ -17,6 +17,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 
+<!-- Accordion -->
+<script src="../../build/js/sidebar-accordion.js"></script>
+
 <!-- Custom Theme Scripts -->
 <script src="../../build/js/custom.min.js"></script>
 
