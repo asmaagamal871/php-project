@@ -15,7 +15,7 @@ class MySQLHandler implements DbHandler
     public function connect()
     {
         try {
-            $handler = mysqli_connect(__HOST__, __USER__, __PASS__, __DB__);
+            $handler = mysqli_connect(__HOST__, __USER__, __PASS__, __DB__, __PORT__);
             if ($handler) {
                 $this->_db_handler = $handler;
                 return true;
