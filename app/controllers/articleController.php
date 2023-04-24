@@ -1,8 +1,7 @@
 <?php
 
-
-define('__ROOT__', dirname(dirname(__FILE__)));
-// require_once(__ROOT__ . '/config.php');
+if (!defined('__ROOT__'))
+    define('__ROOT__', dirname(dirname(__FILE__)));
 require_once(__ROOT__ . "/models/MySQLHandler.php");
 
 
@@ -22,13 +21,16 @@ function create()
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $MySQLHandler->connect();
         $_POST["publish_date"] = date('Y-m-d');
-        // $_POST["user_id"] = $_SESSION['user_id'];
-        $_POST["user_id"] = 1;
+
+        echo $_SESSION;
+        echo $_SESSION['logged_in'];
+        $_POST["user_id"] = $_SESSION['user_id'];
+        // $_POST["user_id"] = 1;
 
         $ext = substr(strrchr($_FILES['image']['name'], '.'), 1);;
-        $new_file_name = date('Y_m_d_H_i_s'). '.' .$ext;
-        $target = __DIR__.'/../public/images/articles/';
-        move_uploaded_file($_FILES['image']['tmp_name'], $target.$new_file_name);
+        $new_file_name = date('Y_m_d_H_i_s') . '.' . $ext;
+        $target = __DIR__ . '/../public/images/articles/';
+        move_uploaded_file($_FILES['image']['tmp_name'], $target . $new_file_name);
 
         $_POST["image"] = $new_file_name;
         $MySQLHandler->save($_POST);
