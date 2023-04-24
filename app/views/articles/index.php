@@ -1,5 +1,5 @@
 <?php
-include("../partials/header.php");
+include __DIR__ . '/../partials/header.php';
 ?>
 <div class="right_col" role="main">
   <div class="">
@@ -531,11 +531,11 @@ include("../partials/header.php");
 </div>
 
 <?php
-include("../partials/footer.php");
+include __DIR__ . '/../partials/footer.php';
 ?>
 
 <?php
-include("../partials/scripts.php");
+include __DIR__ . '/../partials/scripts.php';
 ?>
 
 <script>

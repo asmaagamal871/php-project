@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../partials/header.php");
+include __DIR__ . '/../partials/header.php';
 require 'dbcon.php';
 ?>
 <div class="right_col" role="main">
@@ -61,32 +61,44 @@ require 'dbcon.php';
                   <tbody>
                     <?php
                     $query = "SELECT * FROM users";
-                    $query_run = mysqli_query($con, $query);
+$query_run = mysqli_query($con, $query);
 
-                    if (mysqli_num_rows($query_run) > 0) {
-                      foreach ($query_run as $user) {
-                    ?>
-                        <tr>
-                          <td><?= $user['id']; ?></td>
-                          <td><?= $user['name']; ?></td>
-                          <td><?= $user['email']; ?></td>
-                          <td><?= $user['phone']; ?></td>
-                          <td><?= $user['username']; ?></td>
-                          <td><?= $user['group_id']; ?></td>
-                          <td class="d-inline-flex p-2">
-                            <a href="view.php?id=<?= $user['id']; ?>" class=" btn btn-info btn-sm">View</a>
-                            <a href="edit.php?id=<?= $user['id']; ?>" class="btn btn-success btn-sm">Edit</a>
-                            <form action="code.php" method="POST">
-                              <button type="submit" name="delete_user" value="<?= $user['id']; ?>" class="btn btn-danger btn-sm">Delete</button>
-                            </form>
-                          </td>
-                        </tr>
+if (mysqli_num_rows($query_run) > 0) {
+    foreach ($query_run as $user) {
+        ?>
+                    <tr>
+                      <td><?= $user['id']; ?>
+                      </td>
+                      <td><?= $user['name']; ?>
+                      </td>
+                      <td><?= $user['email']; ?>
+                      </td>
+                      <td><?= $user['phone']; ?>
+                      </td>
+                      <td>
+                        <?= $user['username']; ?>
+                      </td>
+                      <td>
+                        <?= $user['group_id']; ?>
+                      </td>
+                      <td class="d-inline-flex p-2">
+                        <a href="view.php?id=<?= $user['id']; ?>"
+                          class=" btn btn-info btn-sm">View</a>
+                        <a href="edit.php?id=<?= $user['id']; ?>"
+                          class="btn btn-success btn-sm">Edit</a>
+                        <form action="code.php" method="POST">
+                          <button type="submit" name="delete_user"
+                            value="<?= $user['id']; ?>"
+                            class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                      </td>
+                    </tr>
                     <?php
-                      }
-                    } else {
-                      echo "<h5> No Records Found</h5>";
-                    }
-                    ?>
+    }
+} else {
+    echo "<h5> No Records Found</h5>";
+}
+?>
                   </tbody>
                 </table>
               </div>
@@ -99,11 +111,11 @@ require 'dbcon.php';
 </div>
 
 <?php
-include("../partials/footer.php");
+include __DIR__ . '/../partials/footer.php';
 ?>
 
 <?php
-include("../partials/scripts.php");
+include __DIR__ . '/../partials/scripts.php';
 ?>
 
 <script>

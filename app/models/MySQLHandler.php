@@ -4,11 +4,13 @@ class MySQLHandler implements DbHandler
 {
     private $_db_handler;
     private $_table;
+    private $_primary_key;
 
-    public function __construct($table)
+    public function __construct($table, $primary_key = "id")
     {
         $this->_table = $table;
         $this->connect();
+        $this->_primary_key = $primary_key;
     }
     public function connect()
     {
@@ -26,14 +28,16 @@ class MySQLHandler implements DbHandler
     }
     public function disconnect()
     {
-        if ($this->_db_handler)
+        if ($this->_db_handler) {
             mysqli_close($this->_db_handler);
+        }
     }
 
     private function get_results($sql)
     {
-        if (__Debug__Mode__ === 1)
+        if (__Debug__Mode__ === 1) {
             echo "<h5>Sent Query: </h5>" . $sql . "<br/><br/>";
+        }
         $_handler_results = mysqli_query($this->_db_handler, $sql);
         $_arr_results = array();
 
@@ -99,7 +103,7 @@ class MySQLHandler implements DbHandler
 
         // Verify that the password entered by the user matches the hashed password stored in the database
         // if (!password_verify($password, $user['password'])) {
-            if($password!= $user['password']){
+        if ($password!= $user['password']) {
             // Invalid password
             return false;
         }
@@ -108,5 +112,83 @@ class MySQLHandler implements DbHandler
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['group_id'] = $user['group_id'];
         return true;
+    }
+
+    public function search($column, $column_value)
+    {
+        $table = $this->_table;
+        $sql = "select * from `$table` where `$column` like  '%" . $column_value . "%' ";
+        return $this->get_results($sql);
+    }
+
+    public function save($new_values)
+    {
+        if (is_array($new_values)) {
+            $table = $this->_table;
+            $sql1 = "insert into `$table` (";
+            $sql2 = " values (";
+            foreach ($new_values as $key => $value) {
+                $sql1 .= "`$key` ,";
+                if (is_numeric($value)) {
+                    $sql2 .= " $value ,";
+                } else {
+                    $sql2 .= " '" . $value . "' ,";
+                }
+            }
+            $sql1 = $sql1 . ") ";
+            $sql2 = $sql2 . ") ";
+            $sql1 = str_replace(",)", ")", $sql1);
+            $sql2 = str_replace(",)", ")", $sql2);
+            $sql = $sql1 . $sql2;
+
+        
+            if (mysqli_query($this->_db_handler, $sql)) {
+                $this->disconnect();
+                return true;
+            } else {
+                $this->disconnect();
+                return false;
+            }
+        }
+    }
+
+    public function update($edited_values, $id)
+    {
+        $table = $this->_table;
+        $primary_key = $this->_primary_key;
+        $sql = "update  `" . $table . "` set  ";
+        foreach ($edited_values as $key => $value) {
+            if ($key != $primary_key) {
+                if (!is_numeric($value)) {
+                    $sql .= " `$key` = '$value'  ,";
+                } else {
+                    $sql .= " `$key` = $value ,";
+                }
+            }
+        }
+
+        $sql .= "where `" . $primary_key . "` = $id";
+        $sql = str_replace(",where", "where", $sql);
+ 
+        if (mysqli_query($this->_db_handler, $sql)) {
+            $this->disconnect();
+            return true;
+        } else {
+            $this->disconnect();
+            return false;
+        }
+    }
+    public function delete($id)
+    {
+        $table = $this->_table;
+        $primary_key = $this->_primary_key;
+        $sql = "delete  from `" . $table . "` where `" . $primary_key . "` = $id";
+        if (mysqli_query($this->_db_handler, $sql)) {
+            $this->disconnect();
+            return true;
+        } else {
+            $this->disconnect();
+            return false;
+        }
     }
 }
