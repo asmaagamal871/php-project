@@ -1,20 +1,16 @@
 <?php
 
-if (!defined('__ROOT__')) {
-    define('__ROOT__', dirname(dirname(__FILE__)));
-}
-require_once(__ROOT__ . "/models/DbHandler.php");
-require_once(__ROOT__ . '/../config.php');
-
 class MySQLHandler implements DbHandler
 {
     private $_db_handler;
     private $_table;
+    private $_primary_key;
 
-    public function __construct($table)
+    public function __construct($table, $primary_key = "id")
     {
         $this->_table = $table;
         $this->connect();
+        $this->_primary_key = $primary_key;
     }
     public function connect()
     {
@@ -118,6 +114,13 @@ class MySQLHandler implements DbHandler
         return true;
     }
 
+    public function search($column, $column_value)
+    {
+        $table = $this->_table;
+        $sql = "select * from `$table` where `$column` like  '%" . $column_value . "%' ";
+        return $this->get_results($sql);
+    }
+
     public function save($new_values)
     {
         if (is_array($new_values)) {
@@ -138,6 +141,7 @@ class MySQLHandler implements DbHandler
             $sql2 = str_replace(",)", ")", $sql2);
             $sql = $sql1 . $sql2;
 
+        
             if (mysqli_query($this->_db_handler, $sql)) {
                 $this->disconnect();
                 return true;
@@ -145,6 +149,46 @@ class MySQLHandler implements DbHandler
                 $this->disconnect();
                 return false;
             }
+        }
+    }
+
+    public function update($edited_values, $id)
+    {
+        $table = $this->_table;
+        $primary_key = $this->_primary_key;
+        $sql = "update  `" . $table . "` set  ";
+        foreach ($edited_values as $key => $value) {
+            if ($key != $primary_key) {
+                if (!is_numeric($value)) {
+                    $sql .= " `$key` = '$value'  ,";
+                } else {
+                    $sql .= " `$key` = $value ,";
+                }
+            }
+        }
+
+        $sql .= "where `" . $primary_key . "` = $id";
+        $sql = str_replace(",where", "where", $sql);
+ 
+        if (mysqli_query($this->_db_handler, $sql)) {
+            $this->disconnect();
+            return true;
+        } else {
+            $this->disconnect();
+            return false;
+        }
+    }
+    public function delete($id)
+    {
+        $table = $this->_table;
+        $primary_key = $this->_primary_key;
+        $sql = "delete  from `" . $table . "` where `" . $primary_key . "` = $id";
+        if (mysqli_query($this->_db_handler, $sql)) {
+            $this->disconnect();
+            return true;
+        } else {
+            $this->disconnect();
+            return false;
         }
     }
 }

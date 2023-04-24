@@ -1,6 +1,6 @@
 <?php
 
-include("../partials/header.php");
+include __DIR__ . '/../partials/header.php';
 require_once("../../controllers/articleController.php");
 
 ?>
@@ -101,7 +101,7 @@ require_once("../../controllers/articleController.php");
 <!-- footer content -->
 
 <?php
-include("../partials/footer.php");
+include __DIR__ . '/../partials/footer.php';
 ?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -151,6 +151,8 @@ include("../partials/footer.php");
             $('form .alert').remove();
     }).prop('checked', false);
 </script>
+
+
 <?php
-include("../partials/scripts.php");
+include __DIR__ . '/../partials/scripts.php';
 ?>

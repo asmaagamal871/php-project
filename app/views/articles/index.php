@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include("../partials/header.php");
+include __DIR__ . '/../partials/header.php';
 require_once("../../controllers/articleController.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -9,9 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $result = index();
+
 ?>
-
-
 
 
 <div class="right_col" role="main">
@@ -110,5 +109,15 @@ $result = index();
 </div>
 
 <?php
-include("../partials/footer.php");
+include __DIR__ . '/../partials/footer.php';
 ?>
+
+<?php
+include __DIR__ . '/../partials/scripts.php';
+?>
+
+<script>
+  jQuery(document).ready(function($) {
+    $('#datatable').DataTable();
+  });
+</script>

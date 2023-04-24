@@ -7,13 +7,17 @@ namespace Composer\Autoload;
 class ComposerStaticInit45dc0338abc67cde9b566c717b3f888a
 {
     public static $files = array (
-        '3f9658b6625c4161d5c7b00ab63a0a50' => __DIR__ . '/../..' . '/config.php',
+        'cfe4039aa2a78ca88e07dadb7b1c6126' => __DIR__ . '/../..' . '/config.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
             'Shebo\\PhpProject\\' => 17,
+        ),
+        'P' => 
+        array (
+            'Pecee\\' => 6,
         ),
     );
 
@@ -22,11 +26,19 @@ class ComposerStaticInit45dc0338abc67cde9b566c717b3f888a
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
+        'Pecee\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pecee/simple-router/src/Pecee',
+        ),
     );
 
     public static $classMap = array (
+        'BaseController' => __DIR__ . '/../..' . '/app/controllers/BaseController.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'DbHandler' => __DIR__ . '/../..' . '/app/models/DbHandler.php',
+        'GroupController' => __DIR__ . '/../..' . '/app/controllers/GroupController.php',
+        'HomeController' => __DIR__ . '/../..' . '/app/controllers/HomeController.php',
+        'LoginController' => __DIR__ . '/../..' . '/app/controllers/LoginController.php',
         'MySQLHandler' => __DIR__ . '/../..' . '/app/models/MySQLHandler.php',
     );
 

@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Shebo\\PhpProject\\' => array($baseDir . '/src'),
+    'Pecee\\' => array($vendorDir . '/pecee/simple-router/src/Pecee'),
 );
