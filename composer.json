@@ -1,0 +1,29 @@
+{
+    "name": "shebo/php-project",
+    "autoload": {
+        "psr-4": {
+            "Shebo\\PhpProject\\": "src/"
+        },
+        "classmap": [
+            "app/models"
+        ],
+        "files": [
+            "config.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Shehab Hossam",
+            "email": "Shehab.haz@gmail.com"
+        },
+        {
+            "name": "mayar hamed",
+            "email": "mayarhamed15@gmail.com"
+        },
+        {
+            "name": "asmaa gamal",
+            "email": "asmaagamal99192@gmail.com"
+        }
+    ],
+    "require": {}
+}
