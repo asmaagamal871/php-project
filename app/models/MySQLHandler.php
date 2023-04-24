@@ -1,5 +1,11 @@
 <?php
 
+if (!defined('__ROOT__')) {
+    define('__ROOT__', dirname(dirname(__FILE__)));
+}
+require_once(__ROOT__ . "/models/DbHandler.php");
+require_once(__ROOT__ . '/../config.php');
+
 class MySQLHandler implements DbHandler
 {
     private $_db_handler;
@@ -13,7 +19,7 @@ class MySQLHandler implements DbHandler
     public function connect()
     {
         try {
-            $handler = mysqli_connect(__HOST__, __USER__, __PASS__, __DB__);
+            $handler = mysqli_connect(__HOST__, __USER__, __PASS__, __DB__, __PORT__);
             if ($handler) {
                 $this->_db_handler = $handler;
                 return true;
@@ -26,14 +32,16 @@ class MySQLHandler implements DbHandler
     }
     public function disconnect()
     {
-        if ($this->_db_handler)
+        if ($this->_db_handler) {
             mysqli_close($this->_db_handler);
+        }
     }
 
     private function get_results($sql)
     {
-        if (__Debug__Mode__ === 1)
+        if (__Debug__Mode__ === 1) {
             echo "<h5>Sent Query: </h5>" . $sql . "<br/><br/>";
+        }
         $_handler_results = mysqli_query($this->_db_handler, $sql);
         $_arr_results = array();
 
@@ -99,7 +107,7 @@ class MySQLHandler implements DbHandler
 
         // Verify that the password entered by the user matches the hashed password stored in the database
         // if (!password_verify($password, $user['password'])) {
-            if($password!= $user['password']){
+        if ($password!= $user['password']) {
             // Invalid password
             return false;
         }
@@ -108,5 +116,35 @@ class MySQLHandler implements DbHandler
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['group_id'] = $user['group_id'];
         return true;
+    }
+
+    public function save($new_values)
+    {
+        if (is_array($new_values)) {
+            $table = $this->_table;
+            $sql1 = "insert into `$table` (";
+            $sql2 = " values (";
+            foreach ($new_values as $key => $value) {
+                $sql1 .= "`$key` ,";
+                if (is_numeric($value)) {
+                    $sql2 .= " $value ,";
+                } else {
+                    $sql2 .= " '" . $value . "' ,";
+                }
+            }
+            $sql1 = $sql1 . ") ";
+            $sql2 = $sql2 . ") ";
+            $sql1 = str_replace(",)", ")", $sql1);
+            $sql2 = str_replace(",)", ")", $sql2);
+            $sql = $sql1 . $sql2;
+
+            if (mysqli_query($this->_db_handler, $sql)) {
+                $this->disconnect();
+                return true;
+            } else {
+                $this->disconnect();
+                return false;
+            }
+        }
     }
 }
