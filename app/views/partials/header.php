@@ -74,8 +74,8 @@
 									<li><a><i class="fa fa-group"></i> Groups <span
 												class="fa fa-chevron-down"></span></a>
 										<ul>
-											<li><a href="../groups/index.php">Index</a></li>
-											<li><a href="../groups/create.php">Create</a></li>
+											<li><a href="/groups">Index</a></li>
+											<li><a href="/groups/create">Create</a></li>
 										</ul>
 									</li>
 

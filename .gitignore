@@ -4,3 +4,4 @@ node_modules
 .sass-cache
 vendors
 /vendor/
+config.php
