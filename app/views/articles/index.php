@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 include("../partials/header.php");
 require_once("../../controllers/articleController.php");
 

@@ -22,8 +22,6 @@ function create()
         $MySQLHandler->connect();
         $_POST["publish_date"] = date('Y-m-d');
 
-        echo $_SESSION;
-        echo $_SESSION['logged_in'];
         $_POST["user_id"] = $_SESSION['user_id'];
         // $_POST["user_id"] = 1;
 
