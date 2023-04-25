@@ -4977,4 +4977,9 @@ ul.notifications {
     color:#2A3F54;
     margin-right: 3px;
   }
- 
+.top-nav-img{
+  background: #fff;
+  position: inherit;
+  border: 1px solid rgba(52, 73, 94, 0.44);
+  padding: 4px;
+}

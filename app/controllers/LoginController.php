@@ -25,23 +25,15 @@ class LoginController extends BaseController
 
             if ($db->authenticate($email, $password)) {
                 $_SESSION['logged_in'] = true;
-                // if ($this->isAdmin()) {
-                //     die("this is an admin!");
-                // }
-                // if ($this->isEditor()) {
-                //     die("this is an editor!");
-                // }
-                //  // die("welcome!");
-                // header('Location: /php-project/app/views/index.php');
-                //  // include '../views/home.php';
-                //  // exit;
-
+              
                 header('Location: /');
                 exit;
 
             } else {
-                die("invalid email or password");
-            }
+                $_SESSION['error']="Invalid email or password!";
+                header('Location: /login');
+                exit;
+                        }
         }
 
         // Display the login form

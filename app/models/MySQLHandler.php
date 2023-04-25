@@ -95,7 +95,6 @@ class MySQLHandler implements DbHandler
 
         if (!$result || mysqli_num_rows($result) == 0) {
             // User not found in the database
-            echo "error";
             return false;
         }
 
@@ -194,9 +193,9 @@ class MySQLHandler implements DbHandler
             return false;
         }
     }
-    public function numOfUsers(){
-        $sql = "SELECT COUNT(*) FROM mysql.user";
-        $result = mysqli_query($this->_db_handler, $sql);
-        echo $result;
+    public function group_vs_user(){
+        $count_users = "SELECT groups.name as group_name,COUNT(*) as user_count FROM users, groups where groups.id=users.group_id group by groups.name";
+        $result = mysqli_query($this->_db_handler, $count_users);
+        return $result;
     }
 }

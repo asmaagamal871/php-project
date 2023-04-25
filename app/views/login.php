@@ -31,6 +31,13 @@
       <a class="hiddenanchor" id="signup"></a>
       <a class="hiddenanchor" id="signin"></a>
 
+      <?php
+      if(isset($_SESSION['error']))
+      echo '<div class="alert alert-danger"><center>'.$_SESSION['error'].'</center></div>';
+      unset($_SESSION['error']);
+      ?>
+
+    
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
