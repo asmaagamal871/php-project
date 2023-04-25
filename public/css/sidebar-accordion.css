@@ -15,9 +15,12 @@
 	margin-right: 1em;
 }
 .menu *{
-	color: whitesmoke !important;
+	color: whitesmoke ;
 }
 
 .editmargin{
 	margin-left: -1em;
+}
+.menu li{
+	cursor: pointer;
 }

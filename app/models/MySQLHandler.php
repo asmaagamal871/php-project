@@ -56,6 +56,12 @@ class MySQLHandler implements DbHandler
         }
     }
 
+    public function get_all()
+    {
+        $table = $this->_table;
+        $sql = "SELECT * FROM `$table`";
+        return $this->get_results($sql);
+    }
     public function get_all_records_paginated($fields = array(), $start = 0)
     {
         $table = $this->_table;
@@ -114,9 +120,11 @@ class MySQLHandler implements DbHandler
 
         // Login successful - set session variables and redirect to home page
         $_SESSION['user_id'] = $user['id'];
+        $_SESSION['username'] = $user['username'];
         $_SESSION['group_id'] = $user['group_id'];
         return true;
     }
+    
 
     public function search($column, $column_value)
     {
@@ -194,5 +202,10 @@ class MySQLHandler implements DbHandler
             $this->disconnect();
             return false;
         }
+    }
+    public function group_vs_user(){
+        $count_users = "SELECT groups.name as group_name,COUNT(*) as user_count FROM users, groups where groups.id=users.group_id group by groups.name";
+        $result = mysqli_query($this->_db_handler, $count_users);
+        return $result;
     }
 }

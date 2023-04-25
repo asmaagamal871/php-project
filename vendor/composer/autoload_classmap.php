@@ -9,9 +9,12 @@ return array(
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'DbHandler' => $baseDir . '/app/models/DbHandler.php',
+    'Group' => $baseDir . '/app/models/Group.php',
     'GroupController' => $baseDir . '/app/controllers/GroupController.php',
     'HomeController' => $baseDir . '/app/controllers/HomeController.php',
+    'IndexController' => $baseDir . '/app/controllers/IndexController.php',
     'LoginController' => $baseDir . '/app/controllers/LoginController.php',
+    'LogoutController' => $baseDir . '/app/controllers/LogoutController.php',
     'MySQLHandler' => $baseDir . '/app/models/MySQLHandler.php',
     'UserController' => $baseDir . '/app/controllers/UserController.php',
 );

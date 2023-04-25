@@ -7,38 +7,24 @@ include __DIR__ . '/../partials/header.php';
 <div class="right_col" role="main">
     <div class="container row">
         <div class="col-8 offset-2">
-            <form action="/groups" method="post">
-                <div class="w-50 px-5  mx-auto form-container col-12" id="makeMaxWidth"> <!-- Edited in CSS -->
-                    <h2 class="fw-bold text-dark text-center">Create</h2>
-                    <?php
-                        if (isset($create)) {
-                            if (!$create) {
-                                echo `<div class="alert alert-danger text-center fs-6" role="alert" id="myAlert">Group isn't Created</div>`;
-                            }
-                        }
-?>
-                    <label for="exampleInputPassword1" class="form-label mt-2 fw-bold">Name</label>
-                    <div class="input-group mb-3">
-                        <input type="text" name="name" class="form-control" id="exampleInputUser1" required>
-                    </div>
-
-                    <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Description</label>
-                    <div class="input-group mb-3">
-                        <textarea type="text" name="description" class="form-control" id="exampleInputPassword2"
-                            rows="1" required></textarea>
-                    </div>
-
-                    <label for="exampleInputPassword3" class="form-label mt-2 fw-bold">Role</label>
-                    <div class="input-group mb-3">
-                        <select name="role" class="form-control">
-                            <option value="admin">Admin</option>
-                            <option value="editor">Editor</option>
-                            <option value="user" selected>User</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="offset-4 px-4 btn btn-outline-dark">Create</button>
-                </div>
-            </form>
+            <h1 class="text-dark text-center">Show</h1>
+            <div class="w-50 px-5  mx-auto showContainer col-12" id="makeMaxWidth"> <!-- Edited in CSS -->
+                <h5 class="text-center text-dark mb-4">ID :
+                    <?php echo $result[0]["id"]; ?>
+                </h5>
+                <h5 class="text-center text-dark mb-4">Name :
+                    <?php echo $result[0]["name"]; ?>
+                </h5>
+                <h5 class="text-center text-dark">Description</h5>
+                <h6 class="text-center text-dark mb-4">
+                    <?php echo  $result[0]["description"]; ?>
+                </h6>
+                <h5 class="text-center text-dark mb-4">Role :
+                    <?php echo $result[0]["role"]; ?>
+                </h5>
+                <a href="/groups" class="offset-4 px-4 btn btn-outline-dark "><i
+                        class="fa-sharp fa-solid fa-arrow-left"></i> Back</a>
+            </div>
         </div>
     </div>
 

@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "chart.js": "^4.2.1",
     "parsleyjs": "^2.3.10"
   }
 }
