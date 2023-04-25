@@ -1,10 +1,13 @@
 <?php
 
+require_once(__DIR__.'/../models/Group.php');
 class GroupController
 {
     public function index()
     {
-        echo "Hello bro";
+        $group = new Group;
+        $groups = $group->getGroups();
+        include __DIR__ . '/../views/groups/index.php';
     }
 
     public function show($id)
@@ -13,6 +16,7 @@ class GroupController
 
     public function create()
     {
+        include __DIR__ . '/../views/groups/create.php';
     }
 
     public function store($request)
