@@ -1,48 +1,15 @@
 <?php
 include __DIR__ . '/../partials/header.php';
 ?>
+<link rel="stylesheet" href="/css/groupIndex.css">
 <div class="right_col" role="main">
-  <div class="">
-    <div class="page-title">
-      <div class="title_left">
-        <h3>Users <small>Some examples to get you started</small></h3>
-      </div>
+  <div class="container">
 
-      <div class="title_right">
-        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-              <button class="btn btn-secondary" type="button">Go!</button>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="clearfix"></div>
-
+    <h3 class="text-dark text-center fw-bold my-3">Groups</h3>
     <div class="row">
       <div class="col-md-12 col-sm-12 ">
         <div class="x_panel">
-          <div class="x_title">
-            <h2>Default Example <small>Users</small></h2>
-            <ul class="nav navbar-right panel_toolbox">
-              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-              </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i
-                    class="fa fa-wrench"></i></a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Settings 1</a>
-                  <a class="dropdown-item" href="#">Settings 2</a>
-                </div>
-              </li>
-              <li><a class="close-link"><i class="fa fa-close"></i></a>
-              </li>
-            </ul>
-            <div class="clearfix"></div>
-          </div>
+
           <div class="x_content">
             <div class="row">
               <div class="col-sm-12">
@@ -60,17 +27,57 @@ include __DIR__ . '/../partials/header.php';
                     </thead>
                     <tbody>
                       <?php
-                          if (isset($groups)) {
-                              foreach ($groups as $group) {
-                                  echo "<tr>";
-                                  echo "<td>".$group["id"]."</td>";
-                                  echo "<td>".$group["name"]."</td>";
-                                  echo "<td>".$group["description"]."</td>";
-                                  echo "<td>".$group["role"]."</td>";
-                                  echo "<td><a><i class='fa-solid fa-eye'></i></a></td>";
-                                  echo "</tr>";
-                              }
-                          }
+              if (isset($groups)) {
+                  foreach ($groups as $group) {
+                      echo "<tr>";
+                      echo "<td>".$group["id"]."</td>";
+                      echo "<td>".$group["name"]."</td>";
+                      echo "<td>".$group["description"]."</td>";
+                      echo "<td>".$group["role"]."</td>";
+                      echo "<td><a class='me-3 text-dark' href='/groups/".$group["id"]."'><i class='fa-solid fa-eye'></i></a>";
+                      echo "<a class='me-2 text-primary' href='/groups/".$group["id"]."/edit'><i class='fa-solid fa-pen-to-square'></i></a>";
+                      ?>
+                      <form method="POST"
+                        action="/groups/<?php echo $group["id"]; ?>"
+                        class="delForm">
+                        <input type="hidden" name="_method" value="DELETE">
+
+                        <!-- Button trigger modal -->
+                        <button type="button" data-bs-toggle="modal"
+                          data-bs-target="#exampleModal<?php echo $group["id"]; ?>"
+                          class="delBtn">
+                          <i class="fa-solid fa-trash text-danger"></i>
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade"
+                          id="exampleModal<?php echo $group["id"]; ?>"
+                          tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                  Confirm Deletion</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                  aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                Are you sure you want to delete
+                                <?php echo $group["name"]; ?>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                      <?php
+                      echo "</td>";
+                      echo "</tr>";
+                  }
+              }
 ?>
                     </tbody>
                   </table>

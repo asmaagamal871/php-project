@@ -52,6 +52,12 @@ class MySQLHandler implements DbHandler
         }
     }
 
+    public function get_all()
+    {
+        $table = $this->_table;
+        $sql = "SELECT * FROM `$table`";
+        return $this->get_results($sql);
+    }
     public function get_all_records_paginated($fields = array(), $start = 0)
     {
         $table = $this->_table;
@@ -194,7 +200,8 @@ class MySQLHandler implements DbHandler
             return false;
         }
     }
-    public function numOfUsers(){
+    public function numOfUsers()
+    {
         $sql = "SELECT COUNT(*) FROM mysql.user";
         $result = mysqli_query($this->_db_handler, $sql);
         echo $result;
