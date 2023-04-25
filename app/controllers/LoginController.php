@@ -1,10 +1,15 @@
 <?php
 
-require_once('../models/MySQLHandler.php');
-require_once('../controllers/BaseController.php');
+require_once(__DIR__.'/../models/MySQLHandler.php');
+require_once(__DIR__.'/../controllers/BaseController.php');
 
 class LoginController extends BaseController
 {
+    public function index()
+    {
+        include __DIR__ .'/../views/login.php';
+    }
+
     public function login()
     {
         $db = new MySQLHandler("users");
@@ -15,16 +20,20 @@ class LoginController extends BaseController
 
             if ($db->authenticate($email, $password)) {
                 $_SESSION['logged_in'] = true;
-                if ($this->isAdmin()) {
-                    die("this is an admin!");
-                }
-                if ($this->isEditor()) {
-                    die("this is an editor!");
-                }
+                // if ($this->isAdmin()) {
+                //     die("this is an admin!");
+                // }
+                // if ($this->isEditor()) {
+                //     die("this is an editor!");
+                // }
                 //  // die("welcome!");
                 // header('Location: /php-project/app/views/index.php');
                 //  // include '../views/home.php';
                 //  // exit;
+
+                header('Location: /');
+                exit;
+
             } else {
                 die("invalid email or password");
             }

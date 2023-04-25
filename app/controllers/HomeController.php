@@ -4,6 +4,12 @@ class HomeController
 {
     public function index()
     {
-        include __DIR__ . '/../views/groups/index.php';
+        include  'index.php';
     }
+    
+    public function home()
+    {
+        include  __DIR__.'/../views/home.php';
+    }
+
 }

@@ -38,7 +38,9 @@ class ComposerStaticInit45dc0338abc67cde9b566c717b3f888a
         'DbHandler' => __DIR__ . '/../..' . '/app/models/DbHandler.php',
         'GroupController' => __DIR__ . '/../..' . '/app/controllers/GroupController.php',
         'HomeController' => __DIR__ . '/../..' . '/app/controllers/HomeController.php',
+        'IndexController' => __DIR__ . '/../..' . '/app/controllers/IndexController.php',
         'LoginController' => __DIR__ . '/../..' . '/app/controllers/LoginController.php',
+        'LogoutController' => __DIR__ . '/../..' . '/app/controllers/LogoutController.php',
         'MySQLHandler' => __DIR__ . '/../..' . '/app/models/MySQLHandler.php',
     );
 

@@ -11,6 +11,8 @@ return array(
     'DbHandler' => $baseDir . '/app/models/DbHandler.php',
     'GroupController' => $baseDir . '/app/controllers/GroupController.php',
     'HomeController' => $baseDir . '/app/controllers/HomeController.php',
+    'IndexController' => $baseDir . '/app/controllers/IndexController.php',
     'LoginController' => $baseDir . '/app/controllers/LoginController.php',
+    'LogoutController' => $baseDir . '/app/controllers/LogoutController.php',
     'MySQLHandler' => $baseDir . '/app/models/MySQLHandler.php',
 );

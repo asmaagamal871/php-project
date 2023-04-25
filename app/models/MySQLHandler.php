@@ -95,6 +95,7 @@ class MySQLHandler implements DbHandler
 
         if (!$result || mysqli_num_rows($result) == 0) {
             // User not found in the database
+            echo "error";
             return false;
         }
 
@@ -110,6 +111,7 @@ class MySQLHandler implements DbHandler
 
         // Login successful - set session variables and redirect to home page
         $_SESSION['user_id'] = $user['id'];
+        $_SESSION['username'] = $user['username'];
         $_SESSION['group_id'] = $user['group_id'];
         return true;
     }
@@ -191,5 +193,10 @@ class MySQLHandler implements DbHandler
             $this->disconnect();
             return false;
         }
+    }
+    public function numOfUsers(){
+        $sql = "SELECT COUNT(*) FROM mysql.user";
+        $result = mysqli_query($this->_db_handler, $sql);
+        echo $result;
     }
 }
