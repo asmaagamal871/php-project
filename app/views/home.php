@@ -1,4 +1,10 @@
 <?php
+if (!isset($_SESSION['user_id'])) {
+
+    // Redirect the user to the login page
+    header('Location: /login');
+    exit;
+}
 include __DIR__ . '/partials/header.php';
 ?>
 

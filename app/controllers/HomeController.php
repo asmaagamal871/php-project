@@ -2,14 +2,14 @@
 
 class HomeController
 {
-    public function index()
-    {
-        include  'index.php';
-    }
+    // public function index()
+    // {
+    //     require_once  'index.php';
+    // }
     
     public function home()
     {
-        include  __DIR__.'/../views/home.php';
+        require_once  __DIR__.'/../views/home.php';
     }
 
 }

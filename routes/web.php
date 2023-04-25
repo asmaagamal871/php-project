@@ -5,16 +5,12 @@
 
 use Pecee\SimpleRouter\SimpleRouter;
 
-SimpleRouter::get('/', 'HomeController@index');
-
+SimpleRouter::get('/', 'HomeController@home');
 SimpleRouter::get('/home', 'HomeController@home');
- 
- 
 SimpleRouter::get('/login', "LoginController@index");
-
 SimpleRouter::post('/login', "LoginController@login");
-
 SimpleRouter::get('/logout', 'LogoutController@logout');
+
 //Groups
 SimpleRouter::get('/groups', 'GroupController@index');
 SimpleRouter::get('/groups/create', 'GroupController@create');
