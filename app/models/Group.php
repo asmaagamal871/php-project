@@ -18,7 +18,7 @@ class Group
     {
         return $this->db->save($_POST);
     }
-    
+
     public function getByID($id)
     {
         return $this->db->get_record_by_id($id);
