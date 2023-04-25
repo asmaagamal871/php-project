@@ -1,11 +1,12 @@
 {
-    "name": "shebo/php-project",
     "autoload": {
         "psr-4": {
             "Shebo\\PhpProject\\": "src/"
         },
         "classmap": [
-            "app/models"
+            "app/models",
+            "app/controllers",
+            "app/views"
         ],
         "files": [
             "config.php"
@@ -25,5 +26,7 @@
             "email": "asmaagamal99192@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "pecee/simple-router": "5.3.0.2"
+    }
 }

@@ -20,10 +20,10 @@
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
 
 	<!-- Accordion -->
-	<link href="../../build/css/sidebar-accordion.css" rel="stylesheet">
+	<link href="/css/sidebar-accordion.css" rel="stylesheet">
 
 	<!-- Custom Theme Style -->
-	<link href="../../build/css/custom.min.css" rel="stylesheet">
+	<link href="/css/custom.css" rel="stylesheet">
 
 
 </head>
@@ -63,7 +63,7 @@
 
 								<ul class="menu">
 									<li><a href="../index.php"><i class="fa fa-home"></i> Dashboard
-										</a>
+										</a></li>
 									<li><a><i class="fa fa-user"></i> Users <span class="fa fa-chevron-down"></span></a>
 										<ul>
 											<li><a href="../users/index.php">Index</a></li>

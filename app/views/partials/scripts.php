@@ -18,10 +18,10 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 
 <!-- Accordion -->
-<script src="../../build/js/sidebar-accordion.js"></script>
+<script src="/js/sidebar-accordion.js"></script>
 
 <!-- Custom Theme Scripts -->
-<script src="../../build/js/custom.min.js"></script>
+<script src="/js/custom.min.js"></script>
 
 </body>
 
