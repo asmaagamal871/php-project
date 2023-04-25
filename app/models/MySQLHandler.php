@@ -1,4 +1,8 @@
 <?php
+if (!defined('__ROOT__'))
+    define('__ROOT__', dirname(dirname(__FILE__)));
+require_once(__ROOT__ . "/models/DbHandler.php");
+require_once(__ROOT__ . '/../config.php');
 
 class MySQLHandler implements DbHandler
 {
@@ -103,7 +107,7 @@ class MySQLHandler implements DbHandler
 
         // Verify that the password entered by the user matches the hashed password stored in the database
         // if (!password_verify($password, $user['password'])) {
-        if ($password!= $user['password']) {
+        if ($password != $user['password']) {
             // Invalid password
             return false;
         }
@@ -141,7 +145,7 @@ class MySQLHandler implements DbHandler
             $sql2 = str_replace(",)", ")", $sql2);
             $sql = $sql1 . $sql2;
 
-        
+
             if (mysqli_query($this->_db_handler, $sql)) {
                 $this->disconnect();
                 return true;
@@ -169,7 +173,7 @@ class MySQLHandler implements DbHandler
 
         $sql .= "where `" . $primary_key . "` = $id";
         $sql = str_replace(",where", "where", $sql);
- 
+
         if (mysqli_query($this->_db_handler, $sql)) {
             $this->disconnect();
             return true;

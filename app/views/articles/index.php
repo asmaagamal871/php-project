@@ -5,7 +5,7 @@ include __DIR__ . '/../partials/header.php';
 require_once("../../controllers/articleController.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    create();
+  create();
 }
 
 $result = index();
@@ -43,8 +43,7 @@ $result = index();
               <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
               </li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i
-                    class="fa fa-wrench"></i></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <a class="dropdown-item" href="#">Settings 1</a>
                   <a class="dropdown-item" href="#">Settings 2</a>
@@ -75,26 +74,24 @@ $result = index();
 
                     <tbody>
                       <?php for ($i = 0; $i < sizeof($result); $i++) { ?>
-                      <tr>
-                        <td>
-                          <?= $result[$i]['title'] ?>
-                        </td>
-                        <td>
-                          <?= $result[$i]['summary'] ?>
-                        </td>
-                        <td>
-                          <?= $result[$i]['publish_date'] ?>
-                        </td>
-                        <td>
-                          <?= $result[$i]['description'] ?>
-                        </td>
-                        <td>
-                          <?= $result[$i]['user_id'] ?>
-                        </td>
-                        <td><img
-                            src="./../../public/images/articles/<?= $result[$i]['image'] ?>"
-                            style="width: 30px; height: 30px"></td>
-                      </tr>
+                        <tr>
+                          <td>
+                            <?= $result[$i]['title'] ?>
+                          </td>
+                          <td>
+                            <?= $result[$i]['summary'] ?>
+                          </td>
+                          <td>
+                            <?= $result[$i]['publish_date'] ?>
+                          </td>
+                          <td>
+                            <?= $result[$i]['description'] ?>
+                          </td>
+                          <td>
+                            <?= $result[$i]['user_id'] ?>
+                          </td>
+                          <td><img src="./../../public/images/articles/<?= $result[$i]['image'] ?>" style="width: 30px; height: 30px"></td>
+                        </tr>
                       <?php } ?>
                     </tbody>
                   </table>

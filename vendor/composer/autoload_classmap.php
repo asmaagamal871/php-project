@@ -13,4 +13,5 @@ return array(
     'HomeController' => $baseDir . '/app/controllers/HomeController.php',
     'LoginController' => $baseDir . '/app/controllers/LoginController.php',
     'MySQLHandler' => $baseDir . '/app/models/MySQLHandler.php',
+    'UserController' => $baseDir . '/app/controllers/UserController.php',
 );

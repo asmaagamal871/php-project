@@ -1,7 +1,9 @@
 <?php
 session_start();
 include __DIR__ . '/../partials/header.php';
-require 'dbcon.php';
+// include("../partials/header.php");
+// require_once("../../controllers/UserController.php");
+
 ?>
 <div class="right_col" role="main">
   <?php include('message.php'); ?>
@@ -60,45 +62,41 @@ require 'dbcon.php';
 
                   <tbody>
                     <?php
-                    $query = "SELECT * FROM users";
-$query_run = mysqli_query($con, $query);
+                    // $query = "SELECT * FROM users";
+                    // $query_run = mysqli_query($con, $query);
 
-if (mysqli_num_rows($query_run) > 0) {
-    foreach ($query_run as $user) {
-        ?>
-                    <tr>
-                      <td><?= $user['id']; ?>
-                      </td>
-                      <td><?= $user['name']; ?>
-                      </td>
-                      <td><?= $user['email']; ?>
-                      </td>
-                      <td><?= $user['phone']; ?>
-                      </td>
-                      <td>
-                        <?= $user['username']; ?>
-                      </td>
-                      <td>
-                        <?= $user['group_id']; ?>
-                      </td>
-                      <td class="d-inline-flex p-2">
-                        <a href="view.php?id=<?= $user['id']; ?>"
-                          class=" btn btn-info btn-sm">View</a>
-                        <a href="edit.php?id=<?= $user['id']; ?>"
-                          class="btn btn-success btn-sm">Edit</a>
-                        <form action="code.php" method="POST">
-                          <button type="submit" name="delete_user"
-                            value="<?= $user['id']; ?>"
-                            class="btn btn-danger btn-sm">Delete</button>
-                        </form>
-                      </td>
-                    </tr>
-                    <?php
-    }
-} else {
-    echo "<h5> No Records Found</h5>";
-}
-?>
+                    // if (mysqli_num_rows($query_run) > 0) {
+                    //   foreach ($query_run as $user) {
+                    foreach ($users as $user) {
+                    ?>
+                      <tr>
+                        <td><?= $user['id']; ?>
+                        </td>
+                        <td><?= $user['name']; ?>
+                        </td>
+                        <td><?= $user['email']; ?>
+                        </td>
+                        <td><?= $user['phone']; ?>
+                        </td>
+                        <td>
+                          <?= $user['username']; ?>
+                        </td>
+                        <td>
+                          <?= $user['group_id']; ?>
+                        </td>
+                        <td class="d-inline-flex p-2">
+                          <a href="view.php?id=<?= $user['id']; ?>" class=" btn btn-info btn-sm">View</a>
+                          <a href="edit.php?id=<?= $user['id']; ?>" class="btn btn-success btn-sm">Edit</a>
+                          <form action="code.php" method="POST">
+                            <button type="submit" name="delete_user" value="<?= $user['id']; ?>" class="btn btn-danger btn-sm">Delete</button>
+                          </form>
+                        </td>
+                      </tr>
+                    <?php } ?>
+                    <!-- // } else {
+                    // echo "<h5> No Records Found</h5>";
+                    // }
+                    ?> -->
                   </tbody>
                 </table>
               </div>
@@ -110,6 +108,7 @@ if (mysqli_num_rows($query_run) > 0) {
   </div>
 </div>
 
+
 <?php
 include __DIR__ . '/../partials/footer.php';
 ?>
@@ -120,9 +119,6 @@ include __DIR__ . '/../partials/scripts.php';
 
 <script>
   jQuery(document).ready(function($) {
-    $('#datatable').DataTable({
-      // "auto" to automatically detect the number of columns
-      columns: "auto"
-    });
+    $('#datatable').DataTable();
   });
 </script>

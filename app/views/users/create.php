@@ -1,6 +1,7 @@
 <?php
 session_start();
-include __DIR__ . '/../partials/header.php';
+// include __DIR__ . '/../partials/header.php';
+include("../partials/header.php");
 ?>
 <!-- /top navigation -->
 
@@ -18,38 +19,29 @@ include __DIR__ . '/../partials/header.php';
             <div class="card-body">
                 <form class="" action="code.php" method="post" novalidate>
                     <div class="field item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3  label-align">Name<span
-                                class="required">*</span></label>
+                        <label class="col-form-label col-md-3 col-sm-3  label-align">Name<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6">
-                            <input class="form-control" data-validate-length-range="6" data-validate-words="2"
-                                name="name" placeholder="ex. John f. Kennedy" required="required" />
+                            <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="ex. John f. Kennedy" required="required" />
                         </div>
                     </div>
                     <div class="field item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3  label-align">Username<span
-                                class="required">*</span></label>
+                        <label class="col-form-label col-md-3 col-sm-3  label-align">Username<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6">
-                            <input class="form-control" data-validate-length-range="6" data-validate-words="1"
-                                name="username" placeholder="username" required="required" />
+                            <input class="form-control" data-validate-length-range="6" data-validate-words="1" name="username" placeholder="username" required="required" />
                         </div>
                     </div>
 
                     <div class="field item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3  label-align">email<span
-                                class="required">*</span></label>
+                        <label class="col-form-label col-md-3 col-sm-3  label-align">email<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6">
                             <input class="form-control" name="email" class='email' required="required" type="email" />
                         </div>
                     </div>
 
                     <div class="field item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3  label-align">Password<span
-                                class="required">*</span></label>
+                        <label class="col-form-label col-md-3 col-sm-3  label-align">Password<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6">
-                            <input class="form-control" type="password" id="password1" name="password"
-                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}"
-                                title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character"
-                                required />
+                            <input class="form-control" type="password" id="password1" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character" required />
 
                             <span style="position: absolute;right:15px;top:7px;" onclick="hideshow()">
                                 <i id="slash" class="fa fa-eye-slash"></i>
@@ -59,20 +51,16 @@ include __DIR__ . '/../partials/header.php';
                     </div>
 
                     <div class="field item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3  label-align">Phone<span
-                                class="required">*</span></label>
+                        <label class="col-form-label col-md-3 col-sm-3  label-align">Phone<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6">
-                            <input class="form-control" type="tel" class='tel' name="phone" required='required'
-                                data-validate-length-range="8,20" />
+                            <input class="form-control" type="tel" class='tel' name="phone" required='required' data-validate-length-range="8,20" />
                         </div>
                     </div>
 
                     <div class="field item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3  label-align">Group<span
-                                class="required">*</span></label>
+                        <label class="col-form-label col-md-3 col-sm-3  label-align">Group<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6">
-                            <input class="form-control" data-validate-length-range="6" data-validate-words="2"
-                                name="group" placeholder="" required="required" />
+                            <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="group" placeholder="" required="required" />
                         </div>
                     </div>
 
