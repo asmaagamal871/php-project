@@ -842,10 +842,11 @@
   font-size: 27px;
   margin: 13px 0 0 3px; }
 
-.site_title i {
+.site_title img {
   border: 1px solid #EAEAEA;
-  padding: 5px 6px;
-  border-radius: 50%; }
+  padding:1px;
+  border-radius: 50%;
+margin-right: 5px; }
 
 .nav-sm .main_container .top_nav {
   display: block;
@@ -1271,7 +1272,9 @@ a:hover, a:focus {
   background: #34495E; }
 
 .navbar-right {
-  margin-right: 0; }
+  margin-right: 0; 
+	margin-top: 0 !important;
+}
 
 .top_nav .navbar-right {
   margin: 13px;
@@ -1421,11 +1424,9 @@ a:hover, a:focus {
   padding-left: 10px; }
 
 .site_title:hover, .site_title:focus {
-  text-decoration: none; }
+  text-decoration: underline; }
   
-.site_title span:hover{
-  background: #fff;
-}
+
 .nav.navbar-nav > li > a {
   color: #515356 !important; }
 
@@ -4971,3 +4972,9 @@ ul.notifications {
 
 .calendar-exibit .calendar-table {
   padding: 0 0 4px 0; }
+
+  .new-icon{
+    color:#2A3F54;
+    margin-right: 3px;
+  }
+ 

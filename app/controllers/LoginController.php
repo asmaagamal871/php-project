@@ -7,7 +7,12 @@ class LoginController extends BaseController
 {
     public function index()
     {
-        include __DIR__ .'/../views/login.php';
+        if (isset($_SESSION['user_id'])) {
+
+            // Redirect the user to the login page
+            header('Location: /home');
+            exit;
+        }    else    include __DIR__ .'/../views/login.php';
     }
 
     public function login()
