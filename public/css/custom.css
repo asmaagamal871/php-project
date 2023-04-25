@@ -4983,3 +4983,24 @@ ul.notifications {
   border: 1px solid rgba(52, 73, 94, 0.44);
   padding: 4px;
 }
+
+  footer hr{
+    width: 120px; 
+    background-color: white; 
+    height: 2px;
+  }
+  .Copyright{
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  .install-img img{
+    margin-top: -2.5em;
+    width: 8em;
+    height: 6em;
+    object-fit: contain;
+  }
+  .new-footer{
+    position:absolute !important;
+    margin: 0 !important;
+    background: #2A3F54;
+    width: 100% !important;
+  }

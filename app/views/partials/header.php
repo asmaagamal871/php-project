@@ -31,7 +31,7 @@
 	<div class="container body">
 		<div class="main_container">
 			<!-- header -->
-			<div class="col-md-3 left_col">
+			<div style="height:fit-content;" class="col-md-3 left_col">
 				<div class="left_col scroll-view">
 					<div class="navbar nav_title" style="border: 0;">
 						<a href="/home" class="site_title"><img src="/images/ball.gif" width="40px"><span>El-La3eeb!</span></a>
