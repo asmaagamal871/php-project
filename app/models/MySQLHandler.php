@@ -109,4 +109,5 @@ class MySQLHandler implements DbHandler
         $_SESSION['group_id'] = $user['group_id'];
         return true;
     }
+    
 }

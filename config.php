@@ -1,5 +1,5 @@
 <?php
-define("__HOST__", "localhost");
+define("__HOST__", "127.0.0.1:3325");
 define("__USER__", "root");
 define("__PASS__", "");
 define("__DB__", "php-project");
