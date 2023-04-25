@@ -52,6 +52,12 @@ class MySQLHandler implements DbHandler
         }
     }
 
+    public function get_all()
+    {
+        $table = $this->_table;
+        $sql = "SELECT * FROM `$table`";
+        return $this->get_results($sql);
+    }
     public function get_all_records_paginated($fields = array(), $start = 0)
     {
         $table = $this->_table;

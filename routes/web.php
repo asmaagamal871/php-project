@@ -18,6 +18,6 @@ SimpleRouter::post('/groups', 'GroupController@store');
 SimpleRouter::get('/groups/{id}', 'GroupController@show');
 SimpleRouter::get('/groups/{id}/edit', 'GroupController@edit');
 SimpleRouter::put('/groups/{id}', 'GroupController@update');
-SimpleRouter::delete('/groups/{id}', 'GroupController@delete');
+SimpleRouter::delete('/groups/{id}', 'GroupController@destroy');
 
 SimpleRouter::start();

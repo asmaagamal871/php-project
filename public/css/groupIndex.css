@@ -1,0 +1,11 @@
+.alert-success{
+    padding: 1em;
+    background-color: rgb(10, 162, 10);
+}
+.delBtn{
+    background-color: transparent;
+    border: none;
+}
+.delForm{
+    display: inline;
+}
