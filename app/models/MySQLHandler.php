@@ -204,4 +204,9 @@ class MySQLHandler implements DbHandler
         $result = mysqli_query($this->_db_handler, $count_users);
         return $result;
     }
+    public function user_vs_article(){
+        $count_articles = "SELECT users.username as user_name,COUNT(*) as article_count FROM users, articles where users.id=articles.user_id group by users.username";
+        $result = mysqli_query($this->_db_handler, $count_articles);
+        return $result;
+    }
 }

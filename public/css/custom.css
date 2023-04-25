@@ -5004,3 +5004,11 @@ ul.notifications {
     background: #2A3F54;
     width: 100% !important;
   }
+.animation{
+  border: 5px solid lightgray;
+  border-radius: 50%;
+  padding: 5px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+}

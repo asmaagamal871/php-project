@@ -1,7 +1,7 @@
 <?php
 
-require_once(__DIR__.'/../models/MySQLHandler.php');
-require_once(__DIR__.'/../controllers/BaseController.php');
+require_once(__DIR__ . '/../models/MySQLHandler.php');
+require_once(__DIR__ . '/../controllers/BaseController.php');
 
 class LoginController extends BaseController
 {
@@ -12,7 +12,8 @@ class LoginController extends BaseController
             // Redirect the user to the login page
             header('Location: /home');
             exit;
-        }    else    include __DIR__ .'/../views/login.php';
+        } else
+            include __DIR__ . '/../views/login.php';
     }
 
     public function login()
@@ -25,15 +26,17 @@ class LoginController extends BaseController
 
             if ($db->authenticate($email, $password)) {
                 $_SESSION['logged_in'] = true;
-              
+                if ($this->isAdmin())
+                    $_SESSION['role'] = 'admin';
+                if ($this->isEditor())
+                    $_SESSION['role'] = 'editor';
                 header('Location: /');
                 exit;
-
             } else {
-                $_SESSION['error']="Invalid email or password!";
+                $_SESSION['error'] = "Invalid email or password!";
                 header('Location: /login');
                 exit;
-                        }
+            }
         }
 
         // Display the login form
