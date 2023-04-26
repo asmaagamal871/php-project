@@ -67,8 +67,8 @@
 										</a></li>
 									<li><a><i class="fa fa-user"></i> Users <span class="fa fa-chevron-down"></span></a>
 										<ul>
-											<li><a href="../users/index.php">Index</a></li>
-											<li><a href="../users/create.php">Create</a></li>
+											<li><a href="/users">Index</a></li>
+											<li><a href="/users/create">Create</a></li>
 										</ul>
 									</li>
 
