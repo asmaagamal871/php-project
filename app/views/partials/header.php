@@ -24,6 +24,7 @@
 	<!-- Custom Theme Style -->
 	<link href="/css/custom.css" rel="stylesheet">
 
+	<link rel="icon" type="image/x-icon" href="images/ball.ico">
 
 </head>
 
@@ -52,7 +53,7 @@
 							</h2>
 							
 						</div>
-						<small><p class="ms-2"><strong>last login: </strong> 
+						<small><p class="text-center "><strong>last login: </strong> 
 							<?php
 							$timestamp = strtotime($_SESSION['last_login']);
 							$readable_datetime = date('F j, Y - g:i a', $timestamp);

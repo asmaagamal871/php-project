@@ -14,10 +14,8 @@ class LoginController extends BaseController
             exit;
         } else
             include __DIR__ . '/../views/login.php';
-        } else {
-            include __DIR__ .'/../views/login.php';
-        }
-    }
+        } 
+    
 
     public function login()
     {
