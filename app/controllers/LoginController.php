@@ -25,10 +25,10 @@ class LoginController extends BaseController
             $password = $_POST['password'];
 
             if ($db->authenticate($email, $password)) {
-                $_SESSION['logged_in'] = true;
+                // $_SESSION['logged_in'] = true;
                 if ($this->isAdmin())
                     $_SESSION['role'] = 'admin';
-                if ($this->isEditor())
+                else if ($this->isEditor())
                     $_SESSION['role'] = 'editor';
                 header('Location: /');
                 exit;
