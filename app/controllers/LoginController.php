@@ -12,10 +12,11 @@ class LoginController extends BaseController
             // Redirect the user to the login page
             header('Location: /home');
             exit;
-        } else
+        } else {
             include __DIR__ . '/../views/login.php';
-        } 
-    
+        }
+    }
+
 
     public function login()
     {
@@ -30,21 +31,21 @@ class LoginController extends BaseController
                 $_SESSION['last_login'] = date('Y-m-d H:i:s');
 
                 if ($_POST['remember_me']) {
-                    // Set a cookie with the user's login credentials
+                    // Set a cookies with the user's login credentials
                     setcookie('email', $_POST['email'], time() + 86400 * 30);
                     setcookie('password', $_POST['password'], time() + 86400 * 30);
-                  }
+                }
 
-                  if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
+                if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
                     // Pre-fill the login form with the saved credentials
                     $email = $_COOKIE['email'];
                     $password = $_COOKIE['password'];
-                  }
+                }
 
                 $data = array(
                     "last_login" => $_SESSION['last_login']
                            );
-                $db->update($data,$_SESSION['user_id']);
+                $db->update($data, $_SESSION['user_id']);
                 header('Location: /');
                 exit;
             } else {
