@@ -10,7 +10,12 @@ class ArticleController extends BaseController
     {
         $article = new Article;
         $articles = $article->getArticles();
-        include __DIR__ . '/../views/articles/index.php';
+        if ($this->isAdmin() || $this->isEditor()) {
+            include __DIR__ . '/../views/articles/index.php';
+        } else {
+            $_SESSION['error'] = "Sorry, This site can't be reached !!";
+            header("Location: /home");
+        }
     }
 
     public function show($id)
@@ -49,7 +54,7 @@ class ArticleController extends BaseController
             header("Location: /articles");
             exit;
         } else {
-            //include __DIR__ . '/../views/groups/create.php';
+            include __DIR__ . '/../views/articles/index.php';
         }
     }
 }

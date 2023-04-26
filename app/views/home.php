@@ -102,7 +102,6 @@ $dataObject2 = [
           <h3>Hey <?php echo $_SESSION['username']; ?> ! </h3><br>
         <?php } ?>
       </div>
-
       <!-- <div class="title_right">
         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
           <div class="input-group">
@@ -116,6 +115,19 @@ $dataObject2 = [
     </div>
 
     <div class="clearfix"></div>
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 ">
+        <?php
+        if (isset($_SESSION['error'])) {
+          echo '<div class="alert alert-danger"><center>' . $_SESSION['error'] . '</center></div>';
+        }
+        unset($_SESSION['error']);
+        ?>
+
+      </div>
+    </div>
+
 
     <div class="row">
       <div class="col-md-12 col-sm-12 ">
@@ -189,6 +201,7 @@ $dataObject2 = [
             </div>
           </div>
         <?php } ?>
+
 
       </div>
 
