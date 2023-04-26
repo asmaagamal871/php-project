@@ -16,5 +16,6 @@ return array(
     'LoginController' => $baseDir . '/app/controllers/LoginController.php',
     'LogoutController' => $baseDir . '/app/controllers/LogoutController.php',
     'MySQLHandler' => $baseDir . '/app/models/MySQLHandler.php',
+    'User' => $baseDir . '/app/models/User.php',
     'UserController' => $baseDir . '/app/controllers/UserController.php',
 );

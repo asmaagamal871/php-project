@@ -43,6 +43,7 @@ class ComposerStaticInit45dc0338abc67cde9b566c717b3f888a
         'LoginController' => __DIR__ . '/../..' . '/app/controllers/LoginController.php',
         'LogoutController' => __DIR__ . '/../..' . '/app/controllers/LogoutController.php',
         'MySQLHandler' => __DIR__ . '/../..' . '/app/models/MySQLHandler.php',
+        'User' => __DIR__ . '/../..' . '/app/models/User.php',
         'UserController' => __DIR__ . '/../..' . '/app/controllers/UserController.php',
     );
 

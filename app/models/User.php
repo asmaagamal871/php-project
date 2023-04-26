@@ -32,8 +32,13 @@ class User
             "phone" => $_POST["phone"],
             "username" => $_POST["username"],
             "password" => $_POST["password"],
-            "phone" => $_POST["phone"],
+            "group_id" => $_POST["group_id"],
         );
         return $this->db->update($data, $id);
+    }
+
+    public function delete($id)
+    {
+        return $this->db->delete($id);
     }
 }
