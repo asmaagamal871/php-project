@@ -27,7 +27,12 @@ class LoginController extends BaseController
             $password = $_POST['password'];
 
             if ($db->authenticate($email, $password)) {
-                $_SESSION['logged_in'] = true;
+                // $_SESSION['logged_in'] = true;
+                if ($this->isAdmin())
+                    $_SESSION['role'] = 'admin';
+                if ($this->isEditor())
+                    $_SESSION['role'] = 'editor';
+
                 $_SESSION['last_login'] = date('Y-m-d H:i:s');
 
                 if ($_POST['remember_me']) {
@@ -44,10 +49,12 @@ class LoginController extends BaseController
 
                 $data = array(
                     "last_login" => $_SESSION['last_login']
-                           );
+                );
+
                 $db->update($data, $_SESSION['user_id']);
                 header('Location: /');
                 exit;
+                
             } else {
                 $_SESSION['error'] = "Invalid email or password!";
                 header('Location: /login');
