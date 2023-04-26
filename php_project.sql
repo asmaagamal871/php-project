@@ -136,5 +136,5 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 /* Inserts*/
--- INSERT INTO `groups` (`name`, `description`, `role`) VALUES ('Admins', 'This group is for admins', 'admin');
--- INSERT INTO `groups` (`name`, `description`, `role`) VALUES ('Editors', 'This group is for editors', 'editor');
+INSERT INTO `groups` (`name`, `description`, `role`) VALUES ('Admins', 'This group is for admins', 'admin');
+INSERT INTO `groups` (`name`, `description`, `role`) VALUES ('Editors', 'This group is for editors', 'editor');

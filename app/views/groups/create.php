@@ -9,7 +9,7 @@ include __DIR__ . '/../partials/header.php';
         <div class="col-8 offset-2">
             <form action="/groups" method="post">
                 <div class="w-50 px-5  mx-auto form-container col-12" id="makeMaxWidth"> <!-- Edited in CSS -->
-                    <h2 class="fw-bold text-dark text-center">Create</h2>
+                    <h2 class="fw-bold text-dark text-center  fs-4">Create</h2>
                     <?php
                         if (isset($create)) {
                             if (!$create) {
@@ -31,8 +31,8 @@ include __DIR__ . '/../partials/header.php';
                     <label for="exampleInputPassword3" class="form-label mt-2 fw-bold">Role</label>
                     <div class="input-group mb-3">
                         <select name="role" class="form-control">
-                            <option value="admin">Admin</option>
-                            <option value="editor">Editor</option>
+                            <!-- <option value="admin">Admin</option>
+                            <option value="editor">Editor</option> -->
                             <option value="user" selected>User</option>
                         </select>
                     </div>
