@@ -50,7 +50,16 @@
 								echo  $_SESSION['username'];
 								?>
 							</h2>
+							
 						</div>
+						<small><p class="ms-2"><strong>last login: </strong> 
+							<?php
+							$timestamp = strtotime($_SESSION['last_login']);
+							$readable_datetime = date('F j, Y - g:i a', $timestamp);
+
+								echo  $readable_datetime;
+								?>
+							</p></small>
 					</div>
 					<!-- /menu profile quick info -->
 

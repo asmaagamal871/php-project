@@ -14,6 +14,9 @@ class LoginController extends BaseController
             exit;
         } else
             include __DIR__ . '/../views/login.php';
+        } else {
+            include __DIR__ .'/../views/login.php';
+        }
     }
 
     public function login()
@@ -26,10 +29,11 @@ class LoginController extends BaseController
 
             if ($db->authenticate($email, $password)) {
                 $_SESSION['logged_in'] = true;
-                if ($this->isAdmin())
-                    $_SESSION['role'] = 'admin';
-                if ($this->isEditor())
-                    $_SESSION['role'] = 'editor';
+                $_SESSION['last_login'] = date('Y-m-d H:i:s');
+                $data = array(
+                    "last_login" => $_SESSION['last_login']
+                           );
+                $db->update($data,$_SESSION['user_id']);
                 header('Location: /');
                 exit;
             } else {
