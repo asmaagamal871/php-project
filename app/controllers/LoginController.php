@@ -12,7 +12,9 @@ class LoginController extends BaseController
             // Redirect the user to the login page
             header('Location: /home');
             exit;
-        }    else    include __DIR__ .'/../views/login.php';
+        } else {
+            include __DIR__ .'/../views/login.php';
+        }
     }
 
     public function login()
@@ -25,7 +27,11 @@ class LoginController extends BaseController
 
             if ($db->authenticate($email, $password)) {
                 $_SESSION['logged_in'] = true;
-              
+                $_SESSION['last_login'] = date('Y-m-d H:i:s');
+                $data = array(
+                    "last_login" => $_SESSION['last_login']
+                           );
+                $db->update($data,$_SESSION['user_id']);
                 header('Location: /');
                 exit;
 
@@ -33,7 +39,7 @@ class LoginController extends BaseController
                 $_SESSION['error']="Invalid email or password!";
                 header('Location: /login');
                 exit;
-                        }
+            }
         }
 
         // Display the login form
