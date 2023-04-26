@@ -18,7 +18,7 @@ class Group
     {
         return $this->db->save($_POST);
     }
-    
+
     public function getByID($id)
     {
         return $this->db->get_record_by_id($id);
@@ -32,6 +32,10 @@ class Group
             "role" => $_POST["role"]
         );
         return $this->db->update($data, $id);
+    }
+
+    public function restore($id){
+        return $this->db->restore($id);
     }
 
     public function delete($id)

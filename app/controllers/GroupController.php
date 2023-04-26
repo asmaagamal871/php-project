@@ -5,14 +5,14 @@ class GroupController extends BaseController
 {
     public function index()
     {
-        $group = new Group;
+        $group = new Group();
         $groups = $group->getGroups();
         include __DIR__ . '/../views/groups/index.php';
     }
 
     public function show($id)
     {
-        $group = new Group;
+        $group = new Group();
         $result = $group->getByID($id);
         include __DIR__ . '/../views/groups/show.php';
     }
@@ -29,7 +29,7 @@ class GroupController extends BaseController
 
     public function store()
     {
-        $group = new Group;
+        $group = new Group();
         $create = $group->create();
         if ($create) {
             header("Location: /groups");
@@ -41,14 +41,14 @@ class GroupController extends BaseController
 
     public function edit($id)
     {
-        $group = new Group;
+        $group = new Group();
         $result = $group->getByID($id);
         include __DIR__ . '/../views/groups/edit.php';
     }
 
     public function update($id)
     {
-        $group = new Group;
+        $group = new Group();
         $update = $group->update($id);
         if ($update) {
             header("Location: /groups");
@@ -60,7 +60,7 @@ class GroupController extends BaseController
 
     public function destroy($id)
     {
-        $group = new Group;
+        $group = new Group();
         $delete = $group->delete($id);
         if ($delete) {
             header("Location: /groups");
@@ -68,5 +68,18 @@ class GroupController extends BaseController
         } else {
             //include __DIR__ . '/../views/groups/create.php';
         }
+    }
+
+    public function restore($id){
+        $group = new Group();
+        $restore = $group->restore($id);
+        if ($restore) {
+            header("Location: /groups");
+            exit;
+        } else {
+            echo "la2";
+        }
+
+    return $restore;
     }
 }

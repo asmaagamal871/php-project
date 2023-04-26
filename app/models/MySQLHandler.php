@@ -190,7 +190,7 @@ class MySQLHandler implements DbHandler
     {
         $table = $this->_table;
         $primary_key = $this->_primary_key;
-        $sql = "delete  from `" . $table . "` where `" . $primary_key . "` = $id";
+        $sql = "UPDATE $table SET is_deleted = true WHERE $id = $primary_key";
         if (mysqli_query($this->_db_handler, $sql)) {
             $this->disconnect();
             return true;
@@ -209,4 +209,13 @@ class MySQLHandler implements DbHandler
         $result = mysqli_query($this->_db_handler, $count_articles);
         return $result;
     }
+
+    public function restore( $id) {
+        $table = $this->_table;
+        $primary_key = $this->_primary_key;
+        // restore the row with the given ID in the specified table
+        $sql = "UPDATE $table SET is_deleted = false WHERE $id = $primary_key";
+        $result = mysqli_query($this->_db_handler,$sql);
+        return $result;
+      }
 }
