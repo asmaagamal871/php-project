@@ -63,8 +63,6 @@ include __DIR__ . '/../partials/header.php';
                         <th>Title</th>
                         <th>Summary</th>
                         <th>Publish Date</th>
-                        <th>Description</th>
-                        <th>User Id</th>
                         <th>Image</th>
                         <th>Action</th>
                       </tr>
@@ -85,22 +83,17 @@ include __DIR__ . '/../partials/header.php';
                             <td>
                               <?= $article['publish_date'] ?>
                             </td>
-                            <td>
-                              <?= $article['description'] ?>
-                            </td>
-                            <td>
-                              <?= $article['user_id'] ?>
-                            </td>
+
                             <td><img src="/images/articles/<?= $article['image'] ?>" style="width: 30px; height: 30px"></td>
 
                             <td>
                               <div class="d-flex">
-                                <a class='me-3 text-dark' href='/articles/<?php echo $article["id"]; ?>'><i class='fa-solid fa-eye'></i></a>
+                                <a class='me-3 fs-5 text-dark' href='/articles/<?php echo $article["id"]; ?>'><i style='color:#34495E' class='fa-solid fa-eye'></i></a>
                                 <form method="POST" action="/articles/<?php echo $article["id"]; ?>" class="delForm">
                                   <input type="hidden" name="_method" value="DELETE">
 
                                   <!-- Button trigger modal -->
-                                  <button class="border-0 bg-transparent" type="button" data-bs-toggle="modal" data-bs-target="#delArticles<?php echo $article["id"]; ?>" class="delBtn">
+                                  <button class="border-0 bg-transparent fs-5" type="button" data-bs-toggle="modal" data-bs-target="#delArticles<?php echo $article["id"]; ?>" class="delBtn">
                                     <i class="fa-solid fa-trash text-danger"></i>
                                   </button>
 

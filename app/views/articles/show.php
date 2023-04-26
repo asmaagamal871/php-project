@@ -6,27 +6,33 @@ include __DIR__ . '/../partials/header.php';
 <!-- page content -->
 <div class="right_col" role="main">
     <div class="container row">
-        <div class="col-8 offset-2">
-            <h1 class="text-dark text-center">Articles</h1>
-            <div class="w-50 px-5  mx-auto showContainer col-12" id="makeMaxWidth">
-                <h5 class="text-center text-dark mb-4">Title :
+        <div class="col-8 offset-2 fs-6">
+            <div class="w-50 px-5 mx-auto showContainer col-12" id="makeMaxWidth">
+                <h1 class="text-center mb-4 " style="color:#73879C">
+
                     <?= $res[0]["title"]; ?>
+
+                </h1>
+                <h5 class="mb-4 fs-6" style="color:#73879C">Date :
+                    <span class="text-dark mb-4 fs-6">
+                        <?= $res[0]["publish_date"]; ?>
+                    </span>
                 </h5>
-                <h5 class="text-center text-dark mb-4">Date :
-                    <?= $res[0]["publish_date"]; ?>
-                </h5>
-                <h5 class="text-center text-dark mb-4">Summary :
-                    <?= $res[0]["summary"]; ?>
+                <h5 class="mb-4 fs-6" style="color:#73879C">Summary :
+                    <span class="text-dark mb-4 fs-6">
+                        <?= $res[0]["summary"]; ?>
+                    </span>
                 </h5>
                 <h5 class="text-center text-dark mb-4">
                     <img src="/images/articles/<?= $res[0]["image"]; ?>" style="width: 200px; height: 200px">
                 </h5>
-                <h5 class="text-center text-dark">Description</h5>
-                <h6 class="text-center text-dark mb-4">
-                    <?= $res[0]["description"]; ?>
-                </h6>
+                <h5 class="mb-4 fs-6" style="color:#73879C">Description :
+                    <span class="text-center text-dark mb-5 fs-6" style="color:#73879C">
 
-                <a href="/articles" class="offset-4 px-4 btn btn-outline-dark "><i class="fa-sharp fa-solid fa-arrow-left"></i> Back</a>
+                        <?= $res[0]["description"]; ?>
+                    </span>
+                </h5>
+                <a href="/articles" class=" mt-4 offset-4 px-4 btn btn-outline-dark "><i class="fa-sharp fa-solid fa-arrow-left"></i> Back</a>
             </div>
         </div>
     </div>
