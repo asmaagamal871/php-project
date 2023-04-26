@@ -7,21 +7,31 @@ include __DIR__ . '/../partials/header.php';
 <div class="right_col" role="main">
     <div class="container row">
         <div class="col-8 offset-2">
-            <h1 class="text-dark text-center">Show</h1>
-            <div class="w-50 px-5  mx-auto showContainer col-12" id="makeMaxWidth"> <!-- Edited in CSS -->
-                <h5 class="text-center text-dark mb-4">ID :
+            <div class="w-50 px-5  mx-auto form-container col-12 " id="makeMaxWidth"> <!-- Edited in CSS -->
+                <h2 class="fw-bold text-dark text-center  fs-4">Show</h2>
+                <label class="form-label mt-2 fw-bold mt-1">ID : </label>
+                <span class="text-dark mb-4 fs-6">
                     <?php echo $result[0]["id"]; ?>
-                </h5>
-                <h5 class="text-center text-dark mb-4">Name :
+                </span>
+                </br>
+                <label class="form-label mt-2 fw-bold mt-3">Name : </label>
+                <span class="text-dark mb-4 fs-6">
                     <?php echo $result[0]["name"]; ?>
-                </h5>
-                <h5 class="text-center text-dark">Description</h5>
-                <h6 class="text-center text-dark mb-4">
+                </span>
+                </br>
+
+                <label class="form-label mt-2 fw-bold mt-3">Description : </label>
+                <span class="text-dark mb-4 fs-6">
                     <?php echo  $result[0]["description"]; ?>
-                </h6>
-                <h5 class="text-center text-dark mb-4">Role :
+                </span>
+                </br>
+
+                <label class="form-label mt-2 fw-bold my-3">Role : </label>
+                <span class="text-dark mb-4 fs-6">
                     <?php echo $result[0]["role"]; ?>
-                </h5>
+                </span>
+                </br>
+
                 <a href="/groups" class="offset-4 px-4 btn btn-outline-dark "><i
                         class="fa-sharp fa-solid fa-arrow-left"></i> Back</a>
             </div>

@@ -12,7 +12,7 @@ include __DIR__ . '/../partials/header.php';
                 method="post">
                 <input type="hidden" name="_method" value="PUT">
                 <div class="w-50 px-5  mx-auto form-container col-12" id="makeMaxWidth"> <!-- Edited in CSS -->
-                    <h2 class="fw-bold text-dark text-center">Update</h2>
+                    <h2 class="fw-bold text-dark text-center fs-4">Update</h2>
                     <?php
                         if (isset($update)) {
                             if (!$update) {
@@ -22,7 +22,7 @@ include __DIR__ . '/../partials/header.php';
 ?>
                     <label for="exampleInputPassword1" class="form-label mt-2 fw-bold">Name</label>
                     <div class="input-group mb-3">
-                        <input type="text" name="name" class="form-control" id="exampleInputUser1"
+                        <input type="text" name="name" class="form-control" id="exampleInputPassword1"
                             value="<?php echo $result[0]["name"]; ?>"
                             required>
                     </div>
@@ -36,20 +36,9 @@ include __DIR__ . '/../partials/header.php';
 
                     <label for="exampleInputPassword3" class="form-label mt-2 fw-bold">Role</label>
                     <div class="input-group mb-3">
-                        <select name="role" class="form-control">
-                            <option value="admin" <?php if ($result[0]["role"] == "admin") {
-                                echo "selected";
-                            } ?>>Admin
-                            </option>
-                            <option value="editor" <?php if ($result[0]["role"] == "editor") {
-                                echo "selected";
-                            } ?>>Editor
-                            </option>
-                            <option value="user" <?php if ($result[0]["role"] == "user") {
-                                echo "selected";
-                            } ?>
-                                >User</option>
-                        </select>
+                        <input type="text" name="role" class="form-control" id="exampleInputPassword3"
+                            value="<?php echo $result[0]["role"]; ?>"
+                            disabled>
                     </div>
                     <button type="submit" class="offset-4 px-4 btn btn-outline-dark">Update</button>
                 </div>

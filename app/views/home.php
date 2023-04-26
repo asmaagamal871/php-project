@@ -8,12 +8,10 @@ if (!isset($_SESSION['user_id'])) {
 
 include __DIR__ . '/partials/header.php';
 
-// retrieve data for chart1
+// retrieve data for chart
 $db = new MySQLHandler("users");
 $rows = $db->group_vs_user();
 $rows2 = $db->user_vs_article();
-
-
 // Create arrays of labels and data values for the chart
 $labels = [];
 $data = [];
@@ -112,6 +110,7 @@ $dataObject2 = [
           </div>
         </div>
       </div> -->
+
     </div>
 
     <div class="clearfix"></div>
@@ -132,23 +131,12 @@ $dataObject2 = [
     <div class="row">
       <div class="col-md-12 col-sm-12 ">
         <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') { ?>
-
           <div class="x_panel">
             <div class="x_title">
               <h2>Group vs Number of Users</h2>
               <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
-                <!-- <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i
-                    class="fa fa-wrench"></i></a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Settings 1</a>
-                  <a class="dropdown-item" href="#">Settings 2</a>
-                </div>
-              </li>
-              <li><a class="close-link"><i class="fa fa-close"></i></a>
-              </li> -->
               </ul>
               <div class="clearfix"></div>
             </div>
@@ -156,41 +144,38 @@ $dataObject2 = [
               <div class="row">
                 <div class="col-sm-12">
                   <div class="card-box table-responsive">
-
                     <!-- chart1 -->
                     <canvas width="70%" height="25vh" id="myChart"></canvas>
-
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         <?php } ?>
 
-        <?php if (isset($_SESSION['role'])) { ?>
-
-          <div class="x_panel">
-            <div class="x_title">
-              <h2>User vs Number of Articles</h2>
-              <ul class="nav navbar-right panel_toolbox">
-                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                </li>
-              </ul>
-              <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="card-box table-responsive">
-                    <!-- chart2 -->
-                    <canvas width="70%" height="25vh" id="myChart2"></canvas>
-
+        <?php if (isset($_SESSION['role'])) {?>
+          <?php if ($_SESSION['role'] == 'editor' || $_SESSION['role'] == 'admin') { ?>
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>User vs Number of Articles</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="card-box table-responsive">
+                      <!-- chart2 -->
+                      <canvas width="70%" height="25vh" id="myChart2"></canvas>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          <?php } ?>
         <?php } ?>
 
         <?php if (!isset($_SESSION['role'])) { ?>
@@ -212,24 +197,6 @@ $dataObject2 = [
 
 <!-- Create a script that initializes the chart with the data -->
 <script>
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var chart = new Chart(ctx, {
-    type: 'bar',
-    data: <?php echo json_encode($dataObject); ?>,
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-          min: 0,
-          max: 10,
-          ticks: {
-            // forces step size to be 50 units
-            stepSize: 1
-          }
-        }
-      }
-    }
-  });
   var ctx = document.getElementById('myChart2').getContext('2d');
   var chart = new Chart(ctx, {
     type: 'bar',
@@ -248,6 +215,25 @@ $dataObject2 = [
       }
     }
   });
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var chart = new Chart(ctx, {
+    type: 'bar',
+    data: <?php echo json_encode($dataObject); ?>,
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          min: 0,
+          max: 10,
+          ticks: {
+            // forces step size to be 50 units
+            stepSize: 1
+          }
+        }
+      }
+    }
+  });
+  
 </script>
 
 
