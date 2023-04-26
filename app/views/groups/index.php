@@ -41,13 +41,13 @@ include __DIR__ . '/../partials/header.php';
                 echo "<td>".$group["description"]."</td>";
                 echo "<td>".$group["role"]."</td>";
                 // echo '<td>' . ($group['is_deleted'] ? 'Yes' : 'No') . '</td>';
-                if($group['is_deleted']){
-                  echo "<td><a class='me-3 text-dark' href='/groups/".$group["id"]."/restore'><i class='fa-solid fa-history'></i></a></td>";
-                }else{
-
-                  echo "<td><a class='me-3 text-dark' href='/groups/".$group["id"]."'><i class='fa-solid fa-eye'></i></a>";
-                  echo "<a class='me-2 text-primary' href='/groups/".$group["id"]."/edit'><i class='fa-solid fa-pen-to-square'></i></a>";
-                  ?>
+                if($group['is_deleted']) {
+                    echo "<td class='d-flex justify-content-center'><a class='me-3 fs-5' href='/groups/".$group["id"]."/restore'><i style='color:#34495E' class='fa fa-history'></i></a></td>";
+                } else {
+                    // echo "<div class='d-flex justify-content-center'>";
+                    echo "<td><a class='me-3  fs-5' href='/groups/".$group["id"]."'><i style='color:#34495E' class='fa-solid fa-eye'></i></a>";
+                    echo "<a class='me-2 text-primary fs-5' href='/groups/".$group["id"]."/edit'><i  class='fa-solid fa-pen-to-square'></i></a>";
+                    ?>
                         <form method="POST"
                           action="/groups/<?php echo $group["id"]; ?>"
                           class="delForm">
@@ -56,7 +56,7 @@ include __DIR__ . '/../partials/header.php';
                           <!-- Button trigger modal -->
                           <button type="button" data-bs-toggle="modal"
                             data-bs-target="#exampleModal<?php echo $group["id"]; ?>"
-                            class="delBtn">
+                            class="delBtn fs-5">
                             <i class="fa-solid fa-trash text-danger"></i>
                           </button>
   
@@ -85,7 +85,8 @@ include __DIR__ . '/../partials/header.php';
                           </div>
                         </form>
                         <?php
-                  echo "</td>";
+                    echo "</td>";
+                    // echo "</div>";
                 }
                 echo "</tr>";
             }
