@@ -32,8 +32,9 @@
       <a class="hiddenanchor" id="signin"></a>
 
       <?php
-      if(isset($_SESSION['error']))
-      echo '<div class="alert alert-danger"><center>'.$_SESSION['error'].'</center></div>';
+      if(isset($_SESSION['error'])) {
+          echo '<div class="alert alert-danger"><center>'.$_SESSION['error'].'</center></div>';
+      }
       unset($_SESSION['error']);
       ?>
 
@@ -49,6 +50,11 @@
               <div>
                 <input type="password" class="form-control" placeholder="Password" name="password" required="" />
               </div>
+              <div class="form-group">
+    <label for="remember_me">
+      <input type="checkbox" id="remember_me" name="remember_me"> Remember Me
+    </label>
+  </div>
               <div>
                 <button type="submit" class="btn btn-primary submit">Log in</button>
                 <a class="reset_pass" href="#">Lost your password?</a>

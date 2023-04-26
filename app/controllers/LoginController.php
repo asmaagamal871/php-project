@@ -28,6 +28,19 @@ class LoginController extends BaseController
             if ($db->authenticate($email, $password)) {
                 $_SESSION['logged_in'] = true;
                 $_SESSION['last_login'] = date('Y-m-d H:i:s');
+
+                if ($_POST['remember_me']) {
+                    // Set a cookie with the user's login credentials
+                    setcookie('email', $_POST['email'], time() + 86400 * 30);
+                    setcookie('password', $_POST['password'], time() + 86400 * 30);
+                  }
+
+                  if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
+                    // Pre-fill the login form with the saved credentials
+                    $email = $_COOKIE['email'];
+                    $password = $_COOKIE['password'];
+                  }
+
                 $data = array(
                     "last_login" => $_SESSION['last_login']
                            );
