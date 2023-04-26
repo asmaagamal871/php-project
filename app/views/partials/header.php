@@ -81,8 +81,8 @@
 
 									<li><a><i class="fa fa-edit"></i> Articles <span class="fa fa-chevron-down"></span></a>
 										<ul>
-											<li><a href="../articles/index.php">Index</a></li>
-											<li><a href="../articles/create.php">Create</a></li>
+											<li><a href="/articles">Index</a></li>
+											<li><a href="/articles/create">Create</a></li>
 										</ul>
 									</li>
 								</ul>

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file contains all the routes for the project
  */
@@ -19,5 +20,12 @@ SimpleRouter::get('/groups/{id}', 'GroupController@show');
 SimpleRouter::get('/groups/{id}/edit', 'GroupController@edit');
 SimpleRouter::put('/groups/{id}', 'GroupController@update');
 SimpleRouter::delete('/groups/{id}', 'GroupController@destroy');
+
+SimpleRouter::get('/articles', 'ArticleController@index');
+SimpleRouter::get('/articles/create', 'ArticleController@create');
+SimpleRouter::post('/articles', 'ArticleController@store');
+SimpleRouter::get('/articles/{id}', 'ArticleController@show');
+SimpleRouter::delete('/articles/{id}', 'ArticleController@destroy');
+
 
 SimpleRouter::start();

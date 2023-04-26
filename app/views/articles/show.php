@@ -1,49 +1,33 @@
 <?php
-
 include __DIR__ . '/../partials/header.php';
-// require_once("../../controllers/articleController.php");
-
 ?>
 <!-- /top navigation -->
-
-<!-- page content -->
 <link rel="stylesheet" href="/css/groupsForm.css">
+<!-- page content -->
 <div class="right_col" role="main">
     <div class="container row">
         <div class="col-8 offset-2">
-            <form action="/articles" method="post" enctype="multipart/form-data">
-                <div class="w-50 px-5  mx-auto form-container col-12" id="makeMaxWidth"> <!-- Edited in CSS -->
-                    <h2 class="fw-bold text-dark text-center">Create</h2>
-                    <?php
-                    if (isset($create)) {
-                        if (!$create) {
-                            echo `<div class="alert alert-danger text-center fs-6" role="alert" id="myAlert">Group isn't Created</div>`;
-                        }
-                    }
-                    ?>
-                    <label for="exampleInputPassword1" class="form-label mt-2 fw-bold">Title</label>
-                    <div class="input-group mb-3">
-                        <input type="text" name="title" class="form-control" id="exampleInputUser1" required>
-                    </div>
+            <h1 class="text-dark text-center">Articles</h1>
+            <div class="w-50 px-5  mx-auto showContainer col-12" id="makeMaxWidth">
+                <h5 class="text-center text-dark mb-4">Title :
+                    <?= $res[0]["title"]; ?>
+                </h5>
+                <h5 class="text-center text-dark mb-4">Date :
+                    <?= $res[0]["publish_date"]; ?>
+                </h5>
+                <h5 class="text-center text-dark mb-4">Summary :
+                    <?= $res[0]["summary"]; ?>
+                </h5>
+                <h5 class="text-center text-dark mb-4">
+                    <img src="/images/articles/<?= $res[0]["image"]; ?>" style="width: 200px; height: 200px">
+                </h5>
+                <h5 class="text-center text-dark">Description</h5>
+                <h6 class="text-center text-dark mb-4">
+                    <?= $res[0]["description"]; ?>
+                </h6>
 
-                    <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Summary</label>
-                    <div class="input-group mb-3">
-                        <textarea type="text" name="summary" class="form-control" id="exampleInputPassword2" rows="1" required></textarea>
-                    </div>
-
-                    <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Description</label>
-                    <div class="input-group mb-3">
-                        <textarea type="text" name="description" class="form-control" id="exampleInputPassword2" rows="1" required></textarea>
-                    </div>
-
-                    <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Image</label>
-                    <div class="input-group mb-3">
-                        <input type="file" name="image" class="form-control" id="exampleInputUser1" required>
-                    </div>
-
-                    <button type="submit" class="offset-4 px-4 btn btn-outline-dark">Create</button>
-                </div>
-            </form>
+                <a href="/articles" class="offset-4 px-4 btn btn-outline-dark "><i class="fa-sharp fa-solid fa-arrow-left"></i> Back</a>
+            </div>
         </div>
     </div>
 
@@ -55,6 +39,7 @@ include __DIR__ . '/../partials/header.php';
 <?php
 include __DIR__ . '/../partials/footer.php';
 ?>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="../../vendors/validator/multifield.js"></script>
@@ -104,7 +89,15 @@ include __DIR__ . '/../partials/footer.php';
     }).prop('checked', false);
 </script>
 
+<script>
+    var alert = document.getElementById("myAlert");
 
+    alert.style.display = "block";
+
+    setTimeout(function() {
+        alert.style.display = "none";
+    }, 1500);
+</script>
 <?php
 include __DIR__ . '/../partials/scripts.php';
 ?>

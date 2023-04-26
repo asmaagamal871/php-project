@@ -4,39 +4,52 @@ if (!defined('__ROOT__'))
     define('__ROOT__', dirname(dirname(__FILE__)));
 require_once(__ROOT__ . "/models/MySQLHandler.php");
 
-
-function index()
+class ArticleController extends BaseController
 {
-    $MySQLHandler = new MySQLHandler("articles");
+    public function index()
+    {
+        $article = new Article;
+        $articles = $article->getArticles();
+        include __DIR__ . '/../views/articles/index.php';
+    }
 
-    $MySQLHandler->connect();
-    $res = $MySQLHandler->get_all_records_paginated();
-    // echo ("All Product data " . json_encode($res));
-    return $res;
-}
+    public function show($id)
+    {
+        $article = new Article;
+        $res = $article->getByID($id);
+        include __DIR__ . '/../views/articles/show.php';
+    }
+    public function create()
+    {
+        include __DIR__ . '/../views/articles/create.php';
+    }
 
-function create()
-{
-    $MySQLHandler = new MySQLHandler("articles");
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $MySQLHandler->connect();
+    public function store()
+    {
+        $article = new Article;
+
         $_POST["publish_date"] = date('Y-m-d');
-
         $_POST["user_id"] = $_SESSION['user_id'];
-        // $_POST["user_id"] = 1;
-
         $ext = substr(strrchr($_FILES['image']['name'], '.'), 1);;
         $new_file_name = date('Y_m_d_H_i_s') . '.' . $ext;
-        $target = __DIR__ . '/../public/images/articles/';
+        $target = 'C:/xampp/htdocs/iti/php-project/public/images/articles/';
         move_uploaded_file($_FILES['image']['tmp_name'], $target . $new_file_name);
-
         $_POST["image"] = $new_file_name;
-        $MySQLHandler->save($_POST);
-    }
-}
+        $articles = $article->create($_POST);
 
-function returnRes(array $data, $statusCode)
-{
-    header('Content-Type: application/json');
-    http_response_code($statusCode);
+        header("Location: /articles");
+        exit;
+    }
+
+    public function destroy($id)
+    {
+        $article = new Article;
+        $delete = $article->delete($id);
+        if ($delete) {
+            header("Location: /articles");
+            exit;
+        } else {
+            //include __DIR__ . '/../views/groups/create.php';
+        }
+    }
 }
