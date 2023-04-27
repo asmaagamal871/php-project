@@ -11,7 +11,7 @@ class User
 
     public function getUsers()
     {
-        return $this->db->get_all_records_paginated();
+        return $this->db->get_all();
     }
 
     public function create()
@@ -35,6 +35,11 @@ class User
             "group_id" => $_POST["group_id"],
         );
         return $this->db->update($data, $id);
+    }
+
+    public function restore($id)
+    {
+        return $this->db->restore($id);
     }
 
     public function delete($id)
