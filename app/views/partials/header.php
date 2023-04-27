@@ -51,16 +51,18 @@
 								echo  $_SESSION['username'];
 								?>
 							</h2>
-							
+
 						</div>
-						<small><p class="text-center "><strong>last login: </strong> 
-							<?php
-							$timestamp = strtotime($_SESSION['last_login']);
-							$readable_datetime = date('F j, Y - g:i a', $timestamp);
+						<small>
+							<p class="text-center "><strong>last login: </strong>
+								<?php
+								$timestamp = strtotime($_SESSION['last_login']);
+								$readable_datetime = date('F j, Y - g:i a', $timestamp);
 
 								echo  $readable_datetime;
 								?>
-							</p></small>
+							</p>
+						</small>
 					</div>
 					<!-- /menu profile quick info -->
 
@@ -77,8 +79,8 @@
 										</a></li>
 									<li><a><i class="fa fa-user"></i> Users <span class="fa fa-chevron-down"></span></a>
 										<ul>
-											<li><a href="../users/index.php">Index</a></li>
-											<li><a href="../users/create.php">Create</a></li>
+											<li><a href="/users">Index</a></li>
+											<li><a href="/users/create">Create</a></li>
 										</ul>
 									</li>
 
