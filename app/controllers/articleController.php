@@ -37,7 +37,7 @@ class ArticleController extends BaseController
         $_POST["user_id"] = $_SESSION['user_id'];
         $ext = substr(strrchr($_FILES['image']['name'], '.'), 1);;
         $new_file_name = date('Y_m_d_H_i_s') . '.' . $ext;
-        $target = 'C:/xampp/htdocs/iti/php-project/public/images/articles/';
+        $target = __DIR__ . '/../../public/images/articles/';
         move_uploaded_file($_FILES['image']['tmp_name'], $target . $new_file_name);
         $_POST["image"] = $new_file_name;
         $articles = $article->create($_POST);
