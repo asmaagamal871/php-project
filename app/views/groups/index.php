@@ -7,8 +7,9 @@ include __DIR__ . '/../partials/header.php';
 
     <h3 class="text-dark text-center fw-bold my-3">Groups</h3>
     <?php
-    if (isset($_SESSION['error']))
+    if (isset($_SESSION['error'])) {
       echo '<div class="alert alert-danger"><center>' . $_SESSION['error'] . '</center></div>';
+    }
     unset($_SESSION['error']);
     ?>
     <div class="row">
@@ -38,40 +39,47 @@ include __DIR__ . '/../partials/header.php';
                           echo "<td>" . $group["name"] . "</td>";
                           echo "<td>" . $group["description"] . "</td>";
                           echo "<td>" . $group["role"] . "</td>";
-                          echo "<td><a class='me-3 text-dark' href='/groups/" . $group["id"] . "'><i class='fa-solid fa-eye'></i></a>";
-                          echo "<a class='me-2 text-primary' href='/groups/" . $group["id"] . "/edit'><i class='fa-solid fa-pen-to-square'></i></a>";
+                          // echo '<td>' . ($group['is_deleted'] ? 'Yes' : 'No') . '</td>';
+                          if ($group['is_deleted']) {
+                            echo "<td class='d-flex justify-content-center'><a class='me-3 fs-5' href='/groups/" . $group["id"] . "/restore'><i style='color:#34495E' class='fa fa-history'></i></a></td>";
+                          } else {
+                            // echo "<div class='d-flex justify-content-center'>";
+                            echo "<td><a class='me-3  fs-5' href='/groups/" . $group["id"] . "'><i style='color:#34495E' class='fa-solid fa-eye'></i></a>";
+                            echo "<a class='me-2 text-primary fs-5' href='/groups/" . $group["id"] . "/edit'><i  class='fa-solid fa-pen-to-square'></i></a>";
                       ?>
-                          <form method="POST" action="/groups/<?php echo $group["id"]; ?>" class="delForm">
-                            <input type="hidden" name="_method" value="DELETE">
+                            <form method="POST" action="/groups/<?php echo $group["id"]; ?>" class="delForm">
+                              <input type="hidden" name="_method" value="DELETE">
 
-                            <!-- Button trigger modal -->
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $group["id"]; ?>" class="delBtn">
-                              <i class="fa-solid fa-trash text-danger"></i>
-                            </button>
+                              <!-- Button trigger modal -->
+                              <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $group["id"]; ?>" class="delBtn fs-5">
+                                <i class="fa-solid fa-trash text-danger"></i>
+                              </button>
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal<?php echo $group["id"]; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">
-                                      Confirm Deletion</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                  </div>
-                                  <div class="modal-body">
-                                    Are you sure you want to delete
-                                    <?php echo $group["name"]; ?>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                              <!-- Modal -->
+                              <div class="modal fade" id="exampleModal<?php echo $group["id"]; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                        Confirm Deletion</h1>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      Are you sure you want to delete
+                                      <?php echo $group["name"]; ?>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                      <button type="submit" class="btn btn-danger">Delete</button>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                          </form>
+                            </form>
                       <?php
-                          echo "</td>";
+                            echo "</td>";
+                            // echo "</div>";
+                          }
                           echo "</tr>";
                         }
                       }

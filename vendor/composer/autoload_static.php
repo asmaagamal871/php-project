@@ -33,6 +33,8 @@ class ComposerStaticInit45dc0338abc67cde9b566c717b3f888a
     );
 
     public static $classMap = array (
+        'Article' => __DIR__ . '/../..' . '/app/models/Article.php',
+        'ArticleController' => __DIR__ . '/../..' . '/app/controllers/ArticleController.php',
         'BaseController' => __DIR__ . '/../..' . '/app/controllers/BaseController.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'DbHandler' => __DIR__ . '/../..' . '/app/models/DbHandler.php',

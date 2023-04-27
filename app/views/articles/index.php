@@ -1,18 +1,16 @@
 <?php
 
-session_start();
+// session_start();
 include __DIR__ . '/../partials/header.php';
-require_once("../../controllers/articleController.php");
+// require_once("../../controllers/articleController.php");
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  create();
-}
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//     create();
+// }
 
-$result = index();
+// $result = index();
 
 ?>
-
-
 <div class="right_col" role="main">
   <div class="">
     <div class="page-title">
@@ -65,34 +63,71 @@ $result = index();
                         <th>Title</th>
                         <th>Summary</th>
                         <th>Publish Date</th>
-                        <th>Description</th>
-                        <th>User Id</th>
                         <th>Image</th>
+                        <th>Action</th>
                       </tr>
                     </thead>
 
-
                     <tbody>
-                      <?php for ($i = 0; $i < sizeof($result); $i++) { ?>
-                        <tr>
-                          <td>
-                            <?= $result[$i]['title'] ?>
-                          </td>
-                          <td>
-                            <?= $result[$i]['summary'] ?>
-                          </td>
-                          <td>
-                            <?= $result[$i]['publish_date'] ?>
-                          </td>
-                          <td>
-                            <?= $result[$i]['description'] ?>
-                          </td>
-                          <td>
-                            <?= $result[$i]['user_id'] ?>
-                          </td>
-                          <td><img src="./../../public/images/articles/<?= $result[$i]['image'] ?>" style="width: 30px; height: 30px"></td>
-                        </tr>
-                      <?php } ?>
+
+                      <?php
+                      if (isset($articles)) {
+                        foreach ($articles as $article) { ?>
+                          <tr>
+                            <td>
+                              <?= $article['title'] ?>
+                            </td>
+                            <td>
+                              <?= $article['summary'] ?>
+                            </td>
+                            <td>
+                              <?= $article['publish_date'] ?>
+                            </td>
+
+                            <td><img src="/images/articles/<?= $article['image'] ?>" style="width: 30px; height: 30px"></td>
+
+                            <td>
+                              <div class="d-flex">
+                                <a class='me-3 fs-5 text-dark' href='/articles/<?php echo $article["id"]; ?>'><i style='color:#34495E' class='fa-solid fa-eye'></i></a>
+                                <form method="POST" action="/articles/<?php echo $article["id"]; ?>" class="delForm">
+                                  <input type="hidden" name="_method" value="DELETE">
+
+                                  <!-- Button trigger modal -->
+                                  <button class="border-0 bg-transparent fs-5" type="button" data-bs-toggle="modal" data-bs-target="#delArticles<?php echo $article["id"]; ?>" class="delBtn">
+                                    <i class="fa-solid fa-trash text-danger"></i>
+                                  </button>
+
+                                  <!-- Modal -->
+                                  <div class="modal fade" id="delArticles<?php echo $article["id"]; ?>" tabindex="-1" aria-labelledby="delArticlesLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h1 class="modal-title fs-5" id="delArticlesLabel">
+                                            Confirm Deletion</h1>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                          Are you sure you want to delete
+                                          <?= $article['title']; ?>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                          <button type="submit" class="btn btn-danger">Delete</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+                          </tr>
+
+                          </form>
+                      <?php
+                          echo "</td>";
+                          echo "</tr>";
+                        }
+                      } ?>
+
+
                     </tbody>
                   </table>
                 </div>

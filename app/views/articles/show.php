@@ -6,34 +6,33 @@ include __DIR__ . '/../partials/header.php';
 <!-- page content -->
 <div class="right_col" role="main">
     <div class="container row">
-        <div class="col-8 offset-2">
-            <div class="w-50 px-5  mx-auto form-container col-12 " id="makeMaxWidth"> <!-- Edited in CSS -->
-                <h2 class="fw-bold text-dark text-center  fs-4">Show</h2>
-                <label class="form-label mt-2 fw-bold mt-1">ID : </label>
-                <span class="text-dark mb-4 fs-6">
-                    <?php echo $result[0]["id"]; ?>
-                </span>
-                </br>
-                <label class="form-label mt-2 fw-bold mt-3">Name : </label>
-                <span class="text-dark mb-4 fs-6">
-                    <?php echo $result[0]["name"]; ?>
-                </span>
-                </br>
+        <div class="col-8 offset-2 fs-6">
+            <div class="w-50 px-5 mx-auto showContainer col-12" id="makeMaxWidth">
+                <h1 class="text-center mb-4 " style="color:#73879C">
 
-                <label class="form-label mt-2 fw-bold mt-3">Description : </label>
-                <span class="text-dark mb-4 fs-6">
-                    <?php echo  $result[0]["description"]; ?>
-                </span>
-                </br>
+                    <?= $res[0]["title"]; ?>
 
-                <label class="form-label mt-2 fw-bold my-3">Role : </label>
-                <span class="text-dark mb-4 fs-6">
-                    <?php echo $result[0]["role"]; ?>
-                </span>
-                </br>
+                </h1>
+                <h5 class="mb-4 fs-6" style="color:#73879C">Date :
+                    <span class="text-dark mb-4 fs-6">
+                        <?= $res[0]["publish_date"]; ?>
+                    </span>
+                </h5>
+                <h5 class="mb-4 fs-6" style="color:#73879C">Summary :
+                    <span class="text-dark mb-4 fs-6">
+                        <?= $res[0]["summary"]; ?>
+                    </span>
+                </h5>
+                <h5 class="text-center text-dark mb-4">
+                    <img src="/images/articles/<?= $res[0]["image"]; ?>" style="width: 200px; height: 200px">
+                </h5>
+                <h5 class="mb-4 fs-6" style="color:#73879C">Description :
+                    <span class="text-center text-dark mb-5 fs-6" style="color:#73879C">
 
-                <a href="/groups" class="offset-4 px-4 btn btn-outline-dark "><i
-                        class="fa-sharp fa-solid fa-arrow-left"></i> Back</a>
+                        <?= $res[0]["description"]; ?>
+                    </span>
+                </h5>
+                <a href="/articles" class=" mt-4 offset-4 px-4 btn btn-outline-dark "><i class="fa-sharp fa-solid fa-arrow-left"></i> Back</a>
             </div>
         </div>
     </div>

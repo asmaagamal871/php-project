@@ -47,7 +47,8 @@ CREATE TABLE `groups` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
-  `role` varchar(255) NOT NULL
+  `role` varchar(255) NOT NULL,
+  `is_deleted` BOOLEAN DEFAULT false
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -64,7 +65,7 @@ CREATE TABLE `users` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `group_id` int(11) NOT NULL,
-  `last_login` date NOT NULL
+  `last_login` date NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -133,3 +134,7 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+/* Inserts*/
+INSERT INTO `groups` (`name`, `description`, `role`) VALUES ('Admins', 'This group is for admins', 'admin');
+INSERT INTO `groups` (`name`, `description`, `role`) VALUES ('Editors', 'This group is for editors', 'editor');

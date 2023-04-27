@@ -8,10 +8,10 @@ if (!isset($_SESSION['user_id'])) {
 
 include __DIR__ . '/partials/header.php';
 
-// retrieve data for chart1
+// retrieve data for chart
 $db = new MySQLHandler("users");
 $rows = $db->group_vs_user();
-
+$rows2 = $db->user_vs_article();
 // Create arrays of labels and data values for the chart
 $labels = [];
 $data = [];
@@ -19,7 +19,12 @@ foreach ($rows as $row) {
   $labels[] = $row['group_name'];
   $data[] = $row['user_count'];
 }
-
+$labels2 = [];
+$data2 = [];
+foreach ($rows2 as $row) {
+  $labels2[] = $row['user_name'];
+  $data2[] = $row['article_count'];
+}
 // Create a JSON object that represents the data for the chart
 $dataObject = [
   'labels' => $labels,
@@ -48,7 +53,33 @@ $dataObject = [
     ]
   ]
 ];
-
+$dataObject2 = [
+  'labels' => $labels2,
+  'datasets' => [
+    [
+      'label' => 'Number of articles',
+      'data' => $data2,
+      'backgroundColor' => [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+      ],
+      'borderColor' => [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+      ],
+      'borderWidth' => 1,
+      'barThickness' => 80,
+    ]
+  ]
+];
 ?>
 
 <!-- chart -->
@@ -59,9 +90,16 @@ $dataObject = [
   <div class="">
     <div class="page-title">
       <div class="title_left">
-        <h3>Admins! <small>Below are some useful analysis</small></h3><br>
+        <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') { ?>
+          <h3>Admins! <small>Below are some useful analysis</small> </h3><br>
+        <?php } ?>
+        <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'editor') { ?>
+          <h3>Editors! <small>Below are some useful analysis</small></h3><br>
+        <?php } ?>
+        <?php if (!isset($_SESSION['role'])) { ?>
+          <h3>Hey <?php echo $_SESSION['username']; ?> ! </h3><br>
+        <?php } ?>
       </div>
-
       <!-- <div class="title_right">
         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
           <div class="input-group">
@@ -72,71 +110,111 @@ $dataObject = [
           </div>
         </div>
       </div> -->
+
     </div>
 
     <div class="clearfix"></div>
 
     <div class="row">
       <div class="col-md-12 col-sm-12 ">
-        <div class="x_panel">
-          <div class="x_title">
-            <h2>Group vs Number of Users</h2>
-            <ul class="nav navbar-right panel_toolbox">
-              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-              </li>
-              <!-- <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i
-                    class="fa fa-wrench"></i></a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Settings 1</a>
-                  <a class="dropdown-item" href="#">Settings 2</a>
-                </div>
-              </li>
-              <li><a class="close-link"><i class="fa fa-close"></i></a>
-              </li> -->
-            </ul>
-            <div class="clearfix"></div>
-          </div>
-          <div class="x_content">
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="card-box table-responsive">
+        <?php
+        if (isset($_SESSION['error'])) {
+          echo '<div class="alert alert-danger"><center>' . $_SESSION['error'] . '</center></div>';
+        }
+        unset($_SESSION['error']);
+        ?>
 
-                  <!-- chart1 -->
-                  <canvas width="70%" height="25vh" id="myChart"></canvas>
-
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <div class="x_panel">
-          <div class="x_title">
-            <h2>User vs Number of Articles</h2>
-            <ul class="nav navbar-right panel_toolbox">
-              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-              </li>
-            </ul>
-            <div class="clearfix"></div>
-          </div>
-          <div class="x_content">
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="card-box table-responsive">
-                  <!-- chart2 -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
+
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 ">
+        <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') { ?>
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Group vs Number of Users</h2>
+              <ul class="nav navbar-right panel_toolbox">
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-box table-responsive">
+                    <!-- chart1 -->
+                    <canvas width="70%" height="25vh" id="myChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <?php } ?>
+
+        <?php if (isset($_SESSION['role'])) {?>
+          <?php if ($_SESSION['role'] == 'editor' || $_SESSION['role'] == 'admin') { ?>
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>User vs Number of Articles</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="card-box table-responsive">
+                      <!-- chart2 -->
+                      <canvas width="70%" height="25vh" id="myChart2"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <?php } ?>
+        <?php } ?>
+
+        <?php if (!isset($_SESSION['role'])) { ?>
+          <div class="x_panel">
+            <div class="card-box table-responsive" style="display: flex; justify-content:center;">
+              <!-- Gif -->
+              <img src="/images/trophy.gif" class="animation shadow" width="300px">
+            </div>
+          </div>
+        <?php } ?>
+
+
+      </div>
+
+    </div>
   </div>
+
 </div>
 
 <!-- Create a script that initializes the chart with the data -->
 <script>
+  var ctx = document.getElementById('myChart2').getContext('2d');
+  var chart = new Chart(ctx, {
+    type: 'bar',
+    data: <?php echo json_encode($dataObject2); ?>,
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          min: 0,
+          max: 10,
+          ticks: {
+            // forces step size to be 50 units
+            stepSize: 1
+          }
+        }
+      }
+    }
+  });
   var ctx = document.getElementById('myChart').getContext('2d');
   var chart = new Chart(ctx, {
     type: 'bar',
@@ -155,6 +233,7 @@ $dataObject = [
       }
     }
   });
+  
 </script>
 
 

@@ -18,10 +18,12 @@ SimpleRouter::get('/groups/create', 'GroupController@create');
 SimpleRouter::post('/groups', 'GroupController@store');
 SimpleRouter::get('/groups/{id}', 'GroupController@show');
 SimpleRouter::get('/groups/{id}/edit', 'GroupController@edit');
+SimpleRouter::get('/groups/{id}/restore', 'GroupController@restore');
 SimpleRouter::put('/groups/{id}', 'GroupController@update');
 SimpleRouter::delete('/groups/{id}', 'GroupController@destroy');
 
 //Users
+
 SimpleRouter::get('/users', 'UserController@index');
 SimpleRouter::get('/users/create', 'UserController@create');
 SimpleRouter::post('/users', 'UserController@store');
@@ -29,5 +31,13 @@ SimpleRouter::get('/users/{id}', 'UserController@show');
 SimpleRouter::get('/users/{id}/edit', 'UserController@edit');
 SimpleRouter::put('/users/{id}', 'UserController@update');
 SimpleRouter::delete('/users/{id}', 'UserController@destroy');
+
+
+SimpleRouter::get('/articles', 'ArticleController@index');
+SimpleRouter::get('/articles/create', 'ArticleController@create');
+SimpleRouter::post('/articles', 'ArticleController@store');
+SimpleRouter::get('/articles/{id}', 'ArticleController@show');
+SimpleRouter::delete('/articles/{id}', 'ArticleController@destroy');
+
 
 SimpleRouter::start();

@@ -29,9 +29,13 @@ class Group
         $data = array(
             "name" => $_POST["name"],
             "description" => $_POST["description"],
-            "role" => $_POST["role"]
         );
         return $this->db->update($data, $id);
+    }
+
+    public function restore($id)
+    {
+        return $this->db->restore($id);
     }
 
     public function delete($id)

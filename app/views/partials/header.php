@@ -24,6 +24,7 @@
 	<!-- Custom Theme Style -->
 	<link href="/css/custom.css" rel="stylesheet">
 
+	<link rel="icon" type="image/x-icon" href="images/ball.ico">
 
 </head>
 
@@ -50,7 +51,16 @@
 								echo  $_SESSION['username'];
 								?>
 							</h2>
+							
 						</div>
+						<small><p class="text-center "><strong>last login: </strong> 
+							<?php
+							$timestamp = strtotime($_SESSION['last_login']);
+							$readable_datetime = date('F j, Y - g:i a', $timestamp);
+
+								echo  $readable_datetime;
+								?>
+							</p></small>
 					</div>
 					<!-- /menu profile quick info -->
 
@@ -81,8 +91,8 @@
 
 									<li><a><i class="fa fa-edit"></i> Articles <span class="fa fa-chevron-down"></span></a>
 										<ul>
-											<li><a href="../articles/index.php">Index</a></li>
-											<li><a href="../articles/create.php">Create</a></li>
+											<li><a href="/articles">Index</a></li>
+											<li><a href="/articles/create">Create</a></li>
 										</ul>
 									</li>
 								</ul>
