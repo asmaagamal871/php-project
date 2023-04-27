@@ -124,7 +124,7 @@ class MySQLHandler implements DbHandler
         $_SESSION['group_id'] = $user['group_id'];
         return true;
     }
-    
+
 
     public function search($column, $column_value)
     {
@@ -203,23 +203,26 @@ class MySQLHandler implements DbHandler
             return false;
         }
     }
-    public function group_vs_user(){
+    public function group_vs_user()
+    {
         $count_users = "SELECT groups.name as group_name,COUNT(*) as user_count FROM users, groups where groups.id=users.group_id group by groups.name";
         $result = mysqli_query($this->_db_handler, $count_users);
         return $result;
     }
-    public function user_vs_article(){
+    public function user_vs_article()
+    {
         $count_articles = "SELECT users.username as user_name,COUNT(*) as article_count FROM users, articles where users.id=articles.user_id group by users.username";
         $result = mysqli_query($this->_db_handler, $count_articles);
         return $result;
     }
 
-    public function restore( $id) {
+    public function restore($id)
+    {
         $table = $this->_table;
         $primary_key = $this->_primary_key;
         // restore the row with the given ID in the specified table
         $sql = "UPDATE $table SET is_deleted = false WHERE $id = $primary_key";
-        $result = mysqli_query($this->_db_handler,$sql);
+        $result = mysqli_query($this->_db_handler, $sql);
         return $result;
-      }
+    }
 }

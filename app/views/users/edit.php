@@ -10,7 +10,7 @@ include __DIR__ . '/../partials/header.php';
             <form action="/users/<?php echo $result[0]["id"]; ?>" method="post">
                 <input type="hidden" name="_method" value="PUT">
                 <div class="w-50 px-5  mx-auto form-container col-12" id="makeMaxWidth"> <!-- Edited in CSS -->
-                    <h2 class="fw-bold text-dark text-center">Update</h2>
+                    <h2 class="fw-bold text-dark text-center fs-4">Update</h2>
                     <?php
                     if (isset($update)) {
                         if (!$update) {
