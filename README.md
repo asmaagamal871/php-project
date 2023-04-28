@@ -3,3 +3,74 @@
 </div>
  <h1 align="center" class="fs-1"> El-La3eeb! </h1>
 
+# Introduction
+This is a simple PHP-based admin-panel. Our website is roles driven providing different level of access to different user groups. We have two main roles, admins and editors, each of which is assigned different permissions to create, read, edit, and delete articles on system.
+
+## Demo
+
+:tv: [Preview]() 
+
+## INSTALLATION
+<pre>
+git clone https://github.com/asmaagamal871/php-project
+</pre>
+
+-Database creation
+--create database
+--import php_project.sql
+--create config.php
+
+
+<pre>
+composer install
+</pre>
+
+<pre>
+composer dump-autoload
+</pre>
+
+-run project
+
+<pre>
+cd public
+</pre>
+
+<pre>
+php -S localhost:9000
+</pre>
+
+## Features
+
+
+
+
+## Technologies
+- PHP
+- MySQL
+- JS
+- Bootstrap
+- CSS
+- HTML
+
+## Packages
+-
+
+## Roles 
+
+| Role |  Permission |
+| --- | --- |
+| Admin |  Full access  |
+| Editor |  Full access on articles|
+| User | Create and view their own articles  |
+
+## Authors
+
+- [Asmaa Gamal](https://github.com/asmaagamal871)
+
+- [Mayar Hamed](https://github.com/MayarHamed/)
+
+- [Shehab Zahran](https://github.com/Shehab8K)
+
+- [Nehad Osman](https://github.com/nehadosman)
+
+- [Sondos Saied](https://github.com/Sondos11)
