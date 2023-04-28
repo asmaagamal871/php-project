@@ -44,9 +44,9 @@ include __DIR__ . '/../partials/header.php';
                           echo "<td>" . $user["phone"] . "</td>";
                           echo "<td>" . $user["group_name"] . "</td>";
 
-                          // if ($user['is_deleted']) {
-                          //   echo "<td class='d-flex justify-content-center'><a class='me-3 fs-5' href='/users/" . $user["id"] . "/restore'><i style='color:#34495E' class='fa fa-history'></i></a></td>";
-                          // } else {
+                          if ($user['is_deleted']) {
+                            echo "<td class='d-flex justify-content-center'><a class='me-3 fs-5' href='/users/" . $user["id"] . "/restore'><i style='color:#34495E' class='fa fa-history'></i></a></td>";
+                          } else {
 
                           echo "<td><a class='me-3 text-dark fs-5' href='/users/" . $user["id"] . "'><i  style='color:#34495E' class='fa-solid fa-eye'></i></a>";
                           echo "<a class='me-2 text-primary fs-5' href='/users/" . $user["id"] . "/edit'><i class='fa-solid fa-pen-to-square'></i></a>";
@@ -89,7 +89,7 @@ include __DIR__ . '/../partials/header.php';
                           </form>
                       <?php
                           echo "</td>";
-                          // }
+                          }
                           echo "</tr>";
                         }
                       }

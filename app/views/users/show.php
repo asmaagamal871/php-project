@@ -52,7 +52,7 @@ include __DIR__ . '/../partials/header.php';
 
     <?php
     include __DIR__ . '/../partials/footer.php';
-    ?>
+?>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -113,5 +113,5 @@ include __DIR__ . '/../partials/header.php';
         }, 1500);
     </script>
     <?php
-    include __DIR__ . '/../partials/scripts.php';
-    ?>
+include __DIR__ . '/../partials/scripts.php';
+?>
