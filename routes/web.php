@@ -29,6 +29,8 @@ SimpleRouter::get('/users/create', 'UserController@create');
 SimpleRouter::post('/users', 'UserController@store');
 SimpleRouter::get('/users/{id}', 'UserController@show');
 SimpleRouter::get('/users/{id}/edit', 'UserController@edit');
+SimpleRouter::get('/users/{id}/restore', 'UserController@restore');
+
 SimpleRouter::put('/users/{id}', 'UserController@update');
 SimpleRouter::delete('/users/{id}', 'UserController@destroy');
 

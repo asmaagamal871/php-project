@@ -7,10 +7,11 @@ include __DIR__ . '/../partials/header.php';
 
     <h3 class="text-dark text-center fw-bold my-3">Users</h3>
     <?php
-    if (isset($_SESSION['error']))
-      echo '<div class="alert alert-danger"><center>' . $_SESSION['error'] . '</center></div>';
+    if (isset($_SESSION['error'])) {
+        echo '<div class="alert alert-danger"><center>' . $_SESSION['error'] . '</center></div>';
+    }
     unset($_SESSION['error']);
-    ?>
+?>
     <div class="row">
       <div class="col-md-12 col-sm-12 ">
         <div class="x_panel">
@@ -33,8 +34,8 @@ include __DIR__ . '/../partials/header.php';
                     </thead>
                     <tbody>
                       <?php
-                      if (isset($users)) {
-                        foreach ($users as $user) {
+                  if (isset($users)) {
+                      foreach ($users as $user) {
                           echo "<tr>";
                           echo "<td>" . $user["id"] . "</td>";
                           echo "<td>" . $user["name"] . "</td>";
@@ -42,15 +43,26 @@ include __DIR__ . '/../partials/header.php';
                           echo "<td>" . $user["email"] . "</td>";
                           echo "<td>" . $user["phone"] . "</td>";
                           echo "<td>" . $user["group_id"] . "</td>";
-                          echo "<td><a class='me-3 text-dark' href='/users/" . $user["id"] . "'><i class='fa-solid fa-eye'></i></a>";
-                          echo "<a class='me-2 text-primary' href='/users/" . $user["id"] . "/edit'><i class='fa-solid fa-pen-to-square'></i></a>";
-                      ?>
+
+                          if ($user['is_deleted']) {
+                              echo "<td class='d-flex justify-content-center'><a class='me-3 fs-5' href='/users/" . $user["id"] . "/restore'><i style='color:#34495E' class='fa fa-history'></i></a></td>";
+                          } else {
+
+                              echo "<td><a class='me-3 text-dark fs-5' href='/users/" . $user["id"] . "'><i  style='color:#34495E' class='fa-solid fa-eye'></i></a>";
+                              echo "<a class='me-2 text-primary fs-5' href='/users/" . $user["id"] . "/edit'><i class='fa-solid fa-pen-to-square'></i></a>";
+                              ?>
                           <form method="POST" action="/users/<?php echo $user["id"]; ?>" class="delForm">
                             <input type="hidden" name="_method" value="DELETE">
 
+                            
                             <!-- Button trigger modal -->
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $user["id"]; ?>" class="delBtn">
-                              <i class="fa-solid fa-trash text-danger"></i>
+
+                            
+
+
+
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $user["id"]; ?>" class="delBtn fs-5">
+                              <i class="fa-solid fa-trash text-danger "></i>
                             </button>
 
                             <!-- Modal -->
@@ -73,13 +85,15 @@ include __DIR__ . '/../partials/header.php';
                                 </div>
                               </div>
                             </div>
+                          
                           </form>
                       <?php
-                          echo "</td>";
+                                  echo "</td>";
+                          }
                           echo "</tr>";
-                        }
                       }
-                      ?>
+                  }
+?>
                     </tbody>
                   </table>
                 </div>
