@@ -77,19 +77,28 @@
 								<ul class="menu">
 									<li><a href="/home"><i class="fa fa-home"></i> Dashboard
 										</a></li>
+										<?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') { ?>
 									<li><a><i class="fa fa-user"></i> Users <span class="fa fa-chevron-down"></span></a>
 										<ul>
 											<li><a href="/users">Index</a></li>
 											<li><a href="/users/create">Create</a></li>
 										</ul>
 									</li>
-
+									<?php } ?>
+									
 									<li><a><i class="fa fa-group"></i> Groups <span class="fa fa-chevron-down"></span></a>
 										<ul>
+										<?php if (isset($_SESSION['role']) &&($_SESSION['role'] == 'admin'||$_SESSION['role'] == 'editor')) { ?>
 											<li><a href="/groups">Index</a></li>
+									<?php } ?>
+
+											<?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') { ?>
 											<li><a href="/groups/create">Create</a></li>
+									<?php } ?>
+
 										</ul>
 									</li>
+									
 
 									<li><a><i class="fa fa-edit"></i> Articles <span class="fa fa-chevron-down"></span></a>
 										<ul>
