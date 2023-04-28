@@ -31,6 +31,13 @@ class GroupController extends BaseController
     public function store()
     {
         $check = $this->isAdmin();
+        $name = $_POST['name'];
+        $pattern = '/^[A-Za-z]{4,}$/';
+        if (!preg_match($pattern, $name)) {
+            $_SESSION['error'] = "Input must be at least 4 letters long and only contain letters.";
+            header("Location: /groups/create");
+            exit();
+        }
         if ($check) {
             $group = new Group();
             $create = $group->create();
@@ -38,8 +45,8 @@ class GroupController extends BaseController
                 header("Location: /groups");
                 exit;
             } else {
-                $_SESSION['error'] = "Failed to Create";
-                include __DIR__ . '/../views/groups/create.php';
+                $_SESSION['error'] = "Failed to Create, group name must be Unique";
+                header("Location: /groups/create");
             }
         } else {
             $_SESSION['error'] = "Sorry, you are not an admin";
@@ -63,6 +70,13 @@ class GroupController extends BaseController
     public function update($id)
     {
         $check = $this->isAdmin();
+        $name = $_POST['name'];
+        $pattern = '/^[A-Za-z]{4,}$/';
+        if (!preg_match($pattern, $name)) {
+            $_SESSION['error'] = "Input must be at least 4 letters long and only contain letters.";
+            header("Location: /groups/".$_POST["id"]."/edit");
+            exit();
+        }
         if ($check) {
             $group = new Group();
             $update = $group->update($id);

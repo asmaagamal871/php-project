@@ -16,7 +16,12 @@ class Group
 
     public function create()
     {
-        return $this->db->save($_POST);
+        try {
+            $this->db->save($_POST);
+            return true;
+        } catch(Exception $e) {
+            return false;
+        }
     }
 
     public function getByID($id)
@@ -30,7 +35,13 @@ class Group
             "name" => $_POST["name"],
             "description" => $_POST["description"],
         );
-        return $this->db->update($data, $id);
+
+        try {
+            $this->db->update($data, $id);
+            return true;
+        } catch(Exception $e) {
+            return false;
+        }
     }
 
     public function restore($id)
