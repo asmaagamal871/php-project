@@ -9,13 +9,12 @@ class ArticleController extends BaseController
     public function index()
     {
         $article = new Article;
-        $articles = $article->getArticles();
         if ($this->isAdmin() || $this->isEditor()) {
-            include __DIR__ . '/../views/articles/index.php';
+            $articles = $article->getArticles();
         } else {
-            $_SESSION['error'] = "Sorry, This site can't be reached !!";
-            header("Location: /home");
+            $articles = $article->getUserArticles($_SESSION['user_id']);
         }
+        include __DIR__ . '/../views/articles/index.php';
     }
 
     public function show($id)
