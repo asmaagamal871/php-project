@@ -85,12 +85,11 @@
 										</ul>
 									</li>
 									<?php } ?>
-									
+									<?php if (isset($_SESSION['role']) &&($_SESSION['role'] == 'admin'||$_SESSION['role'] == 'editor')) { ?>
+
 									<li><a><i class="fa fa-group"></i> Groups <span class="fa fa-chevron-down"></span></a>
 										<ul>
-										<?php if (isset($_SESSION['role']) &&($_SESSION['role'] == 'admin'||$_SESSION['role'] == 'editor')) { ?>
 											<li><a href="/groups">Index</a></li>
-									<?php } ?>
 
 											<?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') { ?>
 											<li><a href="/groups/create">Create</a></li>
@@ -98,7 +97,8 @@
 
 										</ul>
 									</li>
-									
+									<?php } ?>
+
 
 									<li><a><i class="fa fa-edit"></i> Articles <span class="fa fa-chevron-down"></span></a>
 										<ul>
