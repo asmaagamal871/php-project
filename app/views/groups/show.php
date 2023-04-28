@@ -32,8 +32,7 @@ include __DIR__ . '/../partials/header.php';
                 </span>
                 </br>
 
-                <a href="/groups" class="offset-4 px-4 btn btn-outline-dark "><i
-                        class="fa-sharp fa-solid fa-arrow-left"></i> Back</a>
+                <a href="/groups" class="offset-4 px-4 btn btn-outline-dark "><i class="fa-sharp fa-solid fa-arrow-left"></i> Back</a>
             </div>
         </div>
     </div>

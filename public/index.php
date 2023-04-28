@@ -15,8 +15,3 @@ require_once '../routes/web.php';
 // }else{
 //     header('Location: /home');
 // }
-
-
-
-
-?>
