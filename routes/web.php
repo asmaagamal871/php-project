@@ -34,6 +34,8 @@ SimpleRouter::get('/users/{id}/restore', 'UserController@restore');
 SimpleRouter::put('/users/{id}', 'UserController@update');
 SimpleRouter::delete('/users/{id}', 'UserController@destroy');
 
+SimpleRouter::get('/users/{id}/group', 'UserController@show_users_group');
+
 
 SimpleRouter::get('/articles', 'ArticleController@index');
 SimpleRouter::get('/articles/create', 'ArticleController@create');

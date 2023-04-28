@@ -118,4 +118,11 @@ class UserController extends BaseController
             header("Location: /users");
         }
     }
+
+    public function show_users_group($id)
+    {
+        $user = new User();
+        $users = $user->getByGroupID($id);
+        include __DIR__ . '/../views/users/showgroup.php';
+    }
 }
