@@ -15,7 +15,7 @@ include __DIR__ . '/../partials/header.php';
                 </h2>
             <div class="d-flex flex-row mb-3" >
             <div class="d-flex flex-culomn">
-                <div class="profile_pic text-center w-50  me-4 mt-3 " >
+                <div class="profile_pic text-center w-75  me-4 mt-2 " >
 					<img src="/images/default.png" alt="..." class="img-circle profile_img text-center">
 				</div>
                
@@ -40,7 +40,7 @@ include __DIR__ . '/../partials/header.php';
                         <?php echo $result[0]["group_name"]; ?>
                     </span>
                 </br>
-                <a href="/users" class=" btn btn-outline-dark "><i class="fa-sharp fa-solid fa-arrow-left bt-5"></i> Back</a>
+                <a href="/users" class=" btn backBtn "><i class="fa-sharp fa-solid fa-arrow-left bt-5"></i> Back</a>
             </div>
         </div>
         </div>

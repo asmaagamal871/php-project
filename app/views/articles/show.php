@@ -7,7 +7,7 @@ include __DIR__ . '/../partials/header.php';
 <div class="right_col" role="main">
     <div class="container row">
         <div class="col-8 offset-2 fs-6">
-            <div class="w-50 px-5 mx-auto showContainer col-12" id="makeMaxWidth">
+            <div class="w-50 px-5 mt-5 mb-5 mx-auto showContainer col-12" id="makeMaxWidth">
                 <h1 class="text-center mb-4 " style="color:#73879C">
 
                     <?= $res[0]["title"]; ?>
@@ -32,7 +32,7 @@ include __DIR__ . '/../partials/header.php';
                         <?= $res[0]["description"]; ?>
                     </span>
                 </h5>
-                <a href="/articles" class=" mt-4 offset-4 px-4 btn btn-outline-dark "><i class="fa-sharp fa-solid fa-arrow-left"></i> Back</a>
+                <a href="/articles" class=" mt-4 offset-4 px-4 btn  backBtn"><i class="fa-sharp fa-solid fa-arrow-left "></i> Back</a>
             </div>
         </div>
     </div>
