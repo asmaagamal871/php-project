@@ -38,7 +38,7 @@ include __DIR__ . '/../partials/header.php';
 
                     <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Image</label>
                     <div class="input-group mb-3">
-                        <input type="file" name="image" class="form-control" id="exampleInputUser1" required>
+                        <input type="file" name="image" class="form-control" accept="image/*" id="exampleInputUser1" required>
                     </div>
 
                     <button type="submit" class="offset-4 px-4 btn btn-outline-dark">Create</button>
