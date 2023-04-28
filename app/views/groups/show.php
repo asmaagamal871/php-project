@@ -8,17 +8,12 @@ include __DIR__ . '/../partials/header.php';
     <div class="container row">
         <div class="col-8 offset-2">
             <div class="w-50 px-5  mx-auto form-container col-12 " id="makeMaxWidth"> <!-- Edited in CSS -->
-                <h2 class="fw-bold text-dark text-center  fs-4">Show</h2>
-                <label class="form-label mt-2 fw-bold mt-1">ID : </label>
-                <span class="text-dark mb-4 fs-6">
-                    <?php echo $result[0]["id"]; ?>
-                </span>
-                </br>
-                <label class="form-label mt-2 fw-bold mt-3">Name : </label>
-                <span class="text-dark mb-4 fs-6">
+                <h2 class="fw-bold text-dark text-center  fs-4">
                     <?php echo $result[0]["name"]; ?>
-                </span>
+                </h2>
+
                 </br>
+
 
                 <label class="form-label mt-2 fw-bold mt-3">Description : </label>
                 <span class="text-dark mb-4 fs-6">
@@ -32,7 +27,8 @@ include __DIR__ . '/../partials/header.php';
                 </span>
                 </br>
 
-                <a href="/groups" class="offset-4 px-4 btn btn-outline-dark "><i class="fa-sharp fa-solid fa-arrow-left"></i> Back</a>
+                <a href="/groups" class="offset-4 px-4 btn btn-outline-dark "><i
+                        class="fa-sharp fa-solid fa-arrow-left"></i> Back</a>
             </div>
         </div>
     </div>
