@@ -46,7 +46,7 @@ include __DIR__ . '/../partials/header.php';
 
                     <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Group</label>
                     <div class="input-group mb-3">
-                        <input type="text" name="group_id" class="form-control" id="exampleInputUser1" value="<?php echo $result[0]["group_id"]; ?>" required>
+                        <input type="text" name="group_id" class="form-control" id="exampleInputUser1" value="<?php echo $result[0]["group_name"]; ?>" required>
                     </div>
                     <button type="submit" class="offset-4 px-4 btn btn-outline-dark">Update</button>
                 </div>

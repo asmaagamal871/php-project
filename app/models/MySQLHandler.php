@@ -225,4 +225,17 @@ class MySQLHandler implements DbHandler
         $result = mysqli_query($this->_db_handler, $sql);
         return $result;
     }
+
+    public function get_all_users()
+    {
+        $sql = "SELECT u.*, g.name as group_name FROM users u JOIN groups g ON u.group_id=g.id";
+        return $this->get_results($sql);
+    }
+
+    public function get_user_record_by_id($user_id)
+    {
+        $sql = "SELECT u.*, g.name as group_name FROM users u JOIN groups g ON u.group_id=g.id
+          WHERE u.id = $user_id ";
+        return $this->get_results($sql);
+    }
 }
