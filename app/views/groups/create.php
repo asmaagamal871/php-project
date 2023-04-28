@@ -6,6 +6,12 @@ include __DIR__ . '/../partials/header.php';
 <!-- page content -->
 <div class="right_col" role="main">
     <div class="container row">
+        <?php
+        if (isset($_SESSION['error'])) {
+            echo '<div class="alert alert-danger"><center>' . $_SESSION['error'] . '</center></div>';
+        }
+        unset($_SESSION['error']);
+        ?>
         <div class="col-8 offset-2">
             <form action="/groups" method="post">
                 <div class="w-50 px-5  mx-auto form-container col-12" id="makeMaxWidth"> <!-- Edited in CSS -->

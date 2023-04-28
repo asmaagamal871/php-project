@@ -29,14 +29,19 @@ SimpleRouter::get('/users/create', 'UserController@create');
 SimpleRouter::post('/users', 'UserController@store');
 SimpleRouter::get('/users/{id}', 'UserController@show');
 SimpleRouter::get('/users/{id}/edit', 'UserController@edit');
+SimpleRouter::get('/users/{id}/restore', 'UserController@restore');
+
 SimpleRouter::put('/users/{id}', 'UserController@update');
 SimpleRouter::delete('/users/{id}', 'UserController@destroy');
+
+SimpleRouter::get('/users/{id}/group', 'UserController@show_users_group');
 
 
 SimpleRouter::get('/articles', 'ArticleController@index');
 SimpleRouter::get('/articles/create', 'ArticleController@create');
 SimpleRouter::post('/articles', 'ArticleController@store');
 SimpleRouter::get('/articles/{id}', 'ArticleController@show');
+SimpleRouter::get('/articles/{id}/restore', 'ArticleController@restore');
 SimpleRouter::delete('/articles/{id}', 'ArticleController@destroy');
 
 

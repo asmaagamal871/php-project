@@ -30,3 +30,13 @@ html,body{
     padding: 12px 2px;
     box-sizing: border-box;
 }
+
+.backBtn{
+    border-color: #34495E;
+    color: #34495E;
+    
+}
+.backBtn:hover{
+    background-color: #34495E;
+    color: white;
+}

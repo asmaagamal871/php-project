@@ -34,7 +34,8 @@ CREATE TABLE `articles` (
   `publish_date` date NOT NULL,
   `description` text NOT NULL,
   `image` varchar(255) NOT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `is_deleted` BOOLEAN DEFAULT false
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -45,7 +46,7 @@ CREATE TABLE `articles` (
 
 CREATE TABLE `groups` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL UNIQUE,
   `description` text NOT NULL,
   `role` varchar(255) NOT NULL,
   `is_deleted` BOOLEAN DEFAULT false
@@ -65,7 +66,8 @@ CREATE TABLE `users` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `group_id` int(11) NOT NULL,
-  `last_login` date NULL
+  `last_login` date NULL,
+  `is_deleted` BOOLEAN DEFAULT false
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -138,3 +140,5 @@ COMMIT;
 /* Inserts*/
 INSERT INTO `groups` (`name`, `description`, `role`) VALUES ('Admins', 'This group is for admins', 'admin');
 INSERT INTO `groups` (`name`, `description`, `role`) VALUES ('Editors', 'This group is for editors', 'editor');
+
+INSERT INTO `users` (`name`, `email`, `phone`,`username`, `password`, `group_id`) VALUES ('Admin', 'admin@admin.com', '011212121' , 'Admin' , '123456', '1');

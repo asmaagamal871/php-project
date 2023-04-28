@@ -153,7 +153,7 @@ $dataObject2 = [
           </div>
         <?php } ?>
 
-        <?php if (isset($_SESSION['role'])) {?>
+        <?php if (isset($_SESSION['role'])) { ?>
           <?php if ($_SESSION['role'] == 'editor' || $_SESSION['role'] == 'admin') { ?>
             <div class="x_panel">
               <div class="x_title">
@@ -233,7 +233,6 @@ $dataObject2 = [
       }
     }
   });
-  
 </script>
 
 

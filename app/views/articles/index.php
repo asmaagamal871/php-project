@@ -72,20 +72,18 @@ include __DIR__ . '/../partials/header.php';
 
                       <?php
                       if (isset($articles)) {
-                        foreach ($articles as $article) { ?>
-                          <tr>
-                            <td>
-                              <?= $article['title'] ?>
-                            </td>
-                            <td>
-                              <?= $article['summary'] ?>
-                            </td>
-                            <td>
-                              <?= $article['publish_date'] ?>
-                            </td>
-
-                            <td><img src="/images/articles/<?= $article['image'] ?>" style="width: 30px; height: 30px"></td>
-
+                        foreach ($articles as $article) {
+                          echo "<tr>";
+                          echo "<td>" . $article['title'] . "</td>";
+                          echo "<td>" . $article['summary'] . "</td>";
+                          echo "<td>" . $article['publish_date'] . "</td>";
+                           ?>
+                          <td><img src="/images/articles/<?= $article['image'] ?>" style="width: 30px; height: 30px"></td> 
+                           <?php
+                          if ($article['is_deleted']) {
+                            echo " <td class='d-flex justify-content-center'><a class='me-3 fs-5' href='/articles/" . $article["id"] . "/restore'><i style='color:#34495E' class='fa fa-history'></i></a></td>";
+                          } else {
+                      ?>
                             <td>
                               <div class="d-flex">
                                 <a class='me-3 fs-5 text-dark' href='/articles/<?php echo $article["id"]; ?>'><i style='color:#34495E' class='fa-solid fa-eye'></i></a>
@@ -118,15 +116,18 @@ include __DIR__ . '/../partials/header.php';
                                     </div>
                                   </div>
                               </div>
-                          </tr>
+                              </tr>
 
-                          </form>
-                      <?php
-                          echo "</td>";
+                              </form>
+                        <?php
+                            echo "</td>";
+                            // echo "</div>";
+                          }
                           echo "</tr>";
                         }
-                      } ?>
+                      }
 
+                        ?>
 
                     </tbody>
                   </table>
