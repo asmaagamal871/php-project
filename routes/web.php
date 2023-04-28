@@ -26,6 +26,7 @@ SimpleRouter::get('/articles', 'ArticleController@index');
 SimpleRouter::get('/articles/create', 'ArticleController@create');
 SimpleRouter::post('/articles', 'ArticleController@store');
 SimpleRouter::get('/articles/{id}', 'ArticleController@show');
+SimpleRouter::get('/articles/{id}/restore', 'ArticleController@restore');
 SimpleRouter::delete('/articles/{id}', 'ArticleController@destroy');
 
 
