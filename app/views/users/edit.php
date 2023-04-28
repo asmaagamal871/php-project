@@ -46,7 +46,15 @@ include __DIR__ . '/../partials/header.php';
 
                     <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Group</label>
                     <div class="input-group mb-3">
-                        <input type="text" name="group_id" class="form-control" id="exampleInputUser1" value="<?php echo $result[0]["group_name"]; ?>" required>
+                        <select name="group_id" id="group_id" class="form-control">
+                            <?php
+                            $dbHandler = new MySQLHandler('groups');
+                            $groups = $dbHandler->get_all();
+                            foreach ($groups as $group) {
+                                echo '<option value="' . $group['id'] . '">' . $group['name'] . '</option>';
+                            }
+                            ?>
+                        </select><br>
                     </div>
                     <button type="submit" class="offset-4 px-4 btn btn-outline-dark">Update</button>
                 </div>
