@@ -141,7 +141,7 @@
 										?>
 									</a>
 									<ul class="dropdown-menu dropdown-usermenu pull-right">
-										<li> <a class="dropdown-item" href="javascript:;"> <i class="fa fa-user new-icon"></i> Profile</a> </li>
+										<li> <a class="dropdown-item" href='/users/<?php echo $_SESSION["user_id"]; ?>'><i class="fa fa-user new-icon"></i> Profile</a></li>
 										<li> <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out pull-right new-icon"></i>
 												Log Out</a>
 										</li>
