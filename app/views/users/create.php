@@ -6,6 +6,12 @@ include __DIR__ . '/../partials/header.php';
 <!-- page content -->
 <div class="right_col" role="main">
     <div class="container row">
+        <?php
+        if (isset($_SESSION['error'])) {
+            echo '<div class="alert alert-danger"><center>' . $_SESSION['error'] . '</center></div>';
+        }
+        unset($_SESSION['error']);
+        ?>
         <div class="col-8 offset-2">
             <form action="/users" method="post">
                 <div class="w-50 px-5  mx-auto form-container col-12" id="makeMaxWidth"> <!-- Edited in CSS -->
@@ -19,29 +25,26 @@ include __DIR__ . '/../partials/header.php';
                     ?>
                     <label for="exampleInputPassword1" class="form-label mt-2 fw-bold">Name</label>
                     <div class="input-group mb-3">
-                        <input type="text" maxlength="20" name="name" class="form-control" id="exampleInputUser1" required>
-                        <div class="invalid-feedback">Please enter your name.</div>
+                        <input type="text" name="name" class="form-control" id="exampleInputUser1" required>
                     </div>
 
                     <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Email</label>
                     <div class="input-group mb-3">
-                        <input type="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" id="email" name="email" class="form-control" required>
+                        <input type="text" id="email" name="email" class="form-control" required>
                     </div>
 
                     <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Phone</label>
                     <div class="input-group mb-3">
-                        <input type="tel" pattern="[0-9]{7,}" name="phone" id="phone" class="form-control" required>
+                        <input type="tel" name="phone" id="phone" class="form-control" required>
                     </div>
                     <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Username</label>
                     <div class="input-group mb-3">
-                        <input type="text" maxlength="10" name="username" class="form-control" id="exampleInputUser1" required>
-                        <div class="invalid-feedback">Please enter a username.</div>
+                        <input type="text" name="username" class="form-control" id="exampleInputUser1" required>
                     </div>
 
                     <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Password</label>
                     <div class="input-group mb-3">
                         <input type="password" autocomplete="off" name="password" class="form-control" id="exampleInputUser1" required>
-                        <div class="invalid-feedback">Please enter a password.</div>
                     </div>
 
                     <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Group</label>
@@ -55,7 +58,6 @@ include __DIR__ . '/../partials/header.php';
                             }
                             ?>
                         </select><br>
-                        <div class="invalid-feedback">Please select a group.</div>
                     </div>
                 </div>
 
@@ -83,7 +85,7 @@ include __DIR__ . '/../partials/footer.php';
 include __DIR__ . '/../partials/footer.php';
 ?>
 <!-- validation -->
-<script>
+<!-- <script>
     const emailInput = document.getElementById("email");
     const phoneInput = document.getElementById("phone");
     emailInput.addEventListener("input", function() {
@@ -100,7 +102,7 @@ include __DIR__ . '/../partials/footer.php';
             phoneInput.setCustomValidity("");
         }
     });
-</script>
+</script> -->
 
 <?php
 include __DIR__ . '/../partials/scripts.php';

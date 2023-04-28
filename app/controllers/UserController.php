@@ -31,8 +31,46 @@ class UserController extends BaseController
     }
 
     public function store()
-    {
+    { //^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$
         $check = $this->isAdmin();
+        $email = $_POST['email'];
+        $pattern_email = '/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
+        $phone = $_POST['phone'];
+        $pattern_phone = '/[0-9]{7,}/';
+        $username = $_POST['username'];
+        $pattern_username = '/[a-zA-Z0-9]+/';
+        $name = $_POST['name'];
+        $pattern_name = '/[a-zA-Z\s]+/';
+        $password = $_POST['password'];
+        $pattern_password = '/[a-zA-Z0-9]{8,}$/';
+
+
+        if (!preg_match($pattern_email, $email)) {
+            $_SESSION['error'] = "please enter a valid email format.";
+            header("Location: /users/create");
+            exit();
+        }
+        if (!preg_match($pattern_phone, $phone)) {
+            $_SESSION['error'] = "phone number must be at least 7 digits and doesn't contain letters.";
+            header("Location: /users/create");
+            exit();
+        }
+        if (!preg_match($pattern_username, $username)) {
+            $_SESSION['error'] = "username must be contain only letters and numbers.";
+            header("Location: /users/create");
+            exit();
+        }
+        if (!preg_match($pattern_name, $name)) {
+            $_SESSION['error'] = "name must be contain only letters .";
+            header("Location: /users/create");
+            exit();
+        }
+        if (!preg_match($pattern_password, $password)) {
+            $_SESSION['error'] = "password must be contain at least 8 letters .";
+            header("Location: /users/create");
+            exit();
+        }
+
         if ($check) {
             $user = new User();
             $create = $user->create();
@@ -65,6 +103,21 @@ class UserController extends BaseController
     public function update($id)
     {
         $check = $this->isAdmin();
+        $email = $_POST['email'];
+        $pattern_email = '/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
+        $phone = $_POST['phone'];
+        $pattern_phone = '/[0-9]{7,}/';
+
+        if (!preg_match($pattern_email, $email)) {
+            $_SESSION['error'] = "please enter a valid email format.";
+            header("Location: /users/create");
+            exit();
+        }
+        if (!preg_match($pattern_phone, $phone)) {
+            $_SESSION['error'] = "phone number must be at least 7 digits and doesn't contain letters.";
+            header("Location: /users/create");
+            exit();
+        }
         if ($check) {
             $user = new User();
             $update = $user->update($id);

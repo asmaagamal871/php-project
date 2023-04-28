@@ -74,7 +74,7 @@ class GroupController extends BaseController
         $pattern = '/^[A-Za-z]{4,}$/';
         if (!preg_match($pattern, $name)) {
             $_SESSION['error'] = "Input must be at least 4 letters long and only contain letters.";
-            header("Location: /groups/".$_POST["id"]."/edit");
+            header("Location: /groups/" . $_POST["id"] . "/edit");
             exit();
         }
         if ($check) {
