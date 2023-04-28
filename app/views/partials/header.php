@@ -35,7 +35,7 @@
 			<div style="height:fit-content;" class="col-md-3 left_col">
 				<div class="left_col scroll-view">
 					<div class="navbar nav_title" style="border: 0;">
-						<a href="/home" class="site_title"><img src="/images/ball.gif" width="40px"><span>El-La3eeb!</span></a>
+						<a href="/home" class="site_title"><img src="/images/ball.gif" width=40px"><span>El-La3eeb!</span></a>
 					</div>
 
 					<div class="clearfix"></div>
@@ -51,16 +51,18 @@
 								echo  $_SESSION['username'];
 								?>
 							</h2>
-							
+
 						</div>
-						<small><p class="text-center "><strong>last login: </strong> 
-							<?php
-							$timestamp = strtotime($_SESSION['last_login']);
-							$readable_datetime = date('F j, Y - g:i a', $timestamp);
+						<small>
+							<p class="text-center "><strong>last login: </strong>
+								<?php
+								$timestamp = strtotime($_SESSION['last_login']);
+								$readable_datetime = date('F j, Y - g:i a', $timestamp);
 
 								echo  $readable_datetime;
 								?>
-							</p></small>
+							</p>
+						</small>
 					</div>
 					<!-- /menu profile quick info -->
 
@@ -75,19 +77,28 @@
 								<ul class="menu">
 									<li><a href="/home"><i class="fa fa-home"></i> Dashboard
 										</a></li>
+										<?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') { ?>
 									<li><a><i class="fa fa-user"></i> Users <span class="fa fa-chevron-down"></span></a>
 										<ul>
-											<li><a href="../users/index.php">Index</a></li>
-											<li><a href="../users/create.php">Create</a></li>
+											<li><a href="/users">Index</a></li>
+											<li><a href="/users/create">Create</a></li>
 										</ul>
 									</li>
-
+									<?php } ?>
+									
 									<li><a><i class="fa fa-group"></i> Groups <span class="fa fa-chevron-down"></span></a>
 										<ul>
+										<?php if (isset($_SESSION['role']) &&($_SESSION['role'] == 'admin'||$_SESSION['role'] == 'editor')) { ?>
 											<li><a href="/groups">Index</a></li>
+									<?php } ?>
+
+											<?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') { ?>
 											<li><a href="/groups/create">Create</a></li>
+									<?php } ?>
+
 										</ul>
 									</li>
+									
 
 									<li><a><i class="fa fa-edit"></i> Articles <span class="fa fa-chevron-down"></span></a>
 										<ul>
@@ -139,7 +150,7 @@
 										?>
 									</a>
 									<ul class="dropdown-menu dropdown-usermenu pull-right">
-										<li> <a class="dropdown-item" href="javascript:;"> <i class="fa fa-user new-icon"></i> Profile</a> </li>
+										<li> <a class="dropdown-item" href='/users/<?php echo $_SESSION["user_id"]; ?>'><i class="fa fa-user new-icon"></i> Profile</a></li>
 										<li> <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out pull-right new-icon"></i>
 												Log Out</a>
 										</li>

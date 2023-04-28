@@ -34,7 +34,8 @@ CREATE TABLE `articles` (
   `publish_date` date NOT NULL,
   `description` text NOT NULL,
   `image` varchar(255) NOT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `is_deleted` BOOLEAN DEFAULT false
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -65,7 +66,8 @@ CREATE TABLE `users` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `group_id` int(11) NOT NULL,
-  `last_login` date NULL
+  `last_login` date NULL,
+  `is_deleted` BOOLEAN DEFAULT false
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

@@ -1,96 +1,66 @@
 <?php
-session_start();
 include __DIR__ . '/../partials/header.php';
 ?>
 <!-- /top navigation -->
-
+<link rel="stylesheet" href="/css/groupsForm.css">
 <!-- page content -->
 <div class="right_col" role="main">
-    <?php include('message.php') ?>
-
-    <div class="col-md-12 col-sm-12">
-        <div class="card">
-            <div class="card-header">
-                <h4>User Add
-                    <a href="index.php" class="btn btn-danger float-end">Back</a>
-                </h4>
-            </div>
-            <div class="card-body">
-                <form class="" action="code.php" method="post" novalidate>
-                    <div class="field item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3  label-align">Name<span
-                                class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6">
-                            <input class="form-control" data-validate-length-range="6" data-validate-words="2"
-                                name="name" placeholder="ex. John f. Kennedy" required="required" />
-                        </div>
-                    </div>
-                    <div class="field item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3  label-align">Username<span
-                                class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6">
-                            <input class="form-control" data-validate-length-range="6" data-validate-words="1"
-                                name="username" placeholder="username" required="required" />
-                        </div>
+    <div class="container row">
+        <div class="col-8 offset-2">
+            <form action="/users" method="post">
+                <div class="w-50 px-5  mx-auto form-container col-12" id="makeMaxWidth"> <!-- Edited in CSS -->
+                    <h2 class="fw-bold text-dark text-center fs-4">Create</h2>
+                    <?php
+                    if (isset($create)) {
+                        if (!$create) {
+                            echo `<div class="alert alert-danger text-center fs-6" role="alert" id="myAlert">Group isn't Created</div>`;
+                        }
+                    }
+                    ?>
+                    <label for="exampleInputPassword1" class="form-label mt-2 fw-bold">Name</label>
+                    <div class="input-group mb-3">
+                        <input type="text" name="name" class="form-control" id="exampleInputUser1" required>
                     </div>
 
-                    <div class="field item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3  label-align">email<span
-                                class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6">
-                            <input class="form-control" name="email" class='email' required="required" type="email" />
-                        </div>
+                    <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Email</label>
+                    <div class="input-group mb-3">
+                        <input type="email" name="email" class="form-control" id="exampleInputUser1" required>
                     </div>
 
-                    <div class="field item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3  label-align">Password<span
-                                class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6">
-                            <input class="form-control" type="password" id="password1" name="password"
-                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}"
-                                title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character"
-                                required />
-
-                            <span style="position: absolute;right:15px;top:7px;" onclick="hideshow()">
-                                <i id="slash" class="fa fa-eye-slash"></i>
-                                <i id="eye" class="fa fa-eye"></i>
-                            </span>
-                        </div>
+                    <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Phone</label>
+                    <div class="input-group mb-3">
+                        <input type="text" name="phone" class="form-control" id="exampleInputUser1" required>
                     </div>
 
-                    <div class="field item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3  label-align">Phone<span
-                                class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6">
-                            <input class="form-control" type="tel" class='tel' name="phone" required='required'
-                                data-validate-length-range="8,20" />
-                        </div>
+                    <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Username</label>
+                    <div class="input-group mb-3">
+                        <input type="text" name="username" class="form-control" id="exampleInputUser1" required>
                     </div>
 
-                    <div class="field item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3  label-align">Group<span
-                                class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6">
-                            <input class="form-control" data-validate-length-range="6" data-validate-words="2"
-                                name="group" placeholder="" required="required" />
-                        </div>
+                    <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Password</label>
+                    <div class="input-group mb-3">
+                        <input type="password" name="password" class="form-control" id="exampleInputUser1" required>
                     </div>
 
-                    <div class="ln_solid">
-                        <div class="form-group m-4">
-                            <div class="col-md-6 offset-md-3">
-                                <button type='submit' name="save_user" class="btn btn-primary">Save User</button>
-                                <button type='reset' class="btn btn-success">Reset</button>
-                            </div>
-                        </div>
+                    <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Group</label>
+                    <div class="input-group mb-3">
+                        <select name="group_id" id="group_id" class="form-control">
+                            <?php
+                            $dbHandler = new MySQLHandler('groups');
+                            $groups = $dbHandler->get_all();
+                            foreach ($groups as $group) {
+                                echo '<option value="' . $group['id'] . '">' . $group['name'] . '</option>';
+                            }
+                            ?>
+                        </select><br>
                     </div>
-            </div>
 
+                    <button type="submit" class="offset-4 px-4 btn btn-outline-dark">Create</button>
+                </div>
             </form>
         </div>
     </div>
-</div>
-</div>
+
 </div>
 <!-- /page content -->
 
@@ -149,6 +119,15 @@ include __DIR__ . '/../partials/footer.php';
     }).prop('checked', false);
 </script>
 
+<script>
+    var alert = document.getElementById("myAlert");
+
+    alert.style.display = "block";
+
+    setTimeout(function() {
+        alert.style.display = "none";
+    }, 1500);
+</script>
 <?php
 include __DIR__ . '/../partials/scripts.php';
 ?>
