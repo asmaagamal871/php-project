@@ -1,110 +1,68 @@
 <?php
-session_start();
-include("../partials/header.php");
-require 'dbcon.php';
+include __DIR__ . '/../partials/header.php';
 ?>
 <!-- /top navigation -->
-
+<link rel="stylesheet" href="/css/groupsForm.css">
 <!-- page content -->
 <div class="right_col" role="main">
-
-    <?php include('message.php') ?>
-
-    <div class="col-md-12 col-sm-12">
-        <div class="card">
-            <div class="card-header">
-                <h4>User Edit
-                    <a href="index.php" class="btn btn-danger float-end">Back</a>
-                </h4>
-            </div>
-            <div class="card-body">
-                <?php
-                if (isset($_GET['id'])) {
-                    $user_id = mysqli_real_escape_string($con, $_GET['id']);
-                    $query = "SELECT * FROM users WHERE id='$user_id'";
-                    $query_run = mysqli_query($con, $query);
-
-                    if (mysqli_num_rows($query_run) > 0) {
-                        $user = mysqli_fetch_array($query_run);
-                ?>
-                        <form class="" action="code.php" method="post" novalidate>
-                            <input type="hidden" name="user_id" value="<?= $user['id']; ?>">
-                            <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Name<span class="required">*</span></label>
-                                <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" value="<?= $user['name'] ?>" placeholder="ex. John f. Kennedy" required="required" />
-                                </div>
-                            </div>
-                            <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Username<span class="required">*</span></label>
-                                <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" data-validate-length-range="6" data-validate-words="1" name="username" value="<?= $user['username'] ?>" placeholder="username" required="required" />
-                                </div>
-                            </div>
-
-                            <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">email<span class="required">*</span></label>
-                                <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" name="email" value="<?= $user['email'] ?>" class='email' required="required" type="email" />
-                                </div>
-                            </div>
-
-                            <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Password<span class="required">*</span></label>
-                                <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" type="password" id="password1" name="password" value="<?= $user['password'] ?>" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character" required />
-
-                                    <span style="position: absolute;right:15px;top:7px;" onclick="hideshow()">
-                                        <i id="slash" class="fa fa-eye-slash"></i>
-                                        <i id="eye" class="fa fa-eye"></i>
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Phone<span class="required">*</span></label>
-                                <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" type="tel" class='tel' name="phone" value="<?= $user['phone'] ?>" required='required' data-validate-length-range="8,20" />
-                                </div>
-                            </div>
-
-                            <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Group<span class="required">*</span></label>
-                                <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="group" value="<?= $user['group_id'] ?>" placeholder="" required="required" />
-                                </div>
-                            </div>
-
-                            <div class="ln_solid">
-                                <div class="form-group m-4">
-                                    <div class="col-md-6 offset-md-3">
-                                        <button type='submit' name="update_user" class="btn btn-primary">Update User</button>
-                                        <button type='reset' class="btn btn-success">Reset</button>
-                                    </div>
-                                </div>
-                            </div>
-            </div>
-            </form>
-    <?php
-                    } else {
-                        echo "<h4>No Such Id Found</h4>";
+    <div class="container row">
+        <div class="col-8 offset-2">
+            <form action="/users/<?php echo $result[0]["id"]; ?>" method="post">
+                <input type="hidden" name="_method" value="PUT">
+                <div class="w-50 px-5  mx-auto form-container col-12" id="makeMaxWidth"> <!-- Edited in CSS -->
+                    <h2 class="fw-bold text-dark text-center fs-4">Update</h2>
+                    <?php
+                    if (isset($update)) {
+                        if (!$update) {
+                            echo `<div class="alert alert-danger text-center fs-6" role="alert" id="myAlert">Group isn't Edited</div>`;
+                        }
                     }
-                }
-    ?>
+                    ?>
+
+                    <label for="exampleInputPassword1" class="form-label mt-2 fw-bold">Name</label>
+                    <div class="input-group mb-3">
+                        <input type="text" name="name" class="form-control" id="exampleInputUser1" value="<?php echo $result[0]["name"]; ?>" required>
+                    </div>
+
+                    <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Email</label>
+                    <div class="input-group mb-3">
+                        <input type="email" name="email" class="form-control" id="exampleInputUser1" value="<?php echo $result[0]["email"]; ?>" required>
+                    </div>
+
+                    <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Phone</label>
+                    <div class="input-group mb-3">
+                        <input type="text" name="phone" class="form-control" id="exampleInputUser1" value="<?php echo $result[0]["phone"]; ?>" required>
+                    </div>
+
+                    <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Username</label>
+                    <div class="input-group mb-3">
+                        <input type="text" name="username" class="form-control" id="exampleInputUser1" value="<?php echo $result[0]["username"]; ?>" required>
+                    </div>
+
+                    <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Password</label>
+                    <div class="input-group mb-3">
+                        <input type="password" name="password" class="form-control" id="exampleInputUser1" value="<?php echo $result[0]["password"]; ?>" required>
+                    </div>
+
+                    <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Group</label>
+                    <div class="input-group mb-3">
+                        <input type="text" name="group_id" class="form-control" id="exampleInputUser1" value="<?php echo $result[0]["group_id"]; ?>" required>
+                    </div>
+                    <button type="submit" class="offset-4 px-4 btn btn-outline-dark">Update</button>
+                </div>
+            </form>
         </div>
     </div>
+
 </div>
-</div>
-<!-- </div> -->
-</div>
-<!-- </div> -->
 <!-- /page content -->
 
 <!-- footer content -->
 
 <?php
-include("../partials/footer.php");
+include __DIR__ . '/../partials/footer.php';
 ?>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="../../vendors/validator/multifield.js"></script>
@@ -153,6 +111,16 @@ include("../partials/footer.php");
             $('form .alert').remove();
     }).prop('checked', false);
 </script>
+
+<script>
+    var alert = document.getElementById("myAlert");
+
+    alert.style.display = "block";
+
+    setTimeout(function() {
+        alert.style.display = "none";
+    }, 1500);
+</script>
 <?php
-include("../partials/scripts.php");
+include __DIR__ . '/../partials/scripts.php';
 ?>

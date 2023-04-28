@@ -45,7 +45,24 @@ class ArticleController extends BaseController
         header("Location: /articles");
         exit;
     }
-
+    public function restore($id)
+    {
+        $check = $this->isAdmin();
+        if ($check) {
+            $article = new Article;
+            $restore = $article->restore($id);
+            if ($restore) {
+                header("Location: /articles");
+                exit;
+            } else {
+                $_SESSION['error'] = "Failed to restore";
+                header("Location: /articles");
+            }
+        } else {
+            $_SESSION['error'] = "Sorry, you are not an admin";
+            header("Location: /articles");
+        }
+    }
     public function destroy($id)
     {
         $article = new Article;

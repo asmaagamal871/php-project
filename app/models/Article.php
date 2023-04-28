@@ -24,6 +24,11 @@ class Article
         return $this->db->get_record_by_id($id);
     }
 
+    public function restore($id)
+    {
+        return $this->db->restore($id);
+    }
+
     public function delete($id)
     {
         return $this->db->delete($id);

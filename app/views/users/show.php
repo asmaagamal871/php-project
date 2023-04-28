@@ -7,37 +7,40 @@ include __DIR__ . '/../partials/header.php';
 <div class="right_col" role="main">
     <div class="container row">
         <div class="col-8 offset-2">
-            <form action="/groups" method="post">
-                <div class="w-50 px-5  mx-auto form-container col-12" id="makeMaxWidth"> <!-- Edited in CSS -->
-                    <h2 class="fw-bold text-dark text-center  fs-4">Create</h2>
-                    <?php
-                    if (isset($create)) {
-                        if (!$create) {
-                            echo `<div class="alert alert-danger text-center fs-6" role="alert" id="myAlert">Group isn't Created</div>`;
-                        }
-                    }
-                    ?>
-                    <label for="exampleInputPassword1" class="form-label mt-2 fw-bold">Name</label>
-                    <div class="input-group mb-3">
-                        <input type="text" name="name" class="form-control" id="exampleInputUser1" required>
-                    </div>
-
-                    <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Description</label>
-                    <div class="input-group mb-3">
-                        <textarea type="text" name="description" class="form-control" id="exampleInputPassword2" rows="1" required></textarea>
-                    </div>
-
-                    <label for="exampleInputPassword3" class="form-label mt-2 fw-bold">Role</label>
-                    <div class="input-group mb-3">
-                        <select name="role" class="form-control">
-                            <!-- <option value="admin">Admin</option>
-                            <option value="editor">Editor</option> -->
-                            <option value="user" selected>User</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="offset-4 px-4 btn btn-outline-dark">Create</button>
-                </div>
-            </form>
+            <div class="w-50 px-5  mx-auto showContainer col-12" id="makeMaxWidth"> <!-- Edited in CSS -->
+                <h2 class="fw-bold text-dark text-center  fs-4">Show</h2>
+                <label class="form-label mt-2 fw-bold mt-1">ID : </label>
+                <span class="text-dark mb-4 fs-6">
+                    <?php echo $result[0]["id"]; ?>
+                </span>
+                </br>
+                <label class="form-label mt-2 fw-bold mt-3">Name : </label>
+                <span class="text-dark mb-4 fs-6">
+                    <?php echo $result[0]["name"]; ?>
+                </span>
+                </br>
+                <label class="form-label mt-2 fw-bold mt-3">Email : </label>
+                <span class="text-dark mb-4 fs-6">
+                    <?php echo $result[0]["email"]; ?>
+                </span>
+                </br>
+                <label class="form-label mt-2 fw-bold mt-3">Phone : </label>
+                <span class="text-dark mb-4 fs-6">
+                    <?php echo $result[0]["phone"]; ?>
+                </span>
+                </br>
+                <label class="form-label mt-2 fw-bold mt-3">Username : </label>
+                <span class="text-dark mb-4 fs-6">
+                    <?php echo $result[0]["username"]; ?>
+                </span>
+                </br>
+                <label class="form-label mt-2 fw-bold mt-3">Group : </label>
+                <span class="text-dark mb-4 fs-6">
+                    <?php echo $result[0]["group_id"]; ?>
+                </span>
+                </br>
+                <a href="/users" class="offset-4 px-4 btn btn-outline-dark "><i class="fa-sharp fa-solid fa-arrow-left"></i> Back</a>
+            </div>
         </div>
     </div>
 
