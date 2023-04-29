@@ -15,10 +15,10 @@ This is a simple PHP-based admin-panel. Our website is roles driven providing di
 git clone https://github.com/asmaagamal871/php-project
 </pre>
 
--Database creation
---create database
---import php_project.sql
---create config.php
+### Database creation
+- create database
+- import php_project.sql
+- create config.php
 
 
 <pre>
@@ -29,7 +29,7 @@ composer install
 composer dump-autoload
 </pre>
 
--run project
+- un project
 
 <pre>
 cd public
