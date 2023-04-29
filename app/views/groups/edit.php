@@ -7,18 +7,15 @@ include __DIR__ . '/../partials/header.php';
 <div class="right_col" role="main">
     <div class="container row">
         <?php
-    if (isset($_SESSION['error'])) {
-        echo '<div class="alert alert-danger"><center>' . $_SESSION['error'] . '</center></div>';
-    }
-    unset($_SESSION['error']);
-?>
+        if (isset($_SESSION['error'])) {
+            echo '<div class="alert alert-danger"><center>' . $_SESSION['error'] . '</center></div>';
+        }
+        unset($_SESSION['error']);
+        ?>
         <div class="col-8 offset-2">
-            <form
-                action="/groups/<?php echo $result[0]["id"]; ?>"
-                method="post">
+            <form action="/groups/<?php echo $result[0]["id"]; ?>" method="post">
                 <input type="hidden" name="_method" value="PUT">
-                <input type="hidden" name="id"
-                    value=<?php echo $result[0]["id"]; ?>>
+                <input type="hidden" name="id" value=<?php echo $result[0]["id"]; ?>>
                 <div class="w-50 px-5  mx-auto form-container col-12" id="makeMaxWidth"> <!-- Edited in CSS -->
                     <h2 class="fw-bold text-dark text-center fs-4">Update</h2>
                     <?php
@@ -27,26 +24,20 @@ include __DIR__ . '/../partials/header.php';
                             echo `<div class="alert alert-danger text-center fs-6" role="alert" id="myAlert">Group isn't Edited</div>`;
                         }
                     }
-?>
+                    ?>
                     <label for="exampleInputPassword1" class="form-label mt-2 fw-bold">Name</label>
                     <div class="input-group mb-3">
-                        <input type="text" name="name" class="form-control" id="exampleInputPassword1"
-                            value="<?php echo $result[0]["name"]; ?>"
-                            required>
+                        <input type="text" name="name" class="form-control" id="exampleInputPassword1" value="<?php echo $result[0]["name"]; ?>" required>
                     </div>
 
                     <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Description</label>
                     <div class="input-group mb-3">
-                        <textarea type="text" name="description" class="form-control" id="exampleInputPassword2"
-                            rows="1"
-                            required><?php echo $result[0]["description"]; ?></textarea>
+                        <textarea type="text" name="description" class="form-control" id="exampleInputPassword2" rows="1" required><?php echo $result[0]["description"]; ?></textarea>
                     </div>
 
                     <label for="exampleInputPassword3" class="form-label mt-2 fw-bold">Role</label>
                     <div class="input-group mb-3">
-                        <input type="text" name="role" class="form-control" id="exampleInputPassword3"
-                            value="<?php echo $result[0]["role"]; ?>"
-                            disabled>
+                        <input type="text" name="role" class="form-control" id="exampleInputPassword3" value="<?php echo $result[0]["role"]; ?>" disabled>
                     </div>
                     <button type="submit" class="offset-4 px-4 btn btn-outline-dark">Update</button>
                 </div>

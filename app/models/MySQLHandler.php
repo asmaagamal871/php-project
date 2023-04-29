@@ -238,4 +238,10 @@ class MySQLHandler implements DbHandler
           WHERE u.id = $user_id ";
         return $this->get_results($sql);
     }
+    public function get_users_by_group_id($group_id)
+    {
+        $sql = "SELECT u.*, g.name as group_name FROM users u JOIN groups g ON u.group_id=g.id
+          WHERE u.group_id = $group_id ";
+        return $this->get_results($sql);
+    }
 }

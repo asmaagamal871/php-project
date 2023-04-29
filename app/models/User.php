@@ -46,4 +46,9 @@ class User
     {
         return $this->db->delete($id);
     }
+
+    public function getByGroupID($group_id)
+    {
+        return $this->db->get_users_by_group_id($group_id);
+    }
 }
