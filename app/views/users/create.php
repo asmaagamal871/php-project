@@ -4,7 +4,7 @@ include __DIR__ . '/../partials/header.php';
 <!-- /top navigation -->
 <link rel="stylesheet" href="/css/groupsForm.css">
 <!-- page content -->
-<div class="right_col" role="main">
+<div class="right_col" role="main" >
     <div class="container row">
         <?php
         if (isset($_SESSION['error'])) {
@@ -58,10 +58,10 @@ include __DIR__ . '/../partials/header.php';
                             }
                             ?>
                         </select><br>
-                    </div>
+                    </div>                <button type="submit" class="offset-4 px-4 btn btn-outline-dark">Create</button>
+
                 </div>
 
-                <button type="submit" class="offset-4 px-4 btn btn-outline-dark">Create</button>
         </div>
         </form>
     </div>

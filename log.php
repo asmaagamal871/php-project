@@ -1,6 +1,6 @@
 <?php
 $log_file = 'error.log';
-
+include 'config.php';
 function log_error($message, $file, $line)
 {
 

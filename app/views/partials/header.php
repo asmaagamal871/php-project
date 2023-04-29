@@ -32,8 +32,8 @@
 	<div class="container body">
 		<div class="main_container">
 			<!-- header -->
-			<div style="height:fit-content;" class="col-md-3 left_col">
-				<div class="left_col scroll-view">
+			<div  class="col-md-3 left_col " style="position: fixed;">
+				<div class="left_col scroll-view"style="height:500px">
 					<div class="navbar nav_title" style="border: 0;">
 						<a href="/home" class="site_title"><img src="/images/ball.gif" width=40px><span>El-La3eeb!</span></a>
 					</div>
@@ -133,7 +133,7 @@
 			</div>
 
 			<!-- top navigation -->
-			<div class="top_nav">
+			<div class="top_nav" >
 				<div class="nav_menu">
 					<!-- <div class="nav toggle">
 						<a id="menu_toggle"><i class="fa fa-bars"></i></a>
