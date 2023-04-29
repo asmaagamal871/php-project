@@ -41,8 +41,17 @@ php -S localhost:9000
 
 ## Features
 
-
-
+- User authentication and Remember me option.
+- User profile.
+- Role-based access control.
+- Article creation, reading and deletion.
+- User creation, editting, reading and deletion.
+- Group creation, editting, reading and deletion.
+- Object soft delete.
+- Search and filtering.
+- Pagination of all listings.
+- Responsive design for mobile and desktop devices.
+- Chart statistics and analysis.
 
 ## Technologies
 - PHP
@@ -53,7 +62,8 @@ php -S localhost:9000
 - HTML
 
 ## Packages
--
+- [Simple Router](https://github.com/skipperbent/simple-php-router)
+- [Chart.js](https://www.chartjs.org/)
 
 ## Roles 
 
