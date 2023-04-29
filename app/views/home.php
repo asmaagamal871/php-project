@@ -1,5 +1,4 @@
 <?php
-
 // if not logged in, Redirect the user to the login page
 if (!isset($_SESSION['user_id'])) {
   header('Location: /login');
