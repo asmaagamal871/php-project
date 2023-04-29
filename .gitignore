@@ -2,8 +2,6 @@ nbproject
 npm-debug.log
 node_modules
 .sass-cache
-vendors
-config.php
-/vendor/
+vendor
 config.php
 public/images/articles
