@@ -10,7 +10,7 @@ This is a simple PHP-based admin-panel. Our website is roles driven providing di
 
 :tv: [Preview]() 
 
-## INSTALLATION
+## Installation
 <pre>
 git clone https://github.com/asmaagamal871/php-project
 </pre>
@@ -29,7 +29,7 @@ composer install
 composer dump-autoload
 </pre>
 
-- un project
+### Run project
 
 <pre>
 cd public
