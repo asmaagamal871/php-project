@@ -35,7 +35,7 @@ class LoginController extends BaseController
 
                 $_SESSION['last_login'] = date('Y-m-d H:i:s');
 
-                if ($_POST['remember_me']) {
+                if (isset($_POST['remember_me'])&& $_POST['remember_me']) {
                     // Set a cookies with the user's login credentials
                     setcookie('email', $_POST['email'], time() + 86400 * 30);
                     setcookie('password', $_POST['password'], time() + 86400 * 30);
