@@ -65,7 +65,7 @@
             <br />
 
             <div>
-              <h1><img src="/images/football.png" width=40px> El-La3eeb!</h1>
+              <!-- <h1><img src="/images/football.png" width=40px> El-La3eeb!</h1> -->
               <p>©2016 All Rights Reserved. El-La3eeb is a football blog. Privacy and Terms</p>
             </div>
           </div>
