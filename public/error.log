@@ -1,0 +1,72 @@
+[29-Apr-2023 14:00:17 Europe/Berlin] PHP Fatal error:  Uncaught Exception: Undefined constant "__LOG__FILE__" in C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\Router.php:451
+Stack trace:
+#0 C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#1 C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#2 C:\xampp\htdocs\iti\php-project\routes\web.php(48): Pecee\SimpleRouter\SimpleRouter::start()
+#3 C:\xampp\htdocs\iti\php-project\public\index.php(10): require_once('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\Router.php on line 451
+[29-Apr-2023 14:01:12 Europe/Berlin] PHP Fatal error:  Uncaught Exception: Undefined constant "__LOG__FILE__" in C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\Router.php:451
+Stack trace:
+#0 C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#1 C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#2 C:\xampp\htdocs\iti\php-project\routes\web.php(48): Pecee\SimpleRouter\SimpleRouter::start()
+#3 C:\xampp\htdocs\iti\php-project\public\index.php(10): require_once('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\Router.php on line 451
+[29-Apr-2023 14:01:26 Europe/Berlin] PHP Fatal error:  Uncaught Exception: Undefined constant "__LOG__FILE__" in C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\Router.php:451
+Stack trace:
+#0 C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#1 C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#2 C:\xampp\htdocs\iti\php-project\routes\web.php(48): Pecee\SimpleRouter\SimpleRouter::start()
+#3 C:\xampp\htdocs\iti\php-project\public\index.php(10): require_once('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\Router.php on line 451
+[29-Apr-2023 21:11:45 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column '7amo' in 'where clause' in C:\xampp\htdocs\iti\php-project\app\models\MySQLHandler.php:45
+Stack trace:
+#0 C:\xampp\htdocs\iti\php-project\app\models\MySQLHandler.php(45): mysqli_query(Object(mysqli), 'SELECT u.*, g.n...')
+#1 C:\xampp\htdocs\iti\php-project\app\models\MySQLHandler.php(239): MySQLHandler->get_results('SELECT u.*, g.n...')
+#2 C:\xampp\htdocs\iti\php-project\app\models\User.php(24): MySQLHandler->get_user_record_by_id('7amo')
+#3 C:\xampp\htdocs\iti\php-project\app\controllers\UserController.php(18): User->getByID('7amo')
+#4 [internal function]: UserController->show('7amo')
+#5 C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\ClassLoader\ClassLoader.php(34): call_user_func_array(Array, Array)
+#6 C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\Route\Route.php(117): Pecee\SimpleRouter\ClassLoader\ClassLoader->loadClassMethod(Object(UserController), 'show', Array)
+#7 C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\Router.php(427): Pecee\SimpleRouter\Route\Route->renderRoute(Object(Pecee\Http\Request), Object(Pecee\SimpleRouter\Router))
+#8 C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#9 C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#10 C:\xampp\htdocs\iti\php-project\routes\web.php(48): Pecee\SimpleRouter\SimpleRouter::start()
+#11 C:\xampp\htdocs\iti\php-project\public\index.php(10): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+  thrown in C:\xampp\htdocs\iti\php-project\app\models\MySQLHandler.php on line 45
+[29-Apr-2023 21:12:45 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column '7amo' in 'where clause' in C:\xampp\htdocs\iti\php-project\app\models\MySQLHandler.php:45
+Stack trace:
+#0 C:\xampp\htdocs\iti\php-project\app\models\MySQLHandler.php(45): mysqli_query(Object(mysqli), 'SELECT u.*, g.n...')
+#1 C:\xampp\htdocs\iti\php-project\app\models\MySQLHandler.php(239): MySQLHandler->get_results('SELECT u.*, g.n...')
+#2 C:\xampp\htdocs\iti\php-project\app\models\User.php(24): MySQLHandler->get_user_record_by_id('7amo')
+#3 C:\xampp\htdocs\iti\php-project\app\controllers\UserController.php(18): User->getByID('7amo')
+#4 [internal function]: UserController->show('7amo')
+#5 C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\ClassLoader\ClassLoader.php(34): call_user_func_array(Array, Array)
+#6 C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\Route\Route.php(117): Pecee\SimpleRouter\ClassLoader\ClassLoader->loadClassMethod(Object(UserController), 'show', Array)
+#7 C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\Router.php(427): Pecee\SimpleRouter\Route\Route->renderRoute(Object(Pecee\Http\Request), Object(Pecee\SimpleRouter\Router))
+#8 C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#9 C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#10 C:\xampp\htdocs\iti\php-project\routes\web.php(48): Pecee\SimpleRouter\SimpleRouter::start()
+#11 C:\xampp\htdocs\iti\php-project\public\index.php(10): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+  thrown in C:\xampp\htdocs\iti\php-project\app\models\MySQLHandler.php on line 45
+[29-Apr-2023 21:13:44 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column '7amo' in 'where clause' in C:\xampp\htdocs\iti\php-project\app\models\MySQLHandler.php:45
+Stack trace:
+#0 C:\xampp\htdocs\iti\php-project\app\models\MySQLHandler.php(45): mysqli_query(Object(mysqli), 'SELECT u.*, g.n...')
+#1 C:\xampp\htdocs\iti\php-project\app\models\MySQLHandler.php(239): MySQLHandler->get_results('SELECT u.*, g.n...')
+#2 C:\xampp\htdocs\iti\php-project\app\models\User.php(24): MySQLHandler->get_user_record_by_id('7amo')
+#3 C:\xampp\htdocs\iti\php-project\app\controllers\UserController.php(18): User->getByID('7amo')
+#4 [internal function]: UserController->show('7amo')
+#5 C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\ClassLoader\ClassLoader.php(34): call_user_func_array(Array, Array)
+#6 C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\Route\Route.php(117): Pecee\SimpleRouter\ClassLoader\ClassLoader->loadClassMethod(Object(UserController), 'show', Array)
+#7 C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\Router.php(427): Pecee\SimpleRouter\Route\Route->renderRoute(Object(Pecee\Http\Request), Object(Pecee\SimpleRouter\Router))
+#8 C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#9 C:\xampp\htdocs\iti\php-project\vendor\pecee\simple-router\src\Pecee\SimpleRouter\SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#10 C:\xampp\htdocs\iti\php-project\routes\web.php(48): Pecee\SimpleRouter\SimpleRouter::start()
+#11 C:\xampp\htdocs\iti\php-project\public\index.php(10): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+  thrown in C:\xampp\htdocs\iti\php-project\app\models\MySQLHandler.php on line 45

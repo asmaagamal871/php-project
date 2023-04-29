@@ -24,7 +24,7 @@
 	<!-- Custom Theme Style -->
 	<link href="/css/custom.css" rel="stylesheet">
 
-	<link rel="icon" type="image/x-icon" href="images/ball.ico">
+	<link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 
 </head>
 
