@@ -4002,7 +4002,10 @@ ul.project_files li a i {
 /* *********  /ecommerce  **************************** */
 /** login **/
 .login {
-  background: #F7F7F7; }
+  background: url('/images/stad.jpg');
+  background-size: cover;
+
+}
 
 .login .fa-paw {
   font-size: 26px; }
@@ -4014,8 +4017,12 @@ a.hiddenanchor {
   right: 0px;
   margin: 0px auto;
   margin-top: 5%;
-  max-width: 350px;
-  position: relative; }
+  width: 600px;
+  position: relative; 
+  padding: 50px;
+  border-radius: 5%;
+  background-color:white;
+}
 
 .registration_form, .login_form {
   position: absolute;
@@ -5011,4 +5018,18 @@ ul.notifications {
   margin-top: 50px;
   margin-bottom: 50px;
 
+}
+.logo{
+  border: none;
+  padding:1px;
+  border-radius: 100%;
+  width: 120px;
+}
+#login_buttons{
+  display:flex;
+  justify-content: space-between; 
+  align-items: center;
+  width: 80%;
+  /* border: 1px solid red; */
+  margin-left:50px;
 }
