@@ -11,7 +11,7 @@ include __DIR__ . '/../partials/header.php';
 // $result = index();
 
 ?>
-<div class="right_col" role="main">
+<div class="right_col test" role="main">
   <div class="">
     <div >
       <div class="title_left">

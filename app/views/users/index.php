@@ -2,8 +2,8 @@
 include __DIR__ . '/../partials/header.php';
 ?>
 <link rel="stylesheet" href="/css/groupIndex.css">
-<div class="right_col" role="main">
-  <div class="container">
+<div class="right_col test  "  role="main">
+  <div class="container " >
 
     <h3 class=" text-center fw-bold my-3">Users</h3>
     <hr class="mb-4 mt-0 mx-auto newhr" />
