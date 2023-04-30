@@ -8,7 +8,7 @@ This is a simple PHP-based admin-panel. Our website is roles driven providing di
 
 ## Demo
 
-:tv: [Preview]() 
+:tv: [Preview](https://youtu.be/xDnqVjJjDn4) 
 
 ## Installation
 <pre>
