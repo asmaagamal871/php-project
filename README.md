@@ -82,7 +82,7 @@ php -S localhost:9000
 | Role |  Permission |
 | --- | --- |
 | Admin |  Full access  |
-| Editor |  Full access on articles|
+| Editor |  Full access on articles - View Groups |
 | User | Create and view their own articles  |
 
 ## Authors
