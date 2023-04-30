@@ -802,20 +802,24 @@
   content: "\e260"; }
 
 .left_col {
-  background: #2A3F54; }
+  background: #2A3F54;
+ }
 
 .container {
   width: 100%;
   padding: 0;
-  max-width: 100%; }
+  max-width: 100%; 
+}
 
 .nav-sm .container.body .col-md-3.left_col {
-  min-height: 100%;
+  height: 100%;
+top: 0;
+left: 0;
   width: 70px;
   padding: 0;
-  z-index: 9999;
+  z-index: 1;
   position: absolute; }
-
+  
 .nav-sm .container.body .col-md-3.left_col.menu_fixed {
   position: fixed;
   height: 100%; }
@@ -987,8 +991,8 @@ margin-right: 5px; }
 
 .nav_menu {
   float: left;
-  background: #EDEDED;
-  border-bottom: 1px solid #D9DEE4;
+  background: #ffffff;
+  border-bottom: 1px solid #b7b3b3;
   margin-bottom: 10px;
   width: 100%;
   position: relative; }
@@ -1021,9 +1025,9 @@ margin-right: 5px; }
 .nav-md .container.body .col-md-3.left_col.menu_fixed {
   height: 100%;
   position: fixed; }
-
+/* 
 body .container.body .right_col {
-  background: #F7F7F7; }
+  background: #F7F7F7; } */
 
 .nav-md .container.body .right_col {
   padding: 10px 20px 0;
@@ -1510,7 +1514,8 @@ a:hover, a:focus {
 footer {
   background: #fff;
   padding: 10px 20px;
-  display: block; }
+  display: block; 
+}
 
 .nav-sm footer {
   margin-left: 70px; }
@@ -4991,13 +4996,13 @@ ul.notifications {
   padding: 4px;
 }
 
-  footer hr{
+  .newhr{
     width: 120px; 
     background-color: white; 
     height: 2px;
   }
   .Copyright{
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color:#2A3F54;
   }
   .install-img img{
     margin-top: -2.5em;
@@ -5008,8 +5013,14 @@ ul.notifications {
   .new-footer{
     position:absolute !important;
     margin: 0 !important;
-    background: #2A3F54;
+   
+    background-color: rgba(255, 255, 255, 0.9);
+    /* background: #ffffff; */
+  border-top: 1px solid #b7b3b3;
     width: 100% !important;
+    color: black;
+    
+    /* z-index: 2; */
   }
 .animation{
   border: 5px solid lightgray;
@@ -5032,4 +5043,19 @@ ul.notifications {
   width: 80%;
   /* border: 1px solid red; */
   margin-left:50px;
+}
+body{
+  background: url('/images/blurred.jpg')!important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  min-height: 500px;
+  /* min-height: 100vh; */
+}
+h3{
+  color:white !important
+}
+
+.test{
+  width: auto;
+  min-height: 80vh;
 }
