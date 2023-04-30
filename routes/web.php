@@ -4,9 +4,11 @@
  * This file contains all the routes for the project
  */
 
+use Pecee\Http\Request;
 use Pecee\SimpleRouter\SimpleRouter;
 
 SimpleRouter::get('/', 'HomeController@home');
+SimpleRouter::get('/error', 'HomeController@error');
 SimpleRouter::get('/home', 'HomeController@home');
 SimpleRouter::get('/login', "LoginController@index");
 SimpleRouter::post('/login', "LoginController@login");
@@ -44,5 +46,11 @@ SimpleRouter::get('/articles/{id}', 'ArticleController@show');
 SimpleRouter::get('/articles/{id}/restore', 'ArticleController@restore');
 SimpleRouter::delete('/articles/{id}', 'ArticleController@destroy');
 
-
+SimpleRouter::error(function (Request $request, \Exception $exception) {
+    switch($exception->getCode()) {
+        // Page not found
+        case 404:
+            header("Location: /error");
+    }
+});
 SimpleRouter::start();
