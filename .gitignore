@@ -5,3 +5,4 @@ node_modules
 vendor
 config.php
 public/images/articles
+/app/vendors/
