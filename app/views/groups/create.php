@@ -11,18 +11,18 @@ include __DIR__ . '/../partials/header.php';
             echo '<div class="alert alert-danger"><center>' . $_SESSION['error'] . '</center></div>';
         }
         unset($_SESSION['error']);
-        ?>
+?>
         <div class="col-8 offset-2">
             <form action="/groups" method="post">
                 <div class="w-50 px-5  mx-auto form-container col-12" id="makeMaxWidth"> <!-- Edited in CSS -->
                     <h2 class="fw-bold text-dark text-center  fs-4">Create</h2>
                     <?php
-                    if (isset($create)) {
-                        if (!$create) {
-                            echo `<div class="alert alert-danger text-center fs-6" role="alert" id="myAlert">Group isn't Created</div>`;
-                        }
-                    }
-                    ?>
+            if (isset($create)) {
+                if (!$create) {
+                    echo `<div class="alert alert-danger text-center fs-6" role="alert" id="myAlert">Group isn't Created</div>`;
+                }
+            }
+?>
                     <label for="exampleInputPassword1" class="form-label mt-2 fw-bold">Name</label>
                     <div class="input-group mb-3">
                         <input type="text" name="name" class="form-control" id="exampleInputUser1" required>
@@ -30,7 +30,8 @@ include __DIR__ . '/../partials/header.php';
 
                     <label for="exampleInputPassword2" class="form-label mt-2 fw-bold">Description</label>
                     <div class="input-group mb-3">
-                        <textarea type="text" name="description" class="form-control" id="exampleInputPassword2" rows="1" required></textarea>
+                        <textarea type="text" name="description" class="form-control" id="exampleInputPassword2"
+                            rows="1" required></textarea>
                     </div>
 
                     <label for="exampleInputPassword3" class="form-label mt-2 fw-bold">Role</label>
