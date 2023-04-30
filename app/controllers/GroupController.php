@@ -8,14 +8,25 @@ class GroupController extends BaseController
     {
         $group = new Group();
         $groups = $group->getGroups();
-        include __DIR__ . '/../views/groups/index.php';
+
+        if ($this->isAdmin() || $this->isEditor()) {
+            include __DIR__ . '/../views/groups/index.php';
+        } else {
+            $_SESSION['error'] = "Sorry, you are not an admin or editor";
+            header("Location: /");
+        }
     }
 
     public function show($id)
     {
         $group = new Group();
         $result = $group->getByID($id);
-        include __DIR__ . '/../views/groups/show.php';
+        if ($this->isAdmin() || $this->isEditor()) {
+            include __DIR__ . '/../views/groups/show.php';
+        } else {
+            $_SESSION['error'] = "Sorry, you are not an admin or editor";
+            header("Location: /");
+        }
     }
 
     public function create()

@@ -1,5 +1,6 @@
 <?php
 $log_file = 'error.log';
+require_once 'config.php';
 
 function log_error($message, $file, $line)
 {

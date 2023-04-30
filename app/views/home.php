@@ -1,8 +1,8 @@
 <?php
 // if not logged in, Redirect the user to the login page
 if (!isset($_SESSION['user_id'])) {
-  header('Location: /login');
-  exit;
+    header('Location: /login');
+    exit;
 }
 
 include __DIR__ . '/partials/header.php';
@@ -15,14 +15,14 @@ $rows2 = $db->user_vs_article();
 $labels = [];
 $data = [];
 foreach ($rows as $row) {
-  $labels[] = $row['group_name'];
-  $data[] = $row['user_count'];
+    $labels[] = $row['group_name'];
+    $data[] = $row['user_count'];
 }
 $labels2 = [];
 $data2 = [];
 foreach ($rows2 as $row) {
-  $labels2[] = $row['user_name'];
-  $data2[] = $row['article_count'];
+    $labels2[] = $row['user_name'];
+    $data2[] = $row['article_count'];
 }
 // Create a JSON object that represents the data for the chart
 $dataObject = [
@@ -85,31 +85,21 @@ $dataObject2 = [
 <script src="node_modules/chart.js/dist/chart.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<div class="right_col" role="main">
+<div class="right_col" role="main" >
   <div class="">
-    <div class="page-title">
-      <div class="title_left">
+    <div >
+      <div class="title_left" >
         <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') { ?>
-          <h3>Admins! <small>Below are some useful analysis</small> </h3><br>
+       <h3 class="text-center" style="color: white;">Admins! <small>Below are some useful analysis</small> </h3><br>
         <?php } ?>
         <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'editor') { ?>
-          <h3>Editors! <small>Below are some useful analysis</small></h3><br>
+          <h3 class="text-center"  style="color: white;">Editors! <small>Below are some useful analysis</small></h3><br>
         <?php } ?>
         <?php if (!isset($_SESSION['role'])) { ?>
-          <h3>Hey <?php echo $_SESSION['username']; ?> ! </h3><br>
+          <h3 class="text-center"  style="color: white;">Hey <?php echo $_SESSION['username']; ?> ! </h3><br>
         <?php } ?>
       </div>
-      <!-- <div class="title_right">
-        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-              <button class="btn btn-secondary" type="button">Go!</button>
-            </span>
-          </div>
-        </div>
-      </div> -->
-
+   
     </div>
 
     <div class="clearfix"></div>
@@ -118,17 +108,17 @@ $dataObject2 = [
       <div class="col-md-12 col-sm-12 ">
         <?php
         if (isset($_SESSION['error'])) {
-          echo '<div class="alert alert-danger"><center>' . $_SESSION['error'] . '</center></div>';
+            echo '<div class="alert alert-danger"><center>' . $_SESSION['error'] . '</center></div>';
         }
         unset($_SESSION['error']);
-        ?>
+?>
 
       </div>
     </div>
 
 
-    <div class="row">
-      <div class="col-md-12 col-sm-12 ">
+    <div class="row test"style="display: flex;flex-direction:column; align-items: center;" >
+      <div class="col-md-12 col-sm-12"style="width: 70%;display: flex;flex-direction:column; align-items: center;">
         <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') { ?>
           <div class="x_panel">
             <div class="x_title">
@@ -178,8 +168,8 @@ $dataObject2 = [
         <?php } ?>
 
         <?php if (!isset($_SESSION['role'])) { ?>
-          <div class="x_panel">
-            <div class="card-box table-responsive" style="display: flex; justify-content:center;">
+          <div class="x_panel ">
+            <div class="card-box  table-responsive" style="display: flex; justify-content:center;">
               <!-- Gif -->
               <img src="/images/trophy.gif" class="animation shadow" width="300px">
             </div>

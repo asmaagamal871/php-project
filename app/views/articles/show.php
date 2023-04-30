@@ -4,7 +4,7 @@ include __DIR__ . '/../partials/header.php';
 <!-- /top navigation -->
 <link rel="stylesheet" href="/css/groupsForm.css">
 <!-- page content -->
-<div class="right_col" role="main">
+<div class="right_col test" role="main">
     <div class="container row">
         <div class="col-8 offset-2 fs-6">
             <div class="w-50 px-5 mt-5 mb-5 mx-auto showContainer col-12" id="makeMaxWidth">
