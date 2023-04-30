@@ -4,7 +4,7 @@
  <h1 align="center" class="fs-1"> El-La3eeb! </h1>
 
 # Introduction
-This is a simple PHP-based admin-panel. Our website is roles driven providing different level of access to different user groups. We have two main roles, admins and editors, each of which is assigned different permissions to create, read, and delete articles on system.
+This is a simple PHP-based football blog. Our website is roles driven providing different level of access to different user groups. We have two main roles, admins and editors, each of which is assigned different permissions to create, read, and delete articles on system.
 
 ## Demo :tv: 
 
