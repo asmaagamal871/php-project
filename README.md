@@ -6,9 +6,9 @@
 # Introduction
 This is a simple PHP-based admin-panel. Our website is roles driven providing different level of access to different user groups. We have two main roles, admins and editors, each of which is assigned different permissions to create, read, edit, and delete articles on system.
 
-## Demo
+## Demo :tv: 
 
-:tv: [Preview](https://youtu.be/xDnqVjJjDn4) 
+[![Website Demo Video](https://img.youtube.com/vi/xDnqVjJjDn4/0.jpg)](https://youtu.be/xDnqVjJjDn4) 
 
 ## Installation
 <pre>
