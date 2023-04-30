@@ -47,8 +47,9 @@ include __DIR__ . '/../partials/header.php';
                           } else {
                               // echo "<div class='d-flex justify-content-center'>";
                               echo "<td><a class='me-3  fs-5' href='/groups/" . $group["id"] . "'><i style='color:#34495E' class='fa-solid fa-eye'></i></a>";
-                              echo "<a class='me-2 text-primary fs-5' href='/groups/" . $group["id"] . "/edit'><i  class='fa-solid fa-pen-to-square'></i></a>";
-                              ?>
+                              if(isset($_SESSION['role'])&& $_SESSION['role']=='admin') {
+                                  echo "<a class='me-2 text-primary fs-5' href='/groups/" . $group["id"] . "/edit'><i  class='fa-solid fa-pen-to-square'></i></a>";
+                                  ?>
                       <form method="POST"
                         action="/groups/<?php echo $group["id"]; ?>"
                         class="delForm">
@@ -60,7 +61,9 @@ include __DIR__ . '/../partials/header.php';
                           class="delBtn fs-5">
                           <i class="fa-solid fa-trash text-danger"></i>
                         </button>
-
+                              <?php
+                              }
+                              ?>
                         <!-- Modal -->
                         <div class="modal fade"
                           id="exampleModal<?php echo $group["id"]; ?>"
@@ -84,9 +87,11 @@ include __DIR__ . '/../partials/header.php';
                             </div>
                           </div>
                         </div>
+                              
                       </form>
+                              
                       <?php
-                                    echo "</td>";
+                                                                  echo "</td>";
                               // echo "</div>";
                           }
                           echo "</tr>";

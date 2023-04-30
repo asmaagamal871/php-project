@@ -117,7 +117,7 @@ $dataObject2 = [
     </div>
 
 
-    <div class="row"style="display: flex;flex-direction:column; align-items: center;" >
+    <div class="row test"style="display: flex;flex-direction:column; align-items: center;" >
       <div class="col-md-12 col-sm-12"style="width: 70%;display: flex;flex-direction:column; align-items: center;">
         <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') { ?>
           <div class="x_panel">
@@ -168,8 +168,8 @@ $dataObject2 = [
         <?php } ?>
 
         <?php if (!isset($_SESSION['role'])) { ?>
-          <div class="x_panel">
-            <div class="card-box table-responsive" style="display: flex; justify-content:center;">
+          <div class="x_panel ">
+            <div class="card-box  table-responsive" style="display: flex; justify-content:center;">
               <!-- Gif -->
               <img src="/images/trophy.gif" class="animation shadow" width="300px">
             </div>

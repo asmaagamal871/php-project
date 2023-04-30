@@ -26,6 +26,17 @@ include __DIR__ . '/../partials/header.php';
     <div class="clearfix"></div>
 
     <div class="row">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 ">
+        <?php
+        if (isset($_SESSION['error'])) {
+            echo '<div class="alert alert-danger"><center>' . $_SESSION['error'] . '</center></div>';
+        }
+        unset($_SESSION['error']);
+?>
+
+      </div>
+    </div>
       <div class="col-md-12 col-sm-12 ">
         <div class="x_panel">
         
