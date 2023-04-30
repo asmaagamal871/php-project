@@ -64,6 +64,7 @@ php -S localhost:9000
 - Pagination of all listings.
 - Responsive design for mobile and desktop devices.
 - Chart statistics and analysis.
+- Error and exception logging
 
 ## Technologies
 - PHP
