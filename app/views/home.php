@@ -90,13 +90,19 @@ $dataObject2 = [
     <div >
       <div class="title_left" >
         <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') { ?>
-       <h3 class="text-center" style="color: white;">Admins! <small>Below are some useful analysis</small> </h3><br>
+       <h3 class="text-center" style="color: white;">Admins! <small>Below are some useful analysis</small> </h3>
+       <hr class="mb-4 mt-0 mx-auto newhr" />
+<br>
         <?php } ?>
         <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'editor') { ?>
-          <h3 class="text-center"  style="color: white;">Editors! <small>Below are some useful analysis</small></h3><br>
+          <h3 class="text-center"  style="color: white;">Editors! <small>Below are some useful analysis</small></h3>
+          <hr class="mb-4 mt-0 mx-auto newhr" />
+<br>
         <?php } ?>
         <?php if (!isset($_SESSION['role'])) { ?>
-          <h3 class="text-center"  style="color: white;">Hey <?php echo $_SESSION['username']; ?> ! </h3><br>
+          <h3 class="text-center"  style="color: white;">Hey <?php echo $_SESSION['username']; ?> ! </h3>
+          <hr class="mb-4 mt-0 mx-auto newhr" />
+<br>
         <?php } ?>
       </div>
    
