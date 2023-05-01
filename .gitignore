@@ -6,3 +6,4 @@ vendor
 config.php
 public/images/articles/*
 /app/vendors/
+public/error.log
