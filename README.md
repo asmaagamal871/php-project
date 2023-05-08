@@ -23,14 +23,14 @@ git clone https://github.com/asmaagamal871/php-project
 
 ```
 <?php
-
-define("_HOST_", localhost);
-define("_USER_", database_username);
-define("_PASS_", database_password);
-define("_DB_", "database_name);
+define("__HOST__", localhost);
+define("__USER__", database_username);
+define("__PASS__", database_password);
+define("__DB__", database_name);
+define("__PORT__", port_number);
 define("__RECORDS_PER_PAGE__", 10);
-define("_PORT_", port_number);
-define("__LOG__FILE__", 'error.log');
+define("__Debug__Mode__", 0);
+define("__LOG__FILE__", error log file);
 ```
 
 <pre>
